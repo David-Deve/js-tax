@@ -35,8 +35,8 @@
             >
           </li>
           <li class="nav-item">
-            <router-link to="/document" class="nav-link"
-              ><span>Document</span></router-link
+            <router-link to="/contact" class="nav-link"
+              ><span>Contact</span></router-link
             >
           </li>
           <li class="nav-item">
