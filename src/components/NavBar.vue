@@ -45,15 +45,84 @@
             >
           </li>
           <li class="nav-item">
-            <router-link to="/signin" class="nav-link"
-              ><span>Sign In</span></router-link
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
             >
+              LogIn
+            </button>
           </li>
-          <!-- Add more navigation items as needed -->
         </ul>
       </div>
     </div>
   </nav>
+
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <p
+          class="header"
+          style="text-align: center; margin-top: 15px"
+          id="exampleModalLabel"
+        >
+          Login
+        </p>
+        <!-- <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button> -->
+        <div class="modal-body">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            style="background-color: rgba(226, 226, 226, 1)"
+            class="form-control"
+            aria-describedby="emailHelp"
+          />
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            class="form-control"
+            style="background-color: rgba(226, 226, 226, 1)"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <button
+          type="button"
+          style="width: 94%; margin: auto"
+          class="btn btn-primary btn-block"
+        >
+          Login
+        </button>
+        <p style="text-align: center; margin-top: 15px">
+          Did'nt have Account? SignUp <a href="">here</a>
+        </p>
+
+        <!-- <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          
+        </div> -->
+      </div>
+    </div>
+  </div>
 </template>
 
 <script></script>
@@ -64,10 +133,15 @@
   margin-left: 5px;
 }
 .active {
-  border: 2px solid rgba(51, 35, 239, 1);
+  border: 1px solid rgba(51, 35, 239, 1);
   border-radius: 5px;
   background-color: rgba(51, 35, 239, 1);
   color: white !important; /* Set the text color to white */
+}
+.header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
 }
 /* Add custom styles here */
 </style>
