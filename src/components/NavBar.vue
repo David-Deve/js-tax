@@ -49,7 +49,7 @@
               type="button"
               class="btn btn-success"
               data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
+              data-bs-target="#login"
             >
               LogIn
             </button>
@@ -61,7 +61,7 @@
 
   <div
     class="modal fade"
-    id="exampleModal"
+    id="login"
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
@@ -75,12 +75,6 @@
         >
           Login
         </p>
-        <!-- <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button> -->
         <div class="modal-body">
           <label for="email">Email</label>
           <input
@@ -107,19 +101,65 @@
           Login
         </button>
         <p style="text-align: center; margin-top: 15px">
-          Did'nt have Account? SignUp <a href="">here</a>
+          Did'nt have Account? SignUp <a href="" data-bs-toggle="modal"
+              data-bs-target="#register">here</a>
         </p>
+      </div>
+    </div>
+  </div>
 
-        <!-- <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
-          
-        </div> -->
+  <div
+    class="modal fade"
+    id="register"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <p
+          class="header"
+          style="text-align: center; margin-top: 15px"
+          id="exampleModalLabel"
+        >
+          Register
+        </p>
+        <div class="modal-body">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            style="background-color: rgba(226, 226, 226, 1)"
+            class="form-control"
+            aria-describedby="emailHelp"
+          />
+
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            style="background-color: rgba(226, 226, 226, 1)"
+            class="form-control"
+            aria-describedby="emailHelp"
+          />
+
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            class="form-control"
+            style="background-color: rgba(226, 226, 226, 1)"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <button
+          type="button"
+          style="width: 94%; margin: auto"
+          class="btn btn-primary btn-block"
+        >
+          Register
+        </button>
+        <br>
       </div>
     </div>
   </div>
