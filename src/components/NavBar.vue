@@ -76,10 +76,10 @@
           Login
         </p>
         <div class="modal-body">
-          <label for="email">Email</label>
+          <label for="username">Username</label>
           <input
-            id="email"
-            type="email"
+            id="username"
+            type="text"
             style="background-color: rgba(226, 226, 226, 1)"
             class="form-control"
             aria-describedby="emailHelp"
@@ -101,8 +101,9 @@
           Login
         </button>
         <p style="text-align: center; margin-top: 15px">
-          Did'nt have Account? SignUp <a href="" data-bs-toggle="modal"
-              data-bs-target="#register">here</a>
+          Did'nt have Account? Contact to Admin
+          <!-- <a href="" data-bs-toggle="modal"
+              data-bs-target="#register">here</a> -->
         </p>
       </div>
     </div>
@@ -159,7 +160,7 @@
         >
           Register
         </button>
-        <br>
+        <br />
       </div>
     </div>
   </div>

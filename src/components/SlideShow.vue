@@ -1,7 +1,7 @@
 <template>
   <div
     id="carouselExampleControls"
-    class="carousel slide"
+    class="container-xxl carousel slide"
     data-bs-ride="carousel"
   >
     <div class="carousel-inner">
@@ -27,7 +27,7 @@
         />
       </div>
     </div>
-    <button
+    <buttonp
       class="carousel-control-prev"
       type="button"
       data-bs-target="#carouselExampleControls"
@@ -35,7 +35,7 @@
     >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
-    </button>
+    </buttonp>
     <button
       class="carousel-control-next"
       type="button"

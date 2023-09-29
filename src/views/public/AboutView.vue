@@ -1,4 +1,6 @@
 <template>
+  <NavBarVue></NavBarVue>
+  <SlideShow></SlideShow>
   <div class="container-sm body mb-5">
     <div class="section1" style="background-color: white">
       <div class="para">
@@ -34,7 +36,9 @@
   <Footer />
 </template>
 <script setup>
-import Footer from "../components/Footer.vue";
+import NavBarVue from "../../components/NavBar.vue";
+import SlideShow from "../../components/SlideShow.vue";
+import Footer from "../../components/Footer.vue";
 import { ref } from "vue";
 
 const text =

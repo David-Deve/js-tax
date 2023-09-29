@@ -1,13 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import AboutView from "../views/AboutView.vue";
-import ServiceView from "../views/ServiceView.vue";
-import ContactView from "../views/ContactView.vue";
-import OtherView from "../views/OtherView.vue";
-import Service1 from "../views/Service1.vue";
-import Service2 from "../views/Service2.vue";
-import Service3 from "../views/Service3.vue";
-import Service4 from "../views/Service4.vue";
+import HomeView from "../views/public/HomeView.vue";
+import AboutView from "../views/public/AboutView.vue";
+import ServiceView from "../views/public/ServiceView.vue";
+import ContactView from "../views/public/ContactView.vue";
+import OtherView from "../views/public/OtherView.vue";
+import Service1 from "../views/public/Service1.vue";
+import Service2 from "../views/public/Service2.vue";
+import Service3 from "../views/public/Service3.vue";
+import Service4 from "../views/public/Service4.vue";
+
+import Dashboard from "../views/admin/DashboardView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -55,6 +57,11 @@ const router = createRouter({
       path: "/other",
       name: "other",
       component: OtherView,
+    },
+    {
+      path: "/dashboard",
+      name: "dashboard",
+      component: Dashboard,
     },
   ],
   linkExactActiveClass: "active",
