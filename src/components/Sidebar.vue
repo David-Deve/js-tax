@@ -123,6 +123,7 @@
       <i class="bx bx-menu"></i>
       <h3>Admin Panel</h3>
     </div>
+    <br /><br /><br />
     <slot name="Content"></slot>
   </section>
 </template>
