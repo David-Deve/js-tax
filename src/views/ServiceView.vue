@@ -30,7 +30,7 @@
                 >
                   <img src="src/assets/picture/acc.png" alt="" />
                   <p class="text">Account Service</p>
-                  <a href="/service1">Readmore</a>
+                  <a href="/service2">Readmore</a>
                 </div>
               </div>
             </div>
@@ -44,7 +44,7 @@
                 >
                   <img src="src/assets/picture/register.png" alt="" />
                   <p class="text">Registration</p>
-                  <a href="/service1">Readmore</a>
+                  <a href="/service3">Readmore</a>
                 </div>
               </div>
             </div>
@@ -58,7 +58,7 @@
                 >
                   <img src="src/assets/picture/licence.png" alt="" />
                   <p class="text">Other Licence</p>
-                  <a href="/service1">Readmore</a>
+                  <a href="/service4">Readmore</a>
                 </div>
               </div>
             </div>
@@ -71,18 +71,6 @@
 </template>
 <script setup>
 import Footer from "../components/Footer.vue";
-import { ref } from "vue";
-
-const text =
-  ref(`Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis in architecto
-  dolore esse unde, minima repellat autem libero eligendi rem exercitationem
-  cupiditate eum explicabo voluptatibus ipsa sequi beatae, ea eius. Esse ipsam
-  qui tempora aut quo deserunt laborum possimus? Nisi sed sit iste aperiam
-  laborum. Obcaecati vitae eius quas debitis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. In dignissimos cum
-  maiores quisquam. Tempore iusto debitis quas sunt magni repellat ullam quia
-  eius maxime iste dicta nihil placeat dolores, veritatis beatae fuga voluptas
-  hic mollitia eaque necessitatibus. Tempora architecto blanditiis doloremque
-  doloribus esse, nemo voluptate, possimus, pariatur amet reiciendis suscipit?`);
 </script>
 <style scoped>
 .para {
