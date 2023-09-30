@@ -89,7 +89,20 @@
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
+import { getAllUser } from "../../api/Service";
 import { onMounted, ref } from "vue";
+
+ function allUser(){
+  try{
+    const response =  getAllUser();
+    console.log(response);
+  }catch(e){
+    console.log(e)
+  }
+}
+onMounted(() => {
+  allUser()
+})
 const series = ref([
   {
     name: "Sales",

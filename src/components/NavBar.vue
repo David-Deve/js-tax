@@ -80,6 +80,7 @@
           <input
             id="username"
             type="text"
+            v-model="username"
             style="background-color: rgba(226, 226, 226, 1)"
             class="form-control"
             aria-describedby="emailHelp"
@@ -87,6 +88,7 @@
           <label for="password">Password</label>
           <input
             id="password"
+            v-model="password"
             type="password"
             class="form-control"
             style="background-color: rgba(226, 226, 226, 1)"
@@ -95,6 +97,7 @@
         </div>
         <button
           type="button"
+          @click="postLogin()"
           style="width: 94%; margin: auto"
           class="btn btn-primary btn-block"
         >
@@ -109,7 +112,7 @@
     </div>
   </div>
 
-  <div
+  <!-- <div
     class="modal fade"
     id="register"
     tabindex="-1"
@@ -163,10 +166,40 @@
         <br />
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
-<script></script>
+<script setup>
+import { ref } from 'vue';
+import { login } from '../api/Service';
+import { ElNotification } from "element-plus";
+import { useRouter } from 'vue-router';
+import VueCookies from "vue-cookies";
+const router = useRouter();
+const username = ref('');
+const password = ref('');
+async function postLogin(){
+  try{
+    const response =await login(username.value, password.value);
+    const jstoken = response.data;
+        VueCookies.set("jstoken", jstoken, "1d", null, null, true);
+        ElNotification({
+          title: "Success",
+          duration: 2000,
+          message: "Login Success",
+          type: "success",
+        });
+        router.push('/dashboard')
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
+       
+
+  }catch(e){
+    console.log(e)
+  }
+}
+</script>
 
 <style scoped>
 .nav-item {
