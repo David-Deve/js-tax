@@ -45,7 +45,7 @@
         </ul>
       </li>
       <li>
-        <a href="#">
+        <a href="/user">
           <i class="bx bx-user"></i>
           <span class="link_name">User</span>
         </a>
