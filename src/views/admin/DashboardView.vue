@@ -86,7 +86,6 @@
       </template>
     </Sidebar>
   </div>
-  <div>Hello my name is david </div>
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
