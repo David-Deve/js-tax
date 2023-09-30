@@ -112,61 +112,7 @@
     </div>
   </div>
 
-  <!-- <div
-    class="modal fade"
-    id="register"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <p
-          class="header"
-          style="text-align: center; margin-top: 15px"
-          id="exampleModalLabel"
-        >
-          Register
-        </p>
-        <div class="modal-body">
-          <label for="name">Name</label>
-          <input
-            id="name"
-            type="text"
-            style="background-color: rgba(226, 226, 226, 1)"
-            class="form-control"
-            aria-describedby="emailHelp"
-          />
-
-          <label for="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            style="background-color: rgba(226, 226, 226, 1)"
-            class="form-control"
-            aria-describedby="emailHelp"
-          />
-
-          <label for="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            class="form-control"
-            style="background-color: rgba(226, 226, 226, 1)"
-            aria-describedby="emailHelp"
-          />
-        </div>
-        <button
-          type="button"
-          style="width: 94%; margin: auto"
-          class="btn btn-primary btn-block"
-        >
-          Register
-        </button>
-        <br />
-      </div>
-    </div>
-  </div> -->
+  
 </template>
 
 <script setup>
