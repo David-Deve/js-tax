@@ -6,12 +6,12 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="#">
+        <a href="/dashboard">
           <i class="bx bx-grid-alt"></i>
           <span class="link_name">Dashboard</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Category</a></li>
+          <li><a class="link_name" href="/dashboard">Dashboard</a></li>
         </ul>
       </li>
       <li>
@@ -46,11 +46,11 @@
       </li>
       <li>
         <a href="#">
-          <i class="bx bx-pie-chart-alt-2"></i>
-          <span class="link_name">Analytics</span>
+          <i class="bx bx-user"></i>
+          <span class="link_name">User</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Analytics</a></li>
+          <li><a class="link_name" href="/user">User</a></li>
         </ul>
       </li>
       <li>

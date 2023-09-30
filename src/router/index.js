@@ -1,3 +1,4 @@
+// Public Website Route
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/public/HomeView.vue";
 import AboutView from "../views/public/AboutView.vue";
@@ -9,7 +10,9 @@ import Service2 from "../views/public/Service2.vue";
 import Service3 from "../views/public/Service3.vue";
 import Service4 from "../views/public/Service4.vue";
 
+//Admin Route
 import Dashboard from "../views/admin/DashboardView.vue";
+import User from "../views/admin/UserView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -58,10 +61,16 @@ const router = createRouter({
       name: "other",
       component: OtherView,
     },
+
     {
       path: "/dashboard",
       name: "dashboard",
       component: Dashboard,
+    },
+    {
+      path: "/user",
+      name: "user",
+      component: User,
     },
   ],
   linkExactActiveClass: "active",
