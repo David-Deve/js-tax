@@ -73,6 +73,10 @@ const messages = {
       small: "Small Tax Payer",
       meduim: "Meduim Tax Payer",
       major: "Major Tax Payer",
+      doc1: "VAT-SUS-02 VAT-SUS-02 Certificate of Incorporation",
+      doc2: "Application for Suspension of Business Activities or Opening of Business - Form SUS-01",
+      doc3: "Property Tax Registration Application Form - PTI Form 01",
+      doc4: "All Documents",
     },
     footer: {
       our_service: "Our Service",
@@ -153,6 +157,10 @@ const messages = {
       small: "អ្នកបង់ពន្ធតូច",
       meduim: "អ្នកបង់ពន្ធមធ្យម",
       major: "អ្នកបង់ពន្ធធំ",
+      doc1: "ពាក្យស្នើសុំបើកដំណើរការវិញ្ញាបនបត្រអាករលើតម្លៃបន្ថែម ក្រោយការព្យួរទុក- ទម្រង់ VAT-SUS-02",
+      doc2: "ពាក្យស្នើសុំផ្អាកដំណើរការសកម្មភាពអាជីវកម្មជាបណ្ដោះអាសន្ន ឬបើកដំណើរការអាជីវកម្មឡើង- ទម្រង់ SUS-01",
+      doc3: "ពាក្យស្នើសុំធ្វើប័ណ្ណសម្គាល់ការបង់ពន្ធអចលនទ្រព្យ- ទម្រង់ PTI 01",
+      doc4: "ឯកសារទាំងអស់",
     },
     footer: {
       our_service: "សេវាកម្មរបស់យើង",

@@ -90,10 +90,14 @@
                   style="background-color: rgba(240, 240, 240, 0.5)"
                 >
                   <p class="text2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi, quis maiores magnam dolorum id harum.
+                    {{ $t("other.doc1") }}
                   </p>
-                  <a href="">{{ $t("service.readmore") }}</a>
+                  <a
+                    href="https://www.tax.gov.kh/u6rhf7ogbi6/gdtstream/78398562-ebda-4b17-a138-713daca47654"
+                    target="”_blank”"
+                    attribute
+                    >{{ $t("service.readmore") }}</a
+                  >
                 </div>
               </div>
 
@@ -103,10 +107,14 @@
                   style="background-color: rgba(240, 240, 240, 0.5)"
                 >
                   <p class="text2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatum id odit at ut blanditiis pariatur!
+                    {{ $t("other.doc2") }}
                   </p>
-                  <a href="">{{ $t("service.readmore") }}</a>
+                  <a
+                    href="https://www.tax.gov.kh/u6rhf7ogbi6/gdtstream/f50dfe1f-04cd-46b4-ab96-3032308e4cbc"
+                    target="”_blank”"
+                    attribute
+                    >{{ $t("service.readmore") }}</a
+                  >
                 </div>
               </div>
 
@@ -116,10 +124,14 @@
                   style="background-color: rgba(240, 240, 240, 0.5)"
                 >
                   <p class="text2">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Modi, iusto possimus. Tenetur sint nam in.
+                    {{ $t("other.doc3") }}
                   </p>
-                  <a href="">{{ $t("service.readmore") }}</a>
+                  <a
+                    href="https://www.tax.gov.kh/u6rhf7ogbi6/gdtstream/fa47188e-dfef-4966-8e47-f4972ab598af"
+                    target="”_blank”"
+                    attribute
+                    >{{ $t("service.readmore") }}</a
+                  >
                 </div>
               </div>
 
@@ -129,11 +141,14 @@
                   style="background-color: rgba(240, 240, 240, 0.5)"
                 >
                   <p class="text2">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Nesciunt sequi deserunt tempore recusandae, excepturi
-                    dolorem?
+                    {{ $t("other.doc4") }}
                   </p>
-                  <a href="">{{ $t("service.readmore") }}</a>
+                  <a
+                    href="https://www.tax.gov.kh/km/document-form"
+                    target="”_blank”"
+                    attribute
+                    >{{ $t("service.readmore") }}</a
+                  >
                 </div>
               </div>
             </div>
