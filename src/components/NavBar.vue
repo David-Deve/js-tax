@@ -2,6 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <img
+        @click="home()"
         class="navbar-brand"
         style="height: 75px; width: "
         src="src/assets/picture/logo.jpg"
@@ -188,7 +189,9 @@ async function postLogin() {
     console.log(e);
   }
 }
-
+function home() {
+  router.push("/");
+}
 function chnageLanguage(lang) {
   locale.value = lang;
 }
