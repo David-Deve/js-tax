@@ -17,14 +17,14 @@
       <li>
         <div class="iocn-link">
           <a href="#">
-            <i class="bx bx-collection"></i>
-            <span class="link_name">Category</span>
+            <i class="bx bx-user"></i>
+            <span class="link_name">User</span>
           </a>
           <i class="bx bxs-chevron-down arrow"></i>
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Category</a></li>
-          <li><a href="#">HTML & CSS</a></li>
+          <li><a href="/createuser">Create User</a></li>
           <li><a href="#">JavaScript</a></li>
           <li><a href="#">PHP & MySQL</a></li>
         </ul>
@@ -39,9 +39,8 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Posts</a></li>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Login Form</a></li>
-          <li><a href="#">Card Design</a></li>
+          <li><a href="/createservice">Service</a></li>
+          <li><a href="/createarticle">Article</a></li>
         </ul>
       </li>
       <li>
@@ -96,12 +95,12 @@
         </ul>
       </li>
       <li>
-        <a href="#">
-          <i class="bx bx-cog"></i>
-          <span class="link_name">Setting</span>
+        <a href="/">
+          <i class="bx bx-home"></i>
+          <span class="link_name">Home</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Setting</a></li>
+          <li><a class="link_name" href="/">Home</a></li>
         </ul>
       </li>
       <li>
@@ -129,8 +128,9 @@
 </template>
 <script setup>
 import { onMounted } from "vue";
-import { defineProps } from "vue";
-const props = defineProps({});
+// import { defineProps } from "vue";
+
+// const props = defineProps({});
 onMounted(() => {
   let arrow = document.querySelectorAll(".arrow");
   for (var i = 0; i < arrow.length; i++) {

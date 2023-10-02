@@ -2,10 +2,10 @@
   <NavBarVue></NavBarVue>
   <SlideShow></SlideShow>
   <div class="container-sm body mb-5">
-    <div class="section1" style="background-color: white">
+    <div class="section1" style="background-color: rgb(247, 247, 247)">
       <div class="para">
         <div class="dot"></div>
-        <p class="title">CONTACT</p>
+        <p class="title">{{ $t("contact.contact") }}</p>
         <iframe
           class="mb-3"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62539.464479267284!2d104.87879505807479!3d11.572167563236412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109513dc76a6be3%3A0xf8f1809319cea6df!2z4Z6W4Z-S4Z6a4Z-H4oCL4Z6U4Z6a4Z6Y4oCL4Z6a4Z624Z6H4oCL4Z6c4Z624Z-G4Z6E4oCL4Z6F4Z6P4Z674Z6Y4Z-S4Z6Y4Z674Z6B4oCL4Z6Y4Z6E4Z-S4Z6C4Z6b!5e0!3m2!1skm!2skh!4v1695892906262!5m2!1skm!2skh"
@@ -14,7 +14,7 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
-        <p class="title">CONTACT</p>
+        <p class="title">{{ $t("contact.contact") }}</p>
         <p style="margin: 50px">{{ text }}</p>
         <div class="container">
           <div class="row">
@@ -26,10 +26,10 @@
                 <div
                   class="card-body d-flex flex-column align-items-center justify-content-center"
                 >
-                  <img src="src/assets/picture/tax service.png" alt="" />
-                  <p class="text">Our Office</p>
+                  <i class="bx bx-buildings icon"></i>
+                  <p class="text">{{ $t("contact.our_office") }}</p>
                   <p>
-                    23Eo, Bayab, Phnom Penh Thmei, Sen Sok, Phnom Penh, Cambodia
+                    {{ $t("contact.locatime") }}
                   </p>
                 </div>
               </div>
@@ -42,9 +42,9 @@
                 <div
                   class="card-body d-flex flex-column align-items-center justify-content-center"
                 >
-                  <img src="src/assets/picture/acc.png" alt="" />
-                  <p class="text">Business Hour</p>
-                  <p>Monday-Friday 10:00am - 6:00pm</p>
+                  <i class="bx bx-time-five icon"></i>
+                  <p class="text">{{ $t("contact.work_hour") }}</p>
+                  <p>{{ $t("contact.time") }}</p>
                 </div>
               </div>
             </div>
@@ -56,8 +56,8 @@
                 <div
                   class="card-body d-flex flex-column align-items-center justify-content-center"
                 >
-                  <img src="src/assets/picture/register.png" alt="" />
-                  <p class="text">Email</p>
+                  <i class="bx bx-envelope icon"></i>
+                  <p class="text">{{ $t("contact.email") }}</p>
                   <p>Js.tx@gmail.com</p>
                 </div>
               </div>
@@ -70,8 +70,8 @@
                 <div
                   class="card-body d-flex flex-column align-items-center justify-content-center"
                 >
-                  <img src="src/assets/picture/licence.png" alt="" />
-                  <p class="text">Phone Number</p>
+                  <i class="bx bx-current-location icon"></i>
+                  <p class="text">{{ $t("contact.phone") }}</p>
                   <p>012 32 44 85</p>
                 </div>
               </div>
@@ -122,5 +122,8 @@ a {
 }
 .text {
   font-weight: bold;
+}
+.icon {
+  font-size: 50px;
 }
 </style>

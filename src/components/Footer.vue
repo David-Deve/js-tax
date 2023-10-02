@@ -1,9 +1,9 @@
 <template>
-  <div class="container-xxl">
+  <div class="container-fliud">
     <div class="row" style="background-color: rgb(238, 238, 238)">
       <div class="col-md-4 d-flex justify-content-center">
         <div>
-          <p class="title mt-5">Our Service</p>
+          <p class="title mt-5">{{ $t("footer.our_service") }}</p>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem,
             voluptas? Esse culpa nulla optio facere expedita totam a, maxime
@@ -14,7 +14,7 @@
       </div>
       <div class="col-md-4 d-flex justify-content-center">
         <div>
-          <p class="title mt-5">Quick Line</p>
+          <p class="title mt-5">{{ $t("footer.quickline") }}</p>
           <a class="link" href="/">Home</a><br />
           <a class="link" href="/about">About</a><br />
           <a class="link" href="/about">Service</a><br />
@@ -22,7 +22,7 @@
       </div>
       <div class="col-md-4 d-flex justify-content-center">
         <div>
-          <p class="title mt-5">Contact</p>
+          <p class="title mt-5">{{ $t("footer.contact") }}</p>
           <div class="d-flex align-items-center">
             <box-icon name="current-location"></box-icon>
             <p class="ms-2">

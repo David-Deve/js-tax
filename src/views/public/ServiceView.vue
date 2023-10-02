@@ -2,10 +2,10 @@
   <NavBarVue></NavBarVue>
   <SlideShow></SlideShow>
   <div class="container-sm body mb-5">
-    <div class="section1" style="background-color: white">
+    <div class="section1" style="background-color: rgb(247, 247, 247)">
       <div class="para">
         <div class="dot"></div>
-        <p class="title">OUR SERVICE</p>
+        <p class="title">{{ $t("footer.our_service") }}</p>
         <div class="container">
           <div class="row">
             <div class="col-sm-6 mb-3 mb-sm-0">
@@ -17,8 +17,8 @@
                   class="card-body d-flex flex-column align-items-center justify-content-center"
                 >
                   <img src="src/assets/picture/tax service.png" alt="" />
-                  <p class="text">Tax Service</p>
-                  <a href="/service1">Readmore</a>
+                  <p class="text mt-2">{{ $t("service.taxservice") }}</p>
+                  <a href="/service1">{{ $t("service.readmore") }}</a>
                 </div>
               </div>
             </div>
@@ -31,8 +31,8 @@
                   class="card-body d-flex flex-column align-items-center justify-content-center"
                 >
                   <img src="src/assets/picture/acc.png" alt="" />
-                  <p class="text">Account Service</p>
-                  <a href="/service2">Readmore</a>
+                  <p class="text mt-2">{{ $t("service.account") }}</p>
+                  <a href="/service2">{{ $t("service.readmore") }}</a>
                 </div>
               </div>
             </div>
@@ -45,8 +45,8 @@
                   class="card-body d-flex flex-column align-items-center justify-content-center"
                 >
                   <img src="src/assets/picture/register.png" alt="" />
-                  <p class="text">Registration</p>
-                  <a href="/service3">Readmore</a>
+                  <p class="text mt-2">{{ $t("service.registeration") }}</p>
+                  <a href="/service3">{{ $t("service.readmore") }}</a>
                 </div>
               </div>
             </div>
@@ -58,9 +58,9 @@
                 <div
                   class="card-body d-flex flex-column align-items-center justify-content-center"
                 >
-                  <img src="src/assets/picture/licence.png" alt="" />
-                  <p class="text">Other Licence</p>
-                  <a href="/service4">Readmore</a>
+                  <img src="src/assets/picture/licence.png" class="" alt="" />
+                  <p class="text mt-2">{{ $t("service.other") }}</p>
+                  <a href="/service4">{{ $t("service.readmore") }}</a>
                 </div>
               </div>
             </div>

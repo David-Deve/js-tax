@@ -9,10 +9,14 @@ import Service1 from "../views/public/Service1.vue";
 import Service2 from "../views/public/Service2.vue";
 import Service3 from "../views/public/Service3.vue";
 import Service4 from "../views/public/Service4.vue";
+import VueCookies from "vue-cookies";
 
 //Admin Route
 import Dashboard from "../views/admin/DashboardView.vue";
 import User from "../views/admin/UserView.vue";
+import CreateUser from "../views/admin/CreateUserView.vue";
+import CreateService from "../views/admin/CreateServiceView.vue";
+import CreateArticle from "../views/admin/CreateArticleView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -61,19 +65,53 @@ const router = createRouter({
       name: "other",
       component: OtherView,
     },
-
     {
       path: "/dashboard",
       name: "dashboard",
       component: Dashboard,
+      meta: { requiresAuth: true },
     },
     {
       path: "/user",
       name: "user",
       component: User,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/createuser",
+      name: "createuser",
+      component: CreateUser,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/createservice",
+      name: "createservice",
+      component: CreateService,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/createarticle",
+      name: "createarticle",
+      component: CreateArticle,
+      meta: { requiresAuth: true },
     },
   ],
   linkExactActiveClass: "active",
 });
-
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = VueCookies.get("jstoken");
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  const requiresNoAuth = to.matched.some(
+    (record) => record.meta.requiresNoAuth
+  );
+  if (requiresAuth && !isAuthenticated) {
+    next("/");
+  } else if (requiresNoAuth && isAuthenticated) {
+    next("/home");
+  } else {
+    next();
+  }
+  0.0;
+  0.0;
+});
 export default router;

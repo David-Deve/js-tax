@@ -3,9 +3,9 @@
   <SlideShow></SlideShow>
   <div class="container-sm body mb-5">
     <div class="section1">
-      <div class="para">
+      <div class="para" style="background-color: rgb(247, 247, 247)">
         <div class="dot"></div>
-        <p class="title">COMPANY INFORMATION</p>
+        <p class="title">{{ $t("home.com_info") }}</p>
         <img
           src="src/assets/picture/banner.png"
           alt=""
@@ -15,13 +15,16 @@
         <p style="margin: 50px">{{ text }}</p>
       </div>
     </div>
-    <div class="container section2 pt-2" style="background-color: white">
+    <div
+      class="container section2 pt-2"
+      style="background-color: rgb(247, 247, 247)"
+    >
       <div class="row">
         <div class="col-md-6">
           <div class="service-section">
             <div>
               <div class="dot"></div>
-              <p class="title">Our Service</p>
+              <p class="title">{{ $t("home.our_service") }}</p>
             </div>
             <div class="row">
               <div class="col-sm-6 mb-3 mb-sm-0">
@@ -83,7 +86,7 @@
           <div class="event-section">
             <div>
               <div class="dot"></div>
-              <p class="title">Event & Notice</p>
+              <p class="title">{{ $t("home.event") }}</p>
             </div>
             <div
               class="card"
@@ -141,7 +144,7 @@
           <div class="consultation-section pb-5">
             <div>
               <div class="dot"></div>
-              <p class="title">Free Consultation</p>
+              <p class="title">{{ $t("home.consultation") }}</p>
             </div>
             <div class="mb-3">
               <input
@@ -171,9 +174,9 @@
         </div>
       </div>
     </div>
-    <div class="section2 mt-5" style="background-color: white">
+    <div class="section2 mt-5" style="background-color: rgb(247, 247, 247)">
       <p style="font-weight: bold; font-size: 30px; text-align: center">
-        Service Agent Certificate Of Complete
+        {{ $t("home.service_complete") }}
       </p>
       <div class="row">
         <div class="col-md-4 d-flex justify-content-evenly">
@@ -232,14 +235,13 @@ const text =
 .dot {
   width: 6px;
   height: 29px;
-  position: absolute; /* Position the dot relative to its parent .para */
+  position: absolute;
   background: #3323ef;
 }
 
 .title {
   margin-left: 10px;
   font-weight: bold;
-  /* Add your title styles here */
 }
 .text {
   font-weight: bold;

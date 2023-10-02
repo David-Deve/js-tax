@@ -2,14 +2,14 @@
   <NavBarVue></NavBarVue>
   <SlideShow></SlideShow>
   <div class="container-sm body mb-5">
-    <div class="section1" style="background-color: white">
+    <div class="section1" style="background-color: rgb(247, 247, 247)">
       <div class="para">
         <div class="container">
           <div class="row">
             <div class="col-sm-8">
               <div class="col-sm-11 mb-3">
                 <div class="dot"></div>
-                <p class="title">TAXPAYER</p>
+                <p class="title">{{ $t("other.taxpayer") }}</p>
                 <div
                   class="card"
                   style="background-color: rgba(240, 240, 240, 0.5)"
@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <p class="text">General Population</p>
+                        <p class="text">{{ $t("other.general") }}</p>
                       </div>
                     </div>
                   </div>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <p class="text">Small Tax Payer</p>
+                        <p class="text">{{ $t("other.small") }}</p>
                       </div>
                     </div>
                   </div>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <p class="text">Meduim Tax Payer</p>
+                        <p class="text">{{ $t("other.meduim") }}</p>
                       </div>
                     </div>
                   </div>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <p class="text">Major Tax Payer</p>
+                        <p class="text">{{ $t("other.major") }}</p>
                       </div>
                     </div>
                   </div>
@@ -83,7 +83,7 @@
 
             <div class="col-sm-4">
               <div class="dot"></div>
-              <p class="title">DOCUMENTS</p>
+              <p class="title">{{ $t("other.documents") }}</p>
               <div class="col-sm-11 mb-3">
                 <div
                   class="card"
@@ -93,7 +93,7 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Commodi, quis maiores magnam dolorum id harum.
                   </p>
-                  <a href="">readmore</a>
+                  <a href="">{{ $t("service.readmore") }}</a>
                 </div>
               </div>
 
@@ -106,7 +106,7 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Voluptatum id odit at ut blanditiis pariatur!
                   </p>
-                  <a href="">readmore</a>
+                  <a href="">{{ $t("service.readmore") }}</a>
                 </div>
               </div>
 
@@ -119,7 +119,7 @@
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Modi, iusto possimus. Tenetur sint nam in.
                   </p>
-                  <a href="">readmore</a>
+                  <a href="">{{ $t("service.readmore") }}</a>
                 </div>
               </div>
 
@@ -133,7 +133,7 @@
                     Nesciunt sequi deserunt tempore recusandae, excepturi
                     dolorem?
                   </p>
-                  <a href="">readmore</a>
+                  <a href="">{{ $t("service.readmore") }}</a>
                 </div>
               </div>
             </div>

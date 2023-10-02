@@ -2,10 +2,10 @@
   <NavBarVue></NavBarVue>
   <SlideShow></SlideShow>
   <div class="container-sm body mb-5">
-    <div class="section1" style="background-color: white">
-      <div class="para">
+    <div class="section1">
+      <div class="para" style="background-color: rgb(247, 247, 247)">
         <div class="dot"></div>
-        <p class="title">BIOGRAPHY</p>
+        <p class="title">{{ $t("about.bio") }}</p>
         <img
           src="src/assets/picture/banner.png"
           alt=""

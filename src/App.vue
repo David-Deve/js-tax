@@ -1,13 +1,37 @@
 <template>
-  <div class="body">
-    <router-view></router-view>
+  <div id="app" :class="['app', { 'khmer-font': currentLanguage === 'kh' }]">
+    <router-view />
   </div>
 </template>
-<script setup></script>
+
+<script setup>
+import { useI18n } from "vue-i18n";
+import { computed, onMounted, watch } from "vue";
+import VueCookies from "vue-cookies";
+
+const { locale } = useI18n();
+
+const currentLanguage = computed(() => locale.value);
+
+const selectedLanguage = VueCookies.get("selectedLanguage");
+
+if (selectedLanguage) {
+  locale.value = selectedLanguage;
+} else {
+  locale.value = "en";
+}
+
+watch(currentLanguage, (newLang) => {
+  VueCookies.set("selectedLanguage", newLang);
+});
+</script>
+
 <style scoped>
-.body {
-  background-color: rgb(247, 247, 247);
+.app {
   font-family: "Poppins";
-  justify-items: center;
+}
+
+.khmer-font {
+  font-family: "Hanuman";
 }
 </style>

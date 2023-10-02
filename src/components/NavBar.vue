@@ -3,8 +3,8 @@
     <div class="container">
       <img
         class="navbar-brand"
-        style="height: 50px; width: "
-        src="src/assets/picture/logo.png"
+        style="height: 75px; width: "
+        src="src/assets/picture/logo.jpg"
         alt=""
       />
       <button
@@ -22,37 +22,80 @@
         <ul class="navbar-nav ms-auto">
           <!-- Add 'ms-auto' class to the <ul> element -->
           <li class="nav-item">
-            <router-link to="/" class="nav-link">Home</router-link>
+            <router-link to="/" class="nav-link">{{
+              $t("navbar.home")
+            }}</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/about" class="nav-link"
-              ><span>About Us</span></router-link
+              ><span>{{ $t("navbar.about") }}</span></router-link
             >
           </li>
           <li class="nav-item">
             <router-link to="/service" class="nav-link"
-              ><span>Service</span></router-link
+              ><span>{{ $t("navbar.service") }}</span></router-link
             >
           </li>
           <li class="nav-item">
             <router-link to="/contact" class="nav-link"
-              ><span>Contact</span></router-link
+              ><span>{{ $t("navbar.contact") }}</span></router-link
             >
           </li>
           <li class="nav-item">
             <router-link to="/other" class="nav-link"
-              ><span>Other</span></router-link
+              ><span>{{ $t("navbar.other") }}</span></router-link
             >
           </li>
+          <div>
+            <li class="nav-item">
+              <a
+                v-if="hasJsTokenCookie"
+                class="btn btn-success"
+                href="/dashboard"
+                >{{ $t("navbar.dashboard") }}</a
+              >
+              <button
+                v-else
+                type="button"
+                class="btn btn-success"
+                data-bs-toggle="modal"
+                data-bs-target="#login"
+              >
+                {{ $t("navbar.log_in") }}
+              </button>
+            </li>
+          </div>
           <li class="nav-item">
-            <button
-              type="button"
-              class="btn btn-success"
-              data-bs-toggle="modal"
-              data-bs-target="#login"
-            >
-              LogIn
-            </button>
+            <el-dropdown>
+              <button class="btn btn-danger">
+                {{ $t("navbar.lang") }}
+                <i class="bx bx-chevrons-down"></i>
+              </button>
+              <template #dropdown>
+                <el-dropdown-menu>
+                  <el-dropdown-item @click="chnageLanguage('kh')">
+                    <div class="row align-items-center">
+                      <div class="col-md-6 d-flex justify-content-center">
+                        <img src="../assets/svg/km.svg" width="25" />
+                      </div>
+                      <div class="col-md-6 mt-3">
+                        <p style="font-weight: bold">KH</p>
+                      </div>
+                    </div>
+                  </el-dropdown-item>
+                  <el-dropdown-item @click="chnageLanguage('en')">
+                    <div class="row align-items-center">
+                      <div class="col-md-6 d-flex justify-content-center">
+                        <img src="../assets/svg/en.svg" width="25" />
+                      </div>
+                      <div class="col-md-6 mt-3">
+                        <p style="font-weight: bold">EN</p>
+                      </div>
+                    </div>
+                  </el-dropdown-item>
+                </el-dropdown-menu>
+              </template>
+            </el-dropdown>
           </li>
         </ul>
       </div>
@@ -73,10 +116,10 @@
           style="text-align: center; margin-top: 15px"
           id="exampleModalLabel"
         >
-          Login
+          {{ $t("navbar.log_in") }}
         </p>
         <div class="modal-body">
-          <label for="username">Username</label>
+          <label for="username">{{ $t("login.username") }}</label>
           <input
             id="username"
             type="text"
@@ -85,7 +128,7 @@
             class="form-control"
             aria-describedby="emailHelp"
           />
-          <label for="password">Password</label>
+          <label for="password">{{ $t("login.password") }}</label>
           <input
             id="password"
             v-model="password"
@@ -111,39 +154,43 @@
       </div>
     </div>
   </div>
-
-  
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { login } from '../api/Service';
+import { ref } from "vue";
+import { login } from "../api/Service";
 import { ElNotification } from "element-plus";
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router";
 import VueCookies from "vue-cookies";
-const router = useRouter();
-const username = ref('');
-const password = ref('');
-async function postLogin(){
-  try{
-    const response =await login(username.value, password.value);
-    const jstoken = response.data;
-        VueCookies.set("jstoken", jstoken, "1d", null, null, true);
-        ElNotification({
-          title: "Success",
-          duration: 2000,
-          message: "Login Success",
-          type: "success",
-        });
-        router.push('/dashboard')
-        setTimeout(() => {
-          window.location.reload();
-        }, 500);
-       
+import { useI18n } from "vue-i18n";
+const { locale, t } = useI18n();
 
-  }catch(e){
-    console.log(e)
+const router = useRouter();
+const username = ref("");
+const password = ref("");
+const hasJsTokenCookie = VueCookies.get("jstoken");
+async function postLogin() {
+  try {
+    const response = await login(username.value, password.value);
+    const jstoken = response.data;
+    VueCookies.set("jstoken", jstoken, "1d", null, null, true);
+    ElNotification({
+      title: "Success",
+      duration: 2000,
+      message: "Login Success",
+      type: "success",
+    });
+    router.push("/dashboard");
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  } catch (e) {
+    console.log(e);
   }
+}
+
+function chnageLanguage(lang) {
+  locale.value = lang;
 }
 </script>
 
