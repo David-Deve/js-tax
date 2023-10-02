@@ -1,8 +1,13 @@
 <template>
   <div class="sidebar close">
     <div class="logo-details">
-      <i class="bx bxl-c-plus-plus"></i>
-      <span class="logo_name">CodingLab</span>
+      <img
+        class="ms-3 me-2"
+        style="height: 25px"
+        src="src/assets/picture/logo.jpg"
+        alt=""
+      />
+      <span class="logo_name">JS TAX SERVICE</span>
     </div>
     <ul class="nav-links">
       <li>
@@ -132,7 +137,7 @@ onMounted(() => {
   line-height: 50px;
 }
 .sidebar .logo-details .logo_name {
-  font-size: 22px;
+  font-size: 18px;
   color: #fff;
   font-weight: 600;
   transition: 0.3s ease;

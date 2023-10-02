@@ -24,17 +24,17 @@
         <div>
           <p class="title mt-5">{{ $t("footer.contact") }}</p>
           <div class="d-flex align-items-center">
-            <box-icon name="current-location"></box-icon>
+            <i class="bx bx-current-location" style="font-size: 25px"></i>
             <p class="ms-2">
               23Eo, Bayab, Phnom Penh Thmei, Sen Sok, Phnom Penh, Cambodia
             </p>
           </div>
           <div class="d-flex align-items-center">
-            <box-icon name="phone" type="solid"></box-icon>
+            <i class="bx bx-phone" style="font-size: 25px"></i>
             <p class="ms-2 pt-3">012 32 44 85</p>
           </div>
           <div class="d-flex align-items-center">
-            <box-icon name="chrome" type="logo"></box-icon>
+            <i class="bx bxl-chrome" style="font-size: 25px"></i>
             <p class="ms-2 pt-3">WWW.JS-Tax.com.kh</p>
           </div>
         </div>
@@ -45,11 +45,11 @@
         <div>© 2023 JS Accounting & Tax Service. All rights reserved.</div>
       </div>
       <div class="col-md-6 d-flex justify-content-end">
-        <div class="justify-content-end">
-          <box-icon name="facebook-circle" type="logo"></box-icon>
-          <box-icon name="telegram" type="logo"></box-icon>
-          <box-icon name="gmail" type="logo"></box-icon>
-          <box-icon name="whatsapp" type="logo"></box-icon>
+        <div class="justify-content-end" style="font-size: 25px">
+          <i class="bx bxl-facebook-circle"></i>
+          <i class="bx bxl-telegram"></i>
+          <i class="bx bxs-envelope"></i>
+          <i class="bx bxl-whatsapp"></i>
         </div>
       </div>
     </div>
