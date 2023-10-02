@@ -5,83 +5,24 @@
     <div class="section1" style="background-color: white">
       <div class="para">
         <div class="dot"></div>
-        <p class="title">Tax Service</p>
+        <p class="title">{{ $t("service.service1.taxservice") }}</p>
         <div class="ms-3">
           <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
+            {{ $t("service.service1.text1") }}
           </p>
           <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
+            {{ $t("service.service1.text2") }}
           </p>
           <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
-          </p>
-        </div>
-        <div class="dot"></div>
-        <p class="title">Monthly Tax Service</p>
-        <div class="ms-3">
-          <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
+            {{ $t("service.service1.text3") }}
           </p>
           <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
-          </p>
-          <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
-          </p>
-          <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
-          </p>
-          <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
+            {{ $t("service.service1.text4") }}
           </p>
         </div>
 
-        <div class="dot"></div>
-        <p class="title">Yearly Tax</p>
-        <div class="ms-3">
-          <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
-          </p>
-          <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
-          </p>
-          <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
-          </p>
-          <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
-          </p>
-          <p>
-            . Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
-            recusandae.
-          </p>
-        </div>
-        <p class="ms-1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-          animi, qui odit tenetur unde incidunt, eaque, iure ut nisi totam
-          quisquam natus sequi delectus blanditiis dolorem. Perferendis
-          accusamus est perspiciatis corrupti esse aut ratione dignissimos ullam
-          ipsam optio! Aperiam accusamus delectus rem provident soluta esse ab
-          deserunt libero, laboriosam cupiditate ex porro voluptatem veritatis
-          fuga mollitia voluptatibus exercitationem suscipit. Dicta ipsa ipsum
-          veniam aspernatur, vero dolorem. Neque, saepe eum, harum suscipit
-          sapiente molestiae commodi nesciunt ipsum laboriosam, exercitationem
-          tempore porro quo dignissimos corporis quaerat? Blanditiis, rerum vel
-          atque quis temporibus eligendi qui vitae. Aliquam ipsa deleniti culpa
-          in, voluptas odit.
+        <p class="ms-1" style="text-indent: 30px; font-size: 18px">
+          {{ $t("service.service1.para") }}
         </p>
       </div>
     </div>

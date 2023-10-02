@@ -12,7 +12,9 @@
           class="img-fluid"
           style="border-radius: 10px; margin-top: 10px"
         />
-        <p style="margin: 50px">{{ text }}</p>
+        <p class="mt-1 p-2" style="text-indent: 30px; font-size: 18px">
+          {{ $t("home.para") }}
+        </p>
       </div>
     </div>
     <div
@@ -36,7 +38,7 @@
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
                     <img src="src/assets/picture/tax service.png" alt="" />
-                    <p class="text">Tax Service</p>
+                    <p class="text">{{ $t("service.taxservice") }}</p>
                   </div>
                 </div>
               </div>
@@ -49,7 +51,7 @@
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
                     <img src="src/assets/picture/acc.png" alt="" />
-                    <p class="text">Account Service</p>
+                    <p class="text">{{ $t("service.account") }}</p>
                   </div>
                 </div>
               </div>
@@ -62,7 +64,7 @@
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
                     <img src="src/assets/picture/register.png" alt="" />
-                    <p class="text">Registration</p>
+                    <p class="text">{{ $t("service.registeration") }}</p>
                   </div>
                 </div>
               </div>
@@ -75,7 +77,7 @@
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
                     <img src="src/assets/picture/licence.png" alt="" />
-                    <p class="text">Other Licence</p>
+                    <p class="text">{{ $t("service.other") }}</p>
                   </div>
                 </div>
               </div>
@@ -211,18 +213,6 @@ import { ref } from "vue";
 import Footer from "../../components/Footer.vue";
 import NavBarVue from "../../components/NavBar.vue";
 import SlideShow from "../../components/SlideShow.vue";
-const text =
-  ref(`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
-        minus dicta numquam consequatur architecto iusto quaerat labore, magnam,
-        facere error ducimus facilis vero ab suscipit dolorum obcaecati libero
-        officia iste nulla? Quaerat incidunt commodi saepe explicabo, quidem
-        repudiandae reiciendis enim aliquam ipsam aspernatur recusandae sunt in
-        ducimus atque id sed. Provident animi doloremque dolorem iusto
-        consequatur nihil numquam magni, aperiam quos, fugiat iure aliquid ut
-        soluta error nostrum quae perferendis, corrupti nisi necessitatibus
-        quaerat officiis laudantium accusantium reprehenderit. Est repudiandae
-        et eos eum nam placeat accusamus sint saepe itaque nihil eligendi eius
-        voluptates impedit quos, nobis consequatur fugit autem quod.`);
 </script>
 
 <style scoped>

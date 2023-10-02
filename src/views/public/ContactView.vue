@@ -15,7 +15,9 @@
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
         <p class="title">{{ $t("contact.contact") }}</p>
-        <p style="margin: 50px">{{ text }}</p>
+        <p style="margin: 30px; text-indent: 30px; font-size: 18px">
+          {{ $t("contact.para") }}
+        </p>
         <div class="container">
           <div class="row">
             <div class="col-sm-6 mb-3 mb-sm-0">
@@ -70,7 +72,7 @@
                 <div
                   class="card-body d-flex flex-column align-items-center justify-content-center"
                 >
-                  <i class="bx bx-current-location icon"></i>
+                  <i class="bx bxs-phone-call icon"></i>
                   <p class="text">{{ $t("contact.phone") }}</p>
                   <p>012 32 44 85</p>
                 </div>
@@ -87,18 +89,6 @@
 import Footer from "../../components/Footer.vue";
 import NavBarVue from "../../components/NavBar.vue";
 import SlideShow from "../../components/SlideShow.vue";
-import { ref } from "vue";
-
-const text =
-  ref(`Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis in architecto
-    dolore esse unde, minima repellat autem libero eligendi rem exercitationem
-    cupiditate eum explicabo voluptatibus ipsa sequi beatae, ea eius. Esse ipsam
-    qui tempora aut quo deserunt laborum possimus? Nisi sed sit iste aperiam
-    laborum. Obcaecati vitae eius quas debitis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. In dignissimos cum
-    maiores quisquam. Tempore iusto debitis quas sunt magni repellat ullam quia
-    eius maxime iste dicta nihil placeat dolores, veritatis beatae fuga voluptas
-    hic mollitia eaque necessitatibus. Tempora architecto blanditiis doloremque
-    doloribus esse, nemo voluptate, possimus, pariatur amet reiciendis suscipit?`);
 </script>
 <style scoped>
 .para {

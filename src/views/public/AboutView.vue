@@ -12,7 +12,9 @@
           class="img-fluid"
           style="border-radius: 10px; margin-top: 10px"
         />
-        <p style="margin: 50px">{{ text }}</p>
+        <p class="mt-1 p-2" style="text-indent: 30px; font-size: 18px">
+          {{ $t("about.text1") }}
+        </p>
         <div class="row">
           <div class="col-md-6 d-flex justify-content-center">
             <img
@@ -29,7 +31,9 @@
             />
           </div>
         </div>
-        <p style="margin: 50px">{{ text }}</p>
+        <p class="mt-1 p-2" style="font-size: 18px">
+          {{ $t("about.text2") }}
+        </p>
       </div>
     </div>
   </div>

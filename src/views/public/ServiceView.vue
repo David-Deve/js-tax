@@ -46,7 +46,7 @@
                 >
                   <img src="src/assets/picture/register.png" alt="" />
                   <p class="text mt-2">{{ $t("service.registeration") }}</p>
-                  <a href="/service3">{{ $t("service.readmore") }}</a>
+                  <a href="/contact">{{ $t("service.readmore") }}</a>
                 </div>
               </div>
             </div>
@@ -60,7 +60,11 @@
                 >
                   <img src="src/assets/picture/licence.png" class="" alt="" />
                   <p class="text mt-2">{{ $t("service.other") }}</p>
-                  <a href="/service4">{{ $t("service.readmore") }}</a>
+                  <a
+                    href="https://www.tax.gov.kh/km/categories/64qke344011330727"
+                    target="_blank"
+                    >{{ $t("service.readmore") }}</a
+                  >
                 </div>
               </div>
             </div>

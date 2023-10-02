@@ -23,10 +23,9 @@
           <i class="bx bxs-chevron-down arrow"></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Category</a></li>
+          <li><a class="link_name" href="#">User</a></li>
           <li><a href="/createuser">Create User</a></li>
-          <li><a href="#">JavaScript</a></li>
-          <li><a href="#">PHP & MySQL</a></li>
+          <li><a href="/user">AllUser</a></li>
         </ul>
       </li>
       <li>
@@ -41,57 +40,6 @@
           <li><a class="link_name" href="#">Posts</a></li>
           <li><a href="/createservice">Service</a></li>
           <li><a href="/createarticle">Article</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/user">
-          <i class="bx bx-user"></i>
-          <span class="link_name">User</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="/user">User</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class="bx bx-line-chart"></i>
-          <span class="link_name">Chart</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Chart</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class="bx bx-plug"></i>
-            <span class="link_name">Plugins</span>
-          </a>
-          <i class="bx bxs-chevron-down arrow"></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Plugins</a></li>
-          <li><a href="#">UI Face</a></li>
-          <li><a href="#">Pigments</a></li>
-          <li><a href="#">Box Icons</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class="bx bx-compass"></i>
-          <span class="link_name">Explore</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Explore</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class="bx bx-history"></i>
-          <span class="link_name">History</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">History</a></li>
         </ul>
       </li>
       <li>
