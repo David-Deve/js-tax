@@ -167,7 +167,7 @@
                 type="text"
                 class="form-control"
                 aria-describedby="emailHelp"
-                placeholder="Name"
+                :placeholder="$t('home.name')"
               />
             </div>
             <div class="mb-3">
@@ -175,17 +175,19 @@
                 type="email"
                 class="form-control"
                 id="exampleInputPassword1"
-                placeholder="Email Address"
+                :placeholder="$t('home.email')"
               />
             </div>
             <div class="mb-3">
               <textarea
                 class="form-control"
                 aria-label="With textarea"
-                placeholder="Write Here..."
+                :placeholder="$t('home.write')"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">
+              {{ $t("home.submit") }}
+            </button>
           </div>
         </div>
       </div>

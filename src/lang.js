@@ -26,6 +26,10 @@ const messages = {
       noti2:
         "Notification on the postponement of payment of property tax and unused land tax for 2023 until October 31, 2023",
       noti3: "Clarification",
+      submit: "Submit",
+      name: "Name",
+      email: "Email",
+      write: "Write here....",
     },
     about: {
       bio: "BIOGRAPHY",
@@ -121,6 +125,10 @@ const messages = {
       noti2:
         "សេចក្ដីជូនដំណឹង ស្តីពីការពន្យារពេលបង់ពន្ធលើអចលនទ្រព្យ និងពន្ធលើដីធ្លីមិនបានប្រើប្រាស់ សម្រាប់ឆ្នាំ​២០២៣ រហូតដល់ថ្ងៃទី៣១ ខែតុលា ឆ្នាំ២០២៣",
       noti3: "សេចក្ដីបំភ្លឺ",
+      submit: "ផ្ញើសារ",
+      name: "ឈ្មោះ",
+      email: "អុីម៉ែល",
+      write: "សរសេរទីនេះ​....",
     },
     about: {
       bio: "ជីវប្រវត្តិ",
