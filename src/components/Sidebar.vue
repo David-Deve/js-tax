@@ -65,7 +65,7 @@
             <div class="profile_name">Prem Shahi</div>
             <div class="job">Web Desginer</div>
           </div>
-          <i class="bx bx-log-out"></i>
+          <a @click="deleteToken()"><i class="bx bx-log-out"></i></a>
         </div>
       </li>
     </ul>
@@ -81,9 +81,20 @@
 </template>
 <script setup>
 import { onMounted } from "vue";
-// import { defineProps } from "vue";
-
-// const props = defineProps({});
+import VueCookies from "vue-cookies";
+import { ElNotification } from "element-plus";
+import { useRouter } from "vue-router";
+const router = useRouter();
+function deleteToken() {
+  VueCookies.remove("jstoken");
+  ElNotification({
+    title: "Success",
+    duration: 2000,
+    message: "Logout",
+    type: "success",
+  });
+  router.push("/");
+}
 onMounted(() => {
   let arrow = document.querySelectorAll(".arrow");
   for (var i = 0; i < arrow.length; i++) {

@@ -112,6 +112,5 @@ router.beforeEach((to, from, next) => {
     next();
   }
   0.0;
-  0.0;
 });
 export default router;

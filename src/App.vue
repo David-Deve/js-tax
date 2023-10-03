@@ -6,7 +6,7 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-import { computed, onMounted, watch } from "vue";
+import { computed, watch } from "vue";
 import VueCookies from "vue-cookies";
 
 const { locale } = useI18n();

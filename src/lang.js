@@ -21,6 +21,11 @@ const messages = {
       consultation: "Free Consultation",
       service_complete: "Service Agent Certificate Of Complete",
       para: "JS.Tax is a premier financial services company dedicated to helping individuals and businesses achieve their financial goals. With a focus on excellence, we offer a wide range of services, including expert tax planning and preparation to ensure our clients benefit from every available deduction and credit. Our dedicated team of certified accountants provides comprehensive accounting services, from bookkeeping and financial statement preparation to budgeting and forecasting. We understand that financial success is a journey, and we are committed to guiding our clients every step of the way. Whether you're an individual looking for tax assistance or a business seeking strategic financial guidance, JS.Tax is your trusted partner in prosperity.",
+      noti1:
+        "Notification on the exemption of administrative sanctions (additional tax and interest) on property tax and / or unused land tax",
+      noti2:
+        "Notification on the postponement of payment of property tax and unused land tax for 2023 until October 31, 2023",
+      noti3: "Clarification",
     },
     about: {
       bio: "BIOGRAPHY",
@@ -82,6 +87,11 @@ const messages = {
       our_service: "Our Service",
       quickline: "Quick Line",
       contact: "Contact",
+      taxservice: "Tax Service",
+      account: "Accounting Service",
+    },
+    text: {
+      see: "Seemore",
     },
   },
   kh: {
@@ -106,6 +116,11 @@ const messages = {
       consultation: "ពិគ្រោះដោយឥតគិតថ្លៃ",
       service_complete: "វិញ្ញាបនបត្រភ្នាក់ងារសេវាកម្មពេញលេញ",
       para: "ក្រុមហ៊ុន JS.TAX គឺជាក្រុមហ៊ុនសេវាកម្មហិរញ្ញវត្ថុឈានមុខគេដែលបង្កើតឡើងក្នុងការជួយបុគ្គល និងអាជីវកម្មឱ្យសម្រេចបាននូវគោលដៅហិរញ្ញវត្ថុរបស់ពួកគេ។ ដោយផ្តោតលើឧត្តមភាព យើងផ្តល់ជូននូវសេវាកម្មជាច្រើន រួមទាំងការធ្វើផែនការពន្ធ និងការរៀបចំរបស់អ្នកជំនាញ ដើម្បីធានាថាអតិថិជនរបស់យើងទទួលបានអត្ថប្រយោជន៍ពីរាល់ការកាត់កង និងឥណទានដែលមាន។ ក្រុម​គណនេយ្យករ​ ដែល​មាន​ការ​បញ្ជាក់​ដែល​ ខិតខំ​ប្រឹងប្រែង ​របស់​យើង​ផ្តល់​នូវ​សេវាកម្ម ​គណនេយ្យ​គ្រប់​ជ្រុងជ្រោយ​ចាប់​ពី​ការ​រៀបចំ​បញ្ជី​គណនេយ្យ និង​ការ​រៀបចំ​របាយការណ៍​ហិរញ្ញវត្ថុ​ដល់​ការ​រៀបចំ​ថវិកា​និង​ការ​ព្យាករណ៍។ យើងយល់ថាភាពជោគជ័យផ្នែកហិរញ្ញវត្ថុគឺជាដំណើរមួយ ហើយយើងប្តេជ្ញាណែនាំអតិថិជនរបស់យើងគ្រប់ជំហាន។ មិនថាអ្នកជាបុគ្គលដែលកំពុងស្វែងរកជំនួយផ្នែកពន្ធដារ ឬអាជីវកម្មដែលកំពុងស្វែងរកការណែនាំហិរញ្ញវត្ថុជាយុទ្ធសាស្ត្រនោះទេ JS.TAX គឺជាដៃគូដែលគួរឱ្យទុកចិត្តរបស់អ្នកក្នុងភាពរុងរឿង។",
+      noti1:
+        "សេចក្ដីជូនដំណឹង ស្តីពីការលើកលែងទណ្ឌកម្មរដ្ឋបាល(ពន្ធបន្ថែម ​និងការប្រាក់) ចំពោះពន្ធលើអចលនទ្រព្យ និង/ឬពន្ធលើដីធ្លីមិនបានប្រើប្រាស់",
+      noti2:
+        "សេចក្ដីជូនដំណឹង ស្តីពីការពន្យារពេលបង់ពន្ធលើអចលនទ្រព្យ និងពន្ធលើដីធ្លីមិនបានប្រើប្រាស់ សម្រាប់ឆ្នាំ​២០២៣ រហូតដល់ថ្ងៃទី៣១ ខែតុលា ឆ្នាំ២០២៣",
+      noti3: "សេចក្ដីបំភ្លឺ",
     },
     about: {
       bio: "ជីវប្រវត្តិ",
@@ -166,6 +181,11 @@ const messages = {
       our_service: "សេវាកម្មរបស់យើង",
       quickline: "ផ្លូវកាត់",
       contact: "ទំនាក់ទំនង",
+      taxservice: "សេវាកម្មពន្ធ",
+      account: "សេវាកម្មគណនី",
+    },
+    text: {
+      see: "មើលបន្ត",
     },
   },
 };

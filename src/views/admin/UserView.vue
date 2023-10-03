@@ -10,7 +10,7 @@
                 :data="tableData"
                 stripe
                 style="width: 100%"
-                height="500"
+                height="700"
               >
                 <el-table-column type="index"> </el-table-column>
                 <el-table-column label="Name">
@@ -69,15 +69,15 @@
                   <template #default="scope">
                     <el-button
                       size="small"
-                      @click="handleEdit(scope.$index, scope.row)"
+                      @click="handleGetIdUpdate(scope.row.id)"
                       >Edit</el-button
                     >
                     <el-button
                       size="small"
                       type="danger"
-                      @click="handleDelete(scope.$index, scope.row)"
-                      >Delete</el-button
-                    >
+                      @click="handleGetIdDelete(scope.row.id)"
+                      >Delete
+                    </el-button>
                   </template>
                 </el-table-column>
               </el-table>
@@ -87,59 +87,145 @@
       </template>
     </Sidebar>
   </div>
+  <!-- Dialog for delete  -->
+  <el-dialog v-model="dialogFormDelete" title="Delete">
+    <p>Are you Sure ? You want delete User ID: {{ id }}</p>
+    <span class="dialog-footer">
+      <el-button @click="dialogFormDelete = false">Cancel</el-button>
+      <el-button type="primary" @click="handleDelete()"> Confirm </el-button>
+    </span>
+  </el-dialog>
+
+  <!-- Dialog for Update -->
+  <el-dialog v-model="dialogFormUpdate" title="Update">
+    <p>Are you Sure ? You want delete User ID: {{ id }}</p>
+    <div class="container mt-5 mb-3 form">
+      <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input
+          type="text"
+          style="background-color: rgb(236, 236, 236)"
+          class="form-control"
+          id="firstName"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input
+          type="text"
+          style="background-color: rgb(236, 236, 236)"
+          class="form-control"
+          id="lastName"
+          required
+        />
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="role" class="form-label">Gender</label>
+          <select
+            class="form-select"
+            id="role"
+            style="background-color: rgb(236, 236, 236)"
+            required
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input
+          type="tel"
+          style="background-color: rgb(236, 236, 236)"
+          class="form-control"
+          id="phone"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          type="text"
+          style="background-color: rgb(236, 236, 236)"
+          class="form-control"
+          id="username"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          style="background-color: rgb(236, 236, 236)"
+          class="form-control"
+          id="email"
+          required
+        />
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <label for="role" class="form-label">Role</label>
+          <select
+            class="form-select"
+            id="role"
+            style="background-color: rgb(236, 236, 236)"
+            required
+          >
+            <option value="ROLE_USER">User</option>
+            <option value="ROLE_USER">Admin</option>
+            <option value="ROLE_USER">Manager</option>
+          </select>
+        </div>
+      </div>
+      <div class="mt-3">
+        <el-button @click="dialogFormDelete = false">Cancel</el-button>
+        <el-button type="primary" @click="handleUpdate()"> Update </el-button>
+      </div>
+    </div>
+  </el-dialog>
 </template>
 <script setup>
 import Sidebar from "../../components/Sidebar.vue";
 import { getAllUser } from "../../api/Service";
 import { ref, onMounted } from "vue";
+import dayjs from "dayjs";
 
+const tableData = ref([]);
+const dialogFormDelete = ref(false);
+const dialogFormUpdate = ref(false);
+const id = ref("");
 async function getUser() {
   try {
-    tableData.value = await getAllUser();
-    console.warn(tableData.value);
+    const response = await getAllUser();
+    tableData.value = response.data.map((item) => ({
+      ...item,
+      createDate: dayjs(item.createDate).format("YYYY/MM/DD"),
+    }));
   } catch (e) {
     console.log(e);
   }
 }
+function handleGetIdDelete(row) {
+  dialogFormDelete.value = true;
+  console.log(row);
+  id.value = row;
+}
+function handleDelete() {
+  console.log(id.value);
+}
+
+function handleGetIdUpdate(row) {
+  dialogFormUpdate.value = true;
+  console.log(row);
+  id.value = row;
+}
+function handleUpdate() {
+  console.log(id.value);
+}
+
 onMounted(() => {
   getUser();
 });
-const handleEdit = (index, row) => {
-  console.log(index, row);
-};
-const handleDelete = (index, row) => {
-  console.log(index, row);
-};
-
-// const tableData = [
-//   {
-//     name: "Tom",
-//     gender: "male",
-//     date: "2016-05-03",
-//     phone: "045 622 355",
-//     address: "No. 189, Grove St, Los Angeles",
-//   },
-//   {
-//     date: "2016-05-02",
-//     name: "Tom",
-//     gender: "male",
-//     phone: "045 622 355",
-//     address: "No. 189, Grove St, Los Angeles",
-//   },
-//   {
-//     date: "2016-05-04",
-//     name: "Tom",
-//     gender: "female",
-//     phone: "045 622 355",
-//     address: "No. 189, Grove St, Los Angeles",
-//   },
-//   {
-//     date: "2016-05-01",
-//     name: "Tom",
-//     gender: "male",
-//     phone: "045 622 355",
-//     address: "No. 189, Grove St, Los Angeles",
-//   },
-// ];
-const tableData = ref([]);
 </script>

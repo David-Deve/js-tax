@@ -187,6 +187,12 @@ async function postLogin() {
     }, 500);
   } catch (e) {
     console.log(e);
+    ElNotification({
+      title: "Failed",
+      duration: 2000,
+      message: "Check your username and password again.",
+      type: "error",
+    });
   }
 }
 function home() {

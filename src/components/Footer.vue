@@ -4,12 +4,8 @@
       <div class="col-md-4 d-flex justify-content-center">
         <div>
           <p class="title mt-5">{{ $t("footer.our_service") }}</p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem,
-            voluptas? Esse culpa nulla optio facere expedita totam a, maxime
-            veniam quod veritatis at nostrum! Aperiam ipsam nisi totam animi
-            architecto, impedit neque!
-          </p>
+          <p>. {{ $t("footer.taxservice") }}</p>
+          <p>. {{ $t("footer.account") }}</p>
         </div>
       </div>
       <div class="col-md-4 d-flex justify-content-center">
@@ -26,7 +22,7 @@
           <div class="d-flex align-items-center">
             <i class="bx bx-current-location" style="font-size: 25px"></i>
             <p class="ms-2">
-              23Eo, Bayab, Phnom Penh Thmei, Sen Sok, Phnom Penh, Cambodia
+              {{ $t("contact.locatime") }}
             </p>
           </div>
           <div class="d-flex align-items-center">
@@ -42,10 +38,14 @@
     </div>
     <div class="row" style="background-color: rgb(238, 238, 238)">
       <div class="col-md-6 d-flex justify-content-start">
-        <div>© 2023 JS Accounting & Tax Service. All rights reserved.</div>
+        <div>
+          <p class="ms-3">
+            © 2023 JS Accounting & Tax Service. All rights reserved.
+          </p>
+        </div>
       </div>
       <div class="col-md-6 d-flex justify-content-end">
-        <div class="justify-content-end" style="font-size: 25px">
+        <div class="justify-content-end me-5" style="font-size: 25px">
           <i class="bx bxl-facebook-circle"></i>
           <i class="bx bxl-telegram"></i>
           <i class="bx bxs-envelope"></i>

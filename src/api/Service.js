@@ -31,7 +31,7 @@ export async function createUser(
   const token = VueCookies.get("jstoken");
   try {
     const response = await apiConfig.post(
-      "/adduser",
+      "/addUser",
       {
         firstname,
         lastname,

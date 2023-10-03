@@ -106,9 +106,13 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <p>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      {{ $t("home.noti1") }}
                     </p>
+                    <a
+                      href="https://www.tax.gov.kh/km/content-detail/OvdNm22672292774623"
+                      target="”_blank”"
+                      >{{ $t("text.see") }}</a
+                    >
                   </div>
                 </div>
               </div>
@@ -129,17 +133,27 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <p>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      {{ $t("home.noti2") }}
                     </p>
+                    <a
+                      href="https://www.tax.gov.kh/km/content-detail/iS9y023052292115445"
+                      target="”_blank”"
+                      >{{ $t("text.see") }}</a
+                    >
                   </div>
                 </div>
               </div>
             </div>
 
-            <button type="button" class="btn btn-secondary mt-2">
-              See more
-            </button>
+            <a
+              href="https://www.tax.gov.kh/km/categories/qvJQE254193040349"
+              target="”_blank”"
+              attribute
+              type="button"
+              class="btn btn-secondary mt-2"
+            >
+              {{ $t("text.see") }}
+            </a>
           </div>
         </div>
         <div class="col-md-6 mt-2">
