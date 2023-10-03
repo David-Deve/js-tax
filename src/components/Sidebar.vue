@@ -4,7 +4,7 @@
       <img
         class="ms-3 me-2"
         style="height: 25px"
-        src="src/assets/picture/logo.jpg"
+        src="src/assets/picture/logo.png"
         alt=""
       />
       <span class="logo_name">JS TAX SERVICE</span>

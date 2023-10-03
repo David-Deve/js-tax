@@ -5,7 +5,7 @@
         @click="home()"
         class="navbar-brand"
         style="height: 75px; width: "
-        src="src/assets/picture/logo.jpg"
+        src="src/assets/picture/logo.png"
         alt=""
       />
       <button
