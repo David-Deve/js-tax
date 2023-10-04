@@ -31,7 +31,7 @@ export async function createUser(
   gender,
   roles
 ) {
-  const token = VueCookies.get("jstoken");
+  // const token = VueCookies.get("jstoken");
   try {
     const response = await apiConfig.post(
       "/addUser",
@@ -43,12 +43,12 @@ export async function createUser(
         email,
         gender,
         roles,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
       }
+      // {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`,
+      //   },
+      // }
     );
     return response.data;
   } catch (error) {

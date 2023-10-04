@@ -7,8 +7,6 @@ import ContactView from "../views/public/ContactView.vue";
 import OtherView from "../views/public/OtherView.vue";
 import Service1 from "../views/public/Service1.vue";
 import Service2 from "../views/public/Service2.vue";
-import Service3 from "../views/public/Service3.vue";
-import Service4 from "../views/public/Service4.vue";
 import VueCookies from "vue-cookies";
 
 //Admin Route
@@ -40,16 +38,6 @@ const router = createRouter({
       path: "/service2",
       name: "service2",
       component: Service2,
-    },
-    {
-      path: "/service3",
-      name: "service3",
-      component: Service3,
-    },
-    {
-      path: "/service4",
-      name: "service4",
-      component: Service4,
     },
     {
       path: "/service",
