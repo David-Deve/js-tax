@@ -2,7 +2,7 @@ import apiConfig from "./apiConfig";
 import VueCookies from "vue-cookies";
 export async function getAllUser() {
   try {
-    const response = await apiConfig.get("/all", {
+    const response = await apiConfig.get("/auth/all", {
       headers: {},
     });
     return response.data;
@@ -13,7 +13,10 @@ export async function getAllUser() {
 
 export async function login(username, password) {
   try {
-    const response = await apiConfig.post("/login", { username, password });
+    const response = await apiConfig.post("/auth/login", {
+      username,
+      password,
+    });
     return response.data;
   } catch (error) {
     throw new Error("Error fetching data");
@@ -47,7 +50,41 @@ export async function createUser(
         },
       }
     );
-    return response.date;
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
+export async function UserConsultation(name, email, description) {
+  try {
+    const token = VueCookies.get("jstoken");
+    const response = await apiConfig.post(
+      "/chat/",
+      {
+        name,
+        email,
+        description,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
+export async function getConsultation() {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.get("/chat", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
   } catch (error) {
     throw new Error("Error fetching data");
   }

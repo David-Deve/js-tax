@@ -164,6 +164,7 @@
             </div>
             <div class="mb-3">
               <input
+                v-model="name"
                 type="text"
                 class="form-control"
                 aria-describedby="emailHelp"
@@ -172,6 +173,7 @@
             </div>
             <div class="mb-3">
               <input
+                v-model="email"
                 type="email"
                 class="form-control"
                 id="exampleInputPassword1"
@@ -180,12 +182,13 @@
             </div>
             <div class="mb-3">
               <textarea
+                v-model="desc"
                 class="form-control"
                 aria-label="With textarea"
                 :placeholder="$t('home.write')"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button class="btn btn-primary">
               {{ $t("home.submit") }}
             </button>
           </div>
@@ -228,7 +231,25 @@
 import { ref } from "vue";
 import Footer from "../../components/Footer.vue";
 import NavBarVue from "../../components/NavBar.vue";
-import SlideShow from "../../components/SlideShow.vue";
+import SlideShow from "@/components/SlideShow.vue";
+import { UserConsultation } from "../../api/Service";
+
+const name = ref("");
+const email = ref("");
+const desc = ref("");
+
+async function chat() {
+  try {
+    const response = await UserConsultation(
+      name.value,
+      email.value,
+      desc.value
+    );
+    console.log(response);
+  } catch (e) {
+    console.warn(e);
+  }
+}
 </script>
 
 <style scoped>

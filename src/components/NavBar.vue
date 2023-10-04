@@ -209,9 +209,9 @@ function chnageLanguage(lang) {
   margin-left: 5px;
 }
 .active {
-  border: 1px solid rgba(51, 35, 239, 1);
+  border: 1px solid rgb(9, 112, 182);
   border-radius: 5px;
-  background-color: rgba(51, 35, 239, 1);
+  background-color: rgb(9, 112, 182);
   color: white !important; /* Set the text color to white */
 }
 .header {

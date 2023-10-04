@@ -48,6 +48,15 @@
         </ul>
       </li>
       <li>
+        <a href="/consultation">
+          <i class="bx bx-paper-plane"></i>
+          <span class="link_name">Consultation</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/consultation">Consultation</a></li>
+        </ul>
+      </li>
+      <li>
         <a href="/">
           <i class="bx bx-home"></i>
           <span class="link_name">Home</span>

@@ -11,6 +11,7 @@
                 stripe
                 style="width: 100%"
                 height="700"
+                v-loading="loading"
               >
                 <el-table-column type="index"> </el-table-column>
                 <el-table-column label="Name">
@@ -97,8 +98,8 @@
   </el-dialog>
 
   <!-- Dialog for Update -->
-  <el-dialog v-model="dialogFormUpdate" title="Update">
-    <p>Are you Sure ? You want delete User ID: {{ id }}</p>
+  <el-dialog v-model="dialogFormUpdate">
+    <p>Update User ID: {{ id }}</p>
     <div class="container mt-5 mb-3 form">
       <div class="mb-3">
         <label for="firstName" class="form-label">First Name</label>
@@ -196,13 +197,17 @@ const tableData = ref([]);
 const dialogFormDelete = ref(false);
 const dialogFormUpdate = ref(false);
 const id = ref("");
+const loading = ref(true);
 async function getUser() {
   try {
     const response = await getAllUser();
     tableData.value = response.data.map((item) => ({
       ...item,
-      createDate: dayjs(item.createDate).format("YYYY/MM/DD"),
+      createDate: dayjs(item.createDate).format("YYYY-MM-DD HH:mm:ss A"),
     }));
+    setTimeout(() => {
+      loading.value = false;
+    }, 1000);
   } catch (e) {
     console.log(e);
   }

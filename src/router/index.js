@@ -17,6 +17,7 @@ import User from "../views/admin/UserView.vue";
 import CreateUser from "../views/admin/CreateUserView.vue";
 import CreateService from "../views/admin/CreateServiceView.vue";
 import CreateArticle from "../views/admin/CreateArticleView.vue";
+import Consultation from "../views/admin/ConsultationView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -93,6 +94,12 @@ const router = createRouter({
       path: "/createarticle",
       name: "createarticle",
       component: CreateArticle,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/consultation",
+      name: "consultation",
+      component: Consultation,
       meta: { requiresAuth: true },
     },
   ],
