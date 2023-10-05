@@ -9,6 +9,7 @@
               <el-table
                 :data="tableData"
                 stripe
+                v-loading="loading"
                 style="width: 100%"
                 height="700"
               >
@@ -51,12 +52,6 @@
                     </div>
                   </template>
                 </el-table-column>
-                <!-- <el-table-column label="Operations">
-                  <template #default="scope">
-                    <el-button size="small">Edit</el-button>
-                    <el-button size="small" type="danger">Delete </el-button>
-                  </template>
-                </el-table-column> -->
               </el-table>
             </div>
           </div>
@@ -71,6 +66,7 @@ import { onMounted, ref } from "vue";
 import { getConsultation } from "../../api/Service";
 import dayjs from "dayjs";
 const tableData = ref([]);
+const loading = ref(true);
 async function getAllConsultation() {
   try {
     const response = await getConsultation();
@@ -78,6 +74,9 @@ async function getAllConsultation() {
       ...item,
       dateTime: dayjs(item.dateTime).format("YYYY-MM-DD HH:mm:ss A"),
     }));
+    setTimeout(() => {
+      loading.value = false;
+    }, 1000);
   } catch (e) {
     console.warn(e);
   }

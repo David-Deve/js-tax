@@ -9,7 +9,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
-import "boxicons";
 import VueCookie from "vue-cookies";
 
 const i18n = createI18n({

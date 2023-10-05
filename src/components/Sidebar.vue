@@ -29,8 +29,8 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">User</a></li>
+          <li><a href="/user">All User</a></li>
           <li><a href="/createuser">Create User</a></li>
-          <li><a href="/user">AllUser</a></li>
         </ul>
       </li>
       <li>
@@ -45,6 +45,20 @@
           <li><a class="link_name" href="#">Posts</a></li>
           <li><a href="/createservice">Service</a></li>
           <li><a href="/createarticle">Article</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class="bx bx-buildings"></i>
+            <span class="link_name">Client</span>
+          </a>
+          <i class="bx bxs-chevron-down arrow"></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Client</a></li>
+          <li><a href="/client">All Client</a></li>
+          <li><a href="/createclient">Create Client</a></li>
         </ul>
       </li>
       <li>

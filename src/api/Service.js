@@ -31,7 +31,7 @@ export async function createUser(
   gender,
   roles
 ) {
-  // const token = VueCookies.get("jstoken");
+  const token = VueCookies.get("jstoken");
   try {
     const response = await apiConfig.post(
       "/addUser",
@@ -43,12 +43,12 @@ export async function createUser(
         email,
         gender,
         roles,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
-      // {
-      //   headers: {
-      //     Authorization: `Bearer ${token}`,
-      //   },
-      // }
     );
     return response.data;
   } catch (error) {
@@ -80,6 +80,45 @@ export async function getConsultation() {
   const token = VueCookies.get("jstoken");
   try {
     const response = await apiConfig.get("/chat", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
+
+export async function createClient(
+  khmerName,
+  engName,
+  email,
+  phone,
+  address,
+  vattin,
+  companyName
+) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.post(
+      "/client/add",
+      { khmerName, engName, email, phone, address, vattin, companyName },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
+export async function getClient() {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.get("/client/all", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
