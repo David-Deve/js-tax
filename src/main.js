@@ -3,25 +3,25 @@ import { createPinia } from "pinia";
 import { createI18n } from "vue-i18n";
 
 import App from "./App.vue";
-import messages from "./lang.js";
+import { loadMessage } from "./lang.js";
 import router from "./router";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import VueCookie from "vue-cookies";
-
-const i18n = createI18n({
-  locale: "en",
-  fallbackLocale: "en",
-  messages,
-  legacy: false,
-});
-
 const app = createApp(App);
-app.use(createPinia());
-app.use(VueCookie);
-app.use(router);
-app.use(i18n);
-app.use(ElementPlus);
-app.mount("#app");
+loadMessage().then((messages) => {
+  const i18n = createI18n({
+    locale: "en",
+    fallbackLocale: "en",
+    messages,
+    legacy: false,
+  });
+  app.use(createPinia());
+  app.use(VueCookie);
+  app.use(router);
+  app.use(i18n);
+  app.use(ElementPlus);
+  app.mount("#app");
+});
