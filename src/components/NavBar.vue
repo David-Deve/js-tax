@@ -74,7 +74,7 @@
               </button>
               <template #dropdown>
                 <el-dropdown-menu>
-                  <el-dropdown-item @click="chnageLanguage('kh')">
+                  <el-dropdown-item @click="changeLanguage('kh')">
                     <div class="row align-items-center">
                       <div class="col-md-6 d-flex justify-content-center">
                         <img src="../assets/svg/km.svg" width="25" />
@@ -84,7 +84,7 @@
                       </div>
                     </div>
                   </el-dropdown-item>
-                  <el-dropdown-item @click="chnageLanguage('en')">
+                  <el-dropdown-item @click="changeLanguage('en')">
                     <div class="row align-items-center">
                       <div class="col-md-6 d-flex justify-content-center">
                         <img src="../assets/svg/en.svg" width="25" />
@@ -164,7 +164,7 @@ import { ElNotification } from "element-plus";
 import { useRouter } from "vue-router";
 import VueCookies from "vue-cookies";
 import { useI18n } from "vue-i18n";
-const { locale, t } = useI18n();
+const { locale } = useI18n();
 
 const router = useRouter();
 const username = ref("");
@@ -198,7 +198,7 @@ async function postLogin() {
 function home() {
   router.push("/");
 }
-function chnageLanguage(lang) {
+function changeLanguage(lang) {
   locale.value = lang;
 }
 </script>

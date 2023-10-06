@@ -200,10 +200,10 @@ export async function loadMessage() {
       },
     },
   };
-  try {
-    const res = await getText();
-    messages.en.home.para = res.eng_para;
-    messages.kh.home.para = res.kh_para;
-  } catch (e) {}
+  // try {
+  //   const res = await getText();
+  //   messages.en.home.para = res.eng_para;
+  //   messages.kh.home.para = res.kh_para;
+  // } catch (e) {}
   return messages;
 }
