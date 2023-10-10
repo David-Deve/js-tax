@@ -138,7 +138,7 @@ const tableData = [
       <div class="card-body">
         <div class="table-responsive-sm">
           <table class="table table-bordered">
-            <thead class="table-secondary">
+            <thead class="table-primary">
               <tr>
                 <th class="center">
                   <p>ល.រ</p>
@@ -168,9 +168,8 @@ const tableData = [
                 <td class="center">{{}}</td>
                 <td class="left">{{ item.itemname }}</td>
                 <td class="left">{{ item.qty }}</td>
-
-                <td class="right">{{ item.unitprice }}</td>
-                <td class="right">{{ item.amount }}</td>
+                <td class="right">${{ item.unitprice }}</td>
+                <td class="right">${{ item.amount }}</td>
               </tr>
             </tbody>
           </table>
@@ -210,16 +209,23 @@ const tableData = [
           </div>
         </div>
         <br /><br /><br />
+        <br />
         <div class="row">
           <div class="col-4 ms-5">
             <hr class="line1" />
-            <p style="text-align: center">dadad</p>
+            <p class="m-0" style="text-align: center">
+              ហត្ថលេខា និងឈ្មោះអ្នកទិញ
+            </p>
+            <p style="text-align: center">Customer's Signature & Name</p>
           </div>
           <div
             class="col d-flex flex-column justify-content-center align-items-center"
           >
             <hr class="line2" />
-            <p>dadad</p>
+            <p class="m-0" style="text-align: center">
+              ហត្ថលេខា និងឈ្មោះអ្នកលក់
+            </p>
+            <p style="text-align: center">Seller's Signature & Name</p>
           </div>
         </div>
         <div>
@@ -245,7 +251,6 @@ const add = ref(
 const data = [
   {
     itemname: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-
     qty: "5",
     unitprice: "5000",
     amount: "25000",
@@ -274,9 +279,6 @@ const data = [
 }
 .line2 {
   width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 th {
   text-align: center;
