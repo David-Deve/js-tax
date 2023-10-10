@@ -85,10 +85,10 @@
             <!--<img src="image/profile.jpg" alt="profileImg">-->
           </div>
           <div class="name-job">
-            <div class="profile_name">Prem Shahi</div>
-            <div class="job">Web Desginer</div>
+            <div class="profile_name">{{ getUserInfo.infoUser.username }}</div>
+            <div class="job">{{ getUserInfo.role }}</div>
           </div>
-          <a @click="deleteToken()"><i class="bx bx-log-out"></i></a>
+          <a @click="deleteToken()"><i class="bx bx-log-out"></i></a>s
         </div>
       </li>
     </ul>
@@ -103,10 +103,19 @@
   </section>
 </template>
 <script setup>
-import { onMounted } from "vue";
+import { useAuthentication } from "../stores/Store";
+import { onMounted, computed } from "vue";
 import VueCookies from "vue-cookies";
 import { ElNotification } from "element-plus";
 import { useRouter } from "vue-router";
+const getUserInfo = useAuthentication();
+getUserInfo.getinfoUser();
+// const formattedRoles = computed(() => {
+//   if (getUserInfo.infoUser && getUserInfo.infoUser.roles) {
+//     return getUserInfo.infoUser.roles.map((role) => role.name).join(", ");
+//   }
+//   return "";
+// });
 const router = useRouter();
 function deleteToken() {
   VueCookies.remove("jstoken");

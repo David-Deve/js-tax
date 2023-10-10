@@ -1,9 +1,23 @@
 import apiConfig from "./apiConfig";
 import VueCookies from "vue-cookies";
+
+//Authentication
 export async function getAllUser() {
   try {
     const response = await apiConfig.get("/auth/all", {
       headers: {},
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
+
+export async function getMe() {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.get("/auth/me", {
+      headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
   } catch (error) {
@@ -55,6 +69,8 @@ export async function createUser(
     throw new Error("Error fetching data");
   }
 }
+//Authentication
+
 export async function UserConsultation(name, email, description) {
   try {
     const token = VueCookies.get("jstoken");
