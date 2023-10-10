@@ -18,6 +18,7 @@ import CreateArticle from "../views/admin/CreateArticleView.vue";
 import Consultation from "../views/admin/ConsultationView.vue";
 import CreateClient from "../views/admin/CreateClientView.vue";
 import ClientView from "../views/admin/ClientView.vue";
+import InvoiceView from "../views/admin/InvoiceView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -102,6 +103,12 @@ const router = createRouter({
       path: "/client",
       name: "client",
       component: ClientView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/invoice",
+      name: "invoice",
+      component: InvoiceView,
       meta: { requiresAuth: true },
     },
   ],

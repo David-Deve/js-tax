@@ -71,6 +71,15 @@
         </ul>
       </li>
       <li>
+        <a href="/invoice">
+          <i class="bx bxs-file-export"></i>
+          <span class="link_name">Invoice</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/invoice">Invoice</a></li>
+        </ul>
+      </li>
+      <li>
         <a href="/">
           <i class="bx bx-home"></i>
           <span class="link_name">Home</span>
