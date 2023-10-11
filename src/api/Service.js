@@ -73,20 +73,11 @@ export async function createUser(
 
 export async function UserConsultation(name, email, description) {
   try {
-    const token = VueCookies.get("jstoken");
-    const response = await apiConfig.post(
-      "/chat/",
-      {
-        name,
-        email,
-        description,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await apiConfig.post("/chat/", {
+      name,
+      email,
+      description,
+    });
     return response.data;
   } catch (error) {
     throw new Error("Error fetching data");
