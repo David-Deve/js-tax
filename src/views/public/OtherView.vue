@@ -163,8 +163,8 @@
 </template>
 <script setup>
 import { ref } from "vue";
-import Footer from "../../components/Footer.vue";
-import NavBarVue from "../../components/NavBar.vue";
+import Footer from "@/components/Footer.vue";
+import NavBarVue from "@/components/NavBar.vue";
 import SlideShow from "@/components/SlideShow.vue";
 const loading = ref(true);
 setTimeout(() => {

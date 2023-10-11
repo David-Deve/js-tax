@@ -2,7 +2,11 @@
   <div>
     <Sidebar>
       <template v-slot:Content>
-        <div class="container-xxl">
+        <div
+          class="container-xxl"
+          v-loading="loading"
+          element-loading-background="#f3f3f35d"
+        >
           <div class="row">
             <div class="col-md-12 mb-5">
               <h2>Consultation</h2>
@@ -67,6 +71,9 @@ import { getConsultation } from "../../api/Service";
 import dayjs from "dayjs";
 const tableData = ref([]);
 const loading = ref(true);
+setTimeout(() => {
+  loading.value = false;
+}, 300);
 async function getAllConsultation() {
   try {
     const response = await getConsultation();

@@ -8,18 +8,10 @@
           <div class="dot"></div>
           <p class="title">{{ $t("service.service1.taxservice") }}</p>
           <div class="ms-3">
-            <p>
-              {{ $t("service.service1.text1") }}
-            </p>
-            <p>
-              {{ $t("service.service1.text2") }}
-            </p>
-            <p>
-              {{ $t("service.service1.text3") }}
-            </p>
-            <p>
-              {{ $t("service.service1.text4") }}
-            </p>
+            <p>. {{ $t("service.service1.text1") }}</p>
+            <p>. {{ $t("service.service1.text2") }}</p>
+            <p>. {{ $t("service.service1.text3") }}</p>
+            <p>. {{ $t("service.service1.text4") }}</p>
           </div>
 
           <p class="ms-1" style="text-indent: 30px; font-size: 18px">
@@ -33,9 +25,9 @@
 </template>
 <script setup>
 import { ref } from "vue";
-import Footer from "../../components/Footer.vue";
+import Footer from "@/components/Footer.vue";
 
-import NavBarVue from "../../components/NavBar.vue";
+import NavBarVue from "@/components/NavBar.vue";
 import SlideShow from "@/components/SlideShow.vue";
 const loading = ref(true);
 setTimeout(() => {

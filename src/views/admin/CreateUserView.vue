@@ -2,7 +2,11 @@
   <div>
     <Sidebar>
       <template v-slot:Content>
-        <div class="container-xxl">
+        <div
+          class="container-xxl"
+          v-loading="loading"
+          element-loading-background="#f3f3f35d"
+        >
           <h2>Register User</h2>
           <div class="container mt-5 form">
             <div class="mb-3">
@@ -106,6 +110,10 @@ import Sidebar from "@/components/Sidebar.vue";
 import { createUser } from "../../api/Service";
 import { ref } from "vue";
 import { ElNotification } from "element-plus";
+const loading = ref(true);
+setTimeout(() => {
+  loading.value = false;
+}, 300);
 const firstname = ref("");
 const lastname = ref("");
 const phone = ref("");

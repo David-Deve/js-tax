@@ -49,11 +49,11 @@
           </li>
           <div>
             <li class="nav-item">
-              <a
+              <router-link
                 v-if="hasJsTokenCookie"
                 class="btn btn-success"
-                href="/dashboard"
-                >{{ $t("navbar.dashboard") }}</a
+                to="/dashboard"
+                >{{ $t("navbar.dashboard") }}</router-link
               >
               <button
                 v-else
@@ -149,8 +149,6 @@
         </button>
         <p style="text-align: center; margin-top: 15px">
           Did'nt have Account? Contact to Admin
-          <!-- <a href="" data-bs-toggle="modal"
-              data-bs-target="#register">here</a> -->
         </p>
       </div>
     </div>

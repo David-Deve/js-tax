@@ -19,7 +19,9 @@
                   >
                     <img src="src/assets/picture/tax service.png" alt="" />
                     <p class="text mt-2">{{ $t("service.taxservice") }}</p>
-                    <a href="/service1">{{ $t("service.readmore") }}</a>
+                    <router-link to="/service1"
+                      ><span>{{ $t("service.readmore") }}</span></router-link
+                    >
                   </div>
                 </div>
               </div>
@@ -33,7 +35,9 @@
                   >
                     <img src="src/assets/picture/acc.png" alt="" />
                     <p class="text mt-2">{{ $t("service.account") }}</p>
-                    <a href="/service2">{{ $t("service.readmore") }}</a>
+                    <router-link to="/service2">{{
+                      $t("service.readmore")
+                    }}</router-link>
                   </div>
                 </div>
               </div>
@@ -47,7 +51,9 @@
                   >
                     <img src="src/assets/picture/register.png" alt="" />
                     <p class="text mt-2">{{ $t("service.registeration") }}</p>
-                    <a href="/contact">{{ $t("service.readmore") }}</a>
+                    <router-link to="/contact"
+                      ><span>{{ $t("service.readmore") }}</span></router-link
+                    >
                   </div>
                 </div>
               </div>
@@ -78,8 +84,8 @@
   </div>
 </template>
 <script setup>
-import Footer from "../../components/Footer.vue";
-import NavBarVue from "../../components/NavBar.vue";
+import Footer from "@/components/Footer.vue";
+import NavBarVue from "@/components/NavBar.vue";
 import SlideShow from "@/components/SlideShow.vue";
 import { ref } from "vue";
 const loading = ref(true);

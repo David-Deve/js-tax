@@ -231,7 +231,7 @@
 
 <script setup>
 import { ref } from "vue";
-import Footer from "../../components/Footer.vue";
+import Footer from "@/components/Footer.vue";
 import NavBarVue from "@/components/NavBar.vue";
 import SlideShow from "@/components/SlideShow.vue";
 import { UserConsultation } from "../../api/Service";

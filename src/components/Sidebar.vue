@@ -11,81 +11,91 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="/dashboard">
+        <router-link to="/dashboard">
           <i class="bx bx-grid-alt"></i>
           <span class="link_name">Dashboard</span>
-        </a>
+        </router-link>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/dashboard">Dashboard</a></li>
+          <li>
+            <router-link class="link_name" to="/dashboard"
+              >Dashboard</router-link
+            >
+          </li>
         </ul>
       </li>
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <router-link to="#">
             <i class="bx bx-user"></i>
             <span class="link_name">User</span>
-          </a>
+          </router-link>
           <i class="bx bxs-chevron-down arrow"></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">User</a></li>
-          <li><a href="/user">All User</a></li>
-          <li><a href="/createuser">Create User</a></li>
+          <li><router-link class="link_name" to="#">User</router-link></li>
+          <li><router-link to="/user">All User</router-link></li>
+          <li><router-link to="/createuser">Create User</router-link></li>
         </ul>
       </li>
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <router-link to="#">
             <i class="bx bx-book-alt"></i>
             <span class="link_name">Posts</span>
-          </a>
+          </router-link>
           <i class="bx bxs-chevron-down arrow"></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Posts</a></li>
-          <li><a href="/createservice">Service</a></li>
-          <li><a href="/createarticle">Article</a></li>
+          <li><router-link class="link_name" to="#">Posts</router-link></li>
+          <li><router-link to="/createservice">Service</router-link></li>
+          <li><router-link to="/createarticle">Article</router-link></li>
         </ul>
       </li>
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <router-link to="#">
             <i class="bx bx-buildings"></i>
             <span class="link_name">Client</span>
-          </a>
+          </router-link>
           <i class="bx bxs-chevron-down arrow"></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Client</a></li>
-          <li><a href="/client">All Client</a></li>
-          <li><a href="/createclient">Create Client</a></li>
+          <li><router-link class="link_name" to="#">Client</router-link></li>
+          <li><router-link to="/client">All Client</router-link></li>
+          <li><router-link to="/createclient">Create Client</router-link></li>
         </ul>
       </li>
       <li>
-        <a href="/consultation">
+        <router-link to="/consultation">
           <i class="bx bx-paper-plane"></i>
           <span class="link_name">Consultation</span>
-        </a>
+        </router-link>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/consultation">Consultation</a></li>
+          <li>
+            <router-link class="link_name" to="/consultation"
+              >Consultation</router-link
+            >
+          </li>
         </ul>
       </li>
       <li>
-        <a href="/invoice">
+        <router-link to="/invoice">
           <i class="bx bxs-file-export"></i>
           <span class="link_name">Invoice</span>
-        </a>
+        </router-link>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/invoice">Invoice</a></li>
+          <li>
+            <router-link class="link_name" to="/invoice">Invoice</router-link>
+          </li>
         </ul>
       </li>
       <li>
-        <a href="/">
+        <router-link to="/">
           <i class="bx bx-home"></i>
           <span class="link_name">Home</span>
-        </a>
+        </router-link>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/">Home</a></li>
+          <li><router-link class="link_name" to="/">Home</router-link></li>
         </ul>
       </li>
       <li>

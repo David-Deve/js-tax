@@ -2,7 +2,11 @@
   <div class="body">
     <Sidebar>
       <template v-slot:Content>
-        <div class="container-xxl">
+        <div
+          class="container-xxl"
+          v-loading="loading"
+          element-loading-background="#f3f3f35d"
+        >
           <h2>Register Client</h2>
           <div class="container mt-5 form">
             <div class="mb-3">
@@ -105,7 +109,10 @@ const phone = ref("");
 const address = ref("");
 const vattin = ref("");
 const compname = ref("");
-
+const loading = ref(true);
+setTimeout(() => {
+  loading.value = false;
+}, 300);
 async function register() {
   try {
     await createClient(

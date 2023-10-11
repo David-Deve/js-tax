@@ -42,9 +42,9 @@
   </div>
 </template>
 <script setup>
-import NavBarVue from "../../components/NavBar.vue";
-import SlideShow from "../../components/SlideShow.vue";
-import Footer from "../../components/Footer.vue";
+import NavBarVue from "@/components/NavBar.vue";
+import SlideShow from "@/components/SlideShow.vue";
+import Footer from "@/components/Footer.vue";
 import { ref } from "vue";
 const loading = ref(true);
 setTimeout(() => {

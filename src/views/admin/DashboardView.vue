@@ -2,7 +2,11 @@
   <div>
     <Sidebar>
       <template v-slot:Content>
-        <div class="container-xxl">
+        <div
+          class="container-xxl"
+          v-loading="loading"
+          element-loading-background="#f3f3f35d"
+        >
           <div class="row">
             <div class="col-md-3">
               <div class="card">
@@ -91,18 +95,21 @@
 import Sidebar from "@/components/Sidebar.vue";
 import { getAllUser } from "../../api/Service";
 import { onMounted, ref } from "vue";
-
- function allUser(){
-  try{
-    const response =  getAllUser();
+const loading = ref(true);
+setTimeout(() => {
+  loading.value = false;
+}, 300);
+function allUser() {
+  try {
+    const response = getAllUser();
     console.log(response);
-  }catch(e){
-    console.log(e)
+  } catch (e) {
+    console.log(e);
   }
 }
 onMounted(() => {
-  allUser()
-})
+  allUser();
+});
 const series = ref([
   {
     name: "Sales",
