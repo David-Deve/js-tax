@@ -79,13 +79,15 @@
         </ul>
       </li>
       <li>
-        <router-link to="/invoice">
+        <router-link to="/allinvoice">
           <i class="bx bxs-file-export"></i>
           <span class="link_name">Invoice</span>
         </router-link>
         <ul class="sub-menu blank">
           <li>
-            <router-link class="link_name" to="/invoice">Invoice</router-link>
+            <router-link class="link_name" to="/allinvoice"
+              >Invoice</router-link
+            >
           </li>
         </ul>
       </li>

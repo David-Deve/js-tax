@@ -7,7 +7,7 @@
     <img
       class="navbar-brand"
       style="height: 50%; width: 100%"
-      src="src/assets/picture/invoiceheader.jpg"
+      src="@\assets\picture\invoiceheader.jpg"
       alt=""
     />
     <div class="">
@@ -129,13 +129,35 @@
         </div>
         <div>
           <small class="text-body-secondary">Last updated 3 mins ago</small>
+          <p>Invoice ID: {{ id }}</p>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
+const id = ref(route.params.id);
+const props = defineProps({
+  invoiceID: "",
+  date: String,
+  nameKH: String,
+  nameEng: String,
+  address: String,
+  phonenumber: "",
+  vattinumber: "",
+
+  item: "",
+  qty: "",
+  unitprice: "",
+  amount: "",
+  subtital: "",
+  discount: "",
+  vat: "",
+  totalprice: "",
+});
 const loading = ref(true);
 setTimeout(() => {
   loading.value = false;
