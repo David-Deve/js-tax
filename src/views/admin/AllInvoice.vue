@@ -13,7 +13,7 @@
               <el-table
                 :data="tableData"
                 stripe
-                style="width: 100%"
+                style="width: 1chrom00%"
                 height="700"
                 v-loading="loading"
               >
@@ -112,7 +112,6 @@ const tableData = [
 ];
 function printInvoice(id) {
   const routeUrl = router.resolve({ name: "invoice", params: { id } }).href;
-
-  window.open(routeUrl, "_blank");
+  window.open(routeUrl, "popup", "width=1000,height=1000  ");
 }
 </script>
