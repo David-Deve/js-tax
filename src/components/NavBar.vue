@@ -59,8 +59,7 @@
                 v-else
                 type="button"
                 class="btn btn-success"
-                data-bs-toggle="modal"
-                data-bs-target="#login"
+                @click="dialogVisible = true"
               >
                 {{ $t("navbar.log_in") }}
               </button>
@@ -103,13 +102,7 @@
     </div>
   </nav>
 
-  <div
-    class="modal fade"
-    id="login"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+  <el-dialog v-model="dialogVisible" width="30%" center>
     <div class="modal-dialog">
       <div class="modal-content">
         <p
@@ -119,7 +112,7 @@
         >
           {{ $t("navbar.log_in") }}
         </p>
-        <div class="modal-body">
+        <div class="modal-body mb-3">
           <label for="username">{{ $t("login.username") }}</label>
           <input
             id="username"
@@ -142,7 +135,7 @@
         <button
           type="button"
           @click="postLogin()"
-          style="width: 94%; margin: auto"
+          style="width: 100%; margin: auto"
           class="btn btn-primary btn-block"
         >
           Login
@@ -152,7 +145,7 @@
         </p>
       </div>
     </div>
-  </div>
+  </el-dialog>
 </template>
 
 <script setup>
@@ -162,6 +155,7 @@ import { ElNotification } from "element-plus";
 import { useRouter } from "vue-router";
 import VueCookies from "vue-cookies";
 import { useI18n } from "vue-i18n";
+const dialogVisible = ref(false);
 const { locale } = useI18n();
 
 const router = useRouter();
@@ -180,9 +174,6 @@ async function postLogin() {
       type: "success",
     });
     router.push("/dashboard");
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
   } catch (e) {
     console.log(e);
     ElNotification({
