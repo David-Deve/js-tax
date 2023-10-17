@@ -68,6 +68,7 @@ import {
   getTextAboutPage,
   updateTextAboutPage,
 } from "../../api/PublicWebsiteService";
+import { ElNotification } from "element-plus";
 const loading = ref(true);
 const khpara1 = ref("");
 const engpara1 = ref("");
@@ -85,7 +86,6 @@ async function getAboutParagrahp() {
 
     khpara2.value = res.data.bodies[1].descriptionKh;
     engpara2.value = res.data.bodies[1].descriptionEn;
-    console.log(res);
   } catch (e) {
     console.log(e);
   }
@@ -103,8 +103,20 @@ async function updateAboutParagrahp() {
       },
     ];
     const res = await updateTextAboutPage(bodyPayloads);
+    ElNotification({
+      title: "Success",
+      duration: 2000,
+      message: "Update Success",
+      type: "success",
+    });
     console.log(res);
   } catch (e) {
+    ElNotification({
+      title: "Error",
+      duration: 2000,
+      message: "Update Success",
+      type: "error",
+    });
     console.log(e);
   }
 }

@@ -44,6 +44,7 @@
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
 import { onMounted, ref } from "vue";
+import { ElNotification } from "element-plus";
 import {
   getTextHomePage,
   updateTextHomePage,
@@ -74,8 +75,20 @@ async function updateHomeParagrahp() {
       },
     ];
     const res = await updateTextHomePage(bodyPayloads);
+    ElNotification({
+      title: "Success",
+      duration: 2000,
+      message: "Update Success",
+      type: "success",
+    });
     console.log(res);
   } catch (e) {
+    ElNotification({
+      title: "Error",
+      duration: 2000,
+      message: "Update Faild",
+      type: "error",
+    });
     console.log(e);
   }
 }

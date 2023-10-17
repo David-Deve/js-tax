@@ -125,6 +125,7 @@
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
 import { onMounted, ref } from "vue";
+import { ElNotification } from "element-plus";
 import {
   getTextService2Page,
   updateTextService2Page,
@@ -191,8 +192,20 @@ async function updateService2Paragrahp() {
       },
     ];
     const res = await updateTextService2Page(bodyPayloads);
+    ElNotification({
+      title: "Success",
+      duration: 2000,
+      message: "Update Success",
+      type: "success",
+    });
     console.log(res);
   } catch (e) {
+    ElNotification({
+      title: "Error",
+      duration: 2000,
+      message: "Update Faild",
+      type: "error",
+    });
     console.log(e);
   }
 }
