@@ -85,6 +85,7 @@
 import Sidebar from "../../components/Sidebar.vue";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import VueCookies from "vue-cookies";
 const router = useRouter();
 const loading = ref(true);
 setTimeout(() => {
@@ -111,6 +112,7 @@ const tableData = [
   },
 ];
 function printInvoice(id) {
+  VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
   const routeUrl = router.resolve({ name: "invoice", params: { id } }).href;
   window.open(routeUrl, "popup", "width=1000,height=1000  ");
 }

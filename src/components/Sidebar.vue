@@ -47,8 +47,11 @@
         </div>
         <ul class="sub-menu">
           <li><router-link class="link_name" to="#">Posts</router-link></li>
-          <li><router-link to="/createservice">Service</router-link></li>
-          <li><router-link to="/createarticle">Article</router-link></li>
+          <li><router-link to="/updatehomepage">Home</router-link></li>
+          <li><router-link to="/updateaboutpage">About Us</router-link></li>
+          <li><router-link to="/updateservice1">Service1</router-link></li>
+          <li><router-link to="/updateservice2">Service2</router-link></li>
+          <li><router-link to="/updatecontact">Contact</router-link></li>
         </ul>
       </li>
       <li>

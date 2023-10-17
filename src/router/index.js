@@ -13,8 +13,11 @@ import VueCookies from "vue-cookies";
 import Dashboard from "../views/admin/DashboardView.vue";
 import User from "../views/admin/UserView.vue";
 import CreateUser from "../views/admin/CreateUserView.vue";
-import CreateService from "../views/admin/CreateServiceView.vue";
-import CreateArticle from "../views/admin/CreateArticleView.vue";
+import UpdateAboutView from "../views/admin/UpdateAboutView.vue";
+import UpdateHomeView from "../views/admin/UpdateHomeView.vue";
+import UpdateService1View from "../views/admin/UpdateService1View.vue";
+import UpdateService2View from "../views/admin/UpdateService2View.vue";
+import UpdateContactView from "../views/admin/UpdateContactView.vue";
 import Consultation from "../views/admin/ConsultationView.vue";
 import CreateClient from "../views/admin/CreateClientView.vue";
 import ClientView from "../views/admin/ClientView.vue";
@@ -77,15 +80,33 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
-      path: "/createservice",
-      name: "createservice",
-      component: CreateService,
+      path: "/updateaboutpage",
+      name: "updateaboutpage",
+      component: UpdateAboutView,
       meta: { requiresAuth: true },
     },
     {
-      path: "/createarticle",
-      name: "createarticle",
-      component: CreateArticle,
+      path: "/updatehomepage",
+      name: "updatehomepage",
+      component: UpdateHomeView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/updateservice1",
+      name: "updateservice1",
+      component: UpdateService1View,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/updateservice2",
+      name: "updateservice2",
+      component: UpdateService2View,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/updatecontact",
+      name: "updatecontact",
+      component: UpdateContactView,
       meta: { requiresAuth: true },
     },
     {
