@@ -2,7 +2,6 @@
   <div v-loading="loading" element-loading-background="#f3f3f35d">
     <NavBarVue></NavBarVue>
     <SlideShow></SlideShow>
-    <p>dsadas</p>
     <div class="container-sm body mb-5">
       <div class="section1">
         <div class="para" style="background-color: rgb(247, 247, 247)">
