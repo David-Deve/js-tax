@@ -113,7 +113,6 @@ const tableData = [
 ];
 function printInvoice(id) {
   VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
-  const routeUrl = router.resolve({ name: "invoice", params: { id } }).href;
-  window.open(routeUrl, "popup", "width=1000,height=1000  ");
+  router.push({ name: "invoice", params: { id } });
 }
 </script>
