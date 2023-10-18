@@ -8,7 +8,7 @@
           <div class="dot"></div>
           <p class="title">{{ $t("about.bio") }}</p>
           <img
-            src="src/assets/picture/banner.png"
+            src="@\assets\picture\banner.png"
             alt=""
             class="img-fluid"
             style="border-radius: 10px; margin-top: 10px"
@@ -19,14 +19,14 @@
           <div class="row">
             <div class="col-md-6 d-flex justify-content-center">
               <img
-                src="src/assets/picture/download1.jpeg"
+                src="@\assets\picture\download1.jpeg"
                 alt=""
                 style="width: 100%; height: 100%; border: 1px solid black"
               />
             </div>
             <div class="col-md-6 d-flex justify-content-center">
               <img
-                src="src/assets/picture/download1.jpeg"
+                src="@\assets\picture\download1.jpeg"
                 alt=""
                 style="width: 100%; height: 100%; border: 1px solid black"
               />

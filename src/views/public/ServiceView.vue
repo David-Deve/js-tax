@@ -17,7 +17,7 @@
                   <div
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
-                    <img src="src/assets/picture/tax service.png" alt="" />
+                    <img src="@\assets\picture\taxservice.png" alt="" />
                     <p class="text mt-2">{{ $t("service.taxservice") }}</p>
                     <router-link to="/service1"
                       ><span>{{ $t("service.readmore") }}</span></router-link
@@ -33,7 +33,7 @@
                   <div
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
-                    <img src="src/assets/picture/acc.png" alt="" />
+                    <img src="@\assets\picture\acc.png" alt="" />
                     <p class="text mt-2">{{ $t("service.account") }}</p>
                     <router-link to="/service2">{{
                       $t("service.readmore")
@@ -49,7 +49,7 @@
                   <div
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
-                    <img src="src/assets/picture/register.png" alt="" />
+                    <img src="@\assets\picture\register.png" alt="" />
                     <p class="text mt-2">{{ $t("service.registeration") }}</p>
                     <router-link to="/contact"
                       ><span>{{ $t("service.readmore") }}</span></router-link
@@ -65,7 +65,7 @@
                   <div
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
-                    <img src="src/assets/picture/licence.png" class="" alt="" />
+                    <img src="@\assets\picture\licence.png" class="" alt="" />
                     <p class="text mt-2">{{ $t("service.other") }}</p>
                     <a
                       href="https://www.tax.gov.kh/km/categories/64qke344011330727"
