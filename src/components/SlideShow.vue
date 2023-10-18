@@ -12,10 +12,10 @@
 
 <script setup>
 const carouselItems = [
-  { imageSrc: "@/assets/picture/banner.png" },
-  { imageSrc: "@/assets/picture/banner2.png" },
-  { imageSrc: "@/assets/picture/download.jpeg" },
-  { imageSrc: "@/assets/picture/banner2.png" },
+  { imageSrc: "/assets/picture/banner.png" },
+  { imageSrc: "/assets/picture/banner2.png" },
+  { imageSrc: "/assets/picture/download.jpeg" },
+  { imageSrc: "/assets/picture/banner2.png" },
 ];
 </script>
 
