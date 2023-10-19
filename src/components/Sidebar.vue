@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar close">
+  <div class="sidebar" :class="{ close: !isSidebarOpen }">
     <div class="logo-details">
       <img
         class="ms-3 me-2"
@@ -117,9 +117,9 @@
       </li>
     </ul>
   </div>
-  <section class="home-section">
+  <section class="home-section" :class="{ close: !isSidebarOpen }">
     <div class="home-content">
-      <i class="bx bx-menu"></i>
+      <i class="bx bx-menu" @click="toggleSidebar"></i>
       <h3>Admin Panel</h3>
     </div>
     <br /><br /><br />
@@ -128,18 +128,17 @@
 </template>
 <script setup>
 import { useAuthentication } from "../stores/Store";
-import { onMounted, computed } from "vue";
+import { onMounted, computed, ref } from "vue";
 import VueCookies from "vue-cookies";
 import { ElNotification } from "element-plus";
 import { useRouter } from "vue-router";
+const isSidebarOpen = ref(true);
+
 const getUserInfo = useAuthentication();
 getUserInfo.getinfoUser();
-// const formattedRoles = computed(() => {
-//   if (getUserInfo.infoUser && getUserInfo.infoUser.roles) {
-//     return getUserInfo.infoUser.roles.map((role) => role.name).join(", ");
-//   }
-//   return "";
-// });
+const toggleSidebar = () => {
+  isSidebarOpen.value = !isSidebarOpen.value;
+};
 const router = useRouter();
 function deleteToken() {
   VueCookies.remove("jstoken");

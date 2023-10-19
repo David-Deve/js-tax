@@ -5,7 +5,7 @@
     element-loading-background="#f3f3f35d"
   >
     <img
-      class="navbar-brand"
+      class="navbar-brand mt-2"
       style="height: 50%; width: 100%"
       src="@\assets\picture\invoiceheader.jpg"
       alt=""
@@ -31,8 +31,8 @@
         <p class="m-0">ឈ្មោះក្រុមហ៊ុន / អតិថិជន​: {{ namekh }}</p>
         <p class="m-0">Company Name / Customer: {{ nameeng }}</p>
         <p class="m-0">អាស័យដ្ធាន: {{ add }}</p>
-        <p class="m-0">លេខទូរសព្ធ / Phone:</p>
-        <p class="m-0">លេខអត្តសញ្ញាណកម្មសារពើពន្ធ (VATTIN):</p>
+        <p class="m-0">លេខទូរសព្ធ / Phone: {{ phonenumber }}</p>
+        <p class="m-0">លេខអត្តសញ្ញាណកម្មសារពើពន្ធ (VATTIN): {{ vattin }}</p>
       </div>
       <div class="card-body">
         <div class="table-responsive-sm">
@@ -65,10 +65,10 @@
             <tbody v-for="item in data" :key="item.id">
               <tr>
                 <td class="center">{{}}</td>
-                <td class="left">{{ item.itemname }}</td>
+                <td class="left">{{ item.invoiceDetailName }}</td>
                 <td class="left">{{ item.qty }}</td>
-                <td class="right">${{ item.unitprice }}</td>
-                <td class="right">${{ item.amount }}</td>
+                <td class="right">${{ item.unitPrice }}</td>
+                <td class="right">${{ item.lineItemPrice }}</td>
               </tr>
             </tbody>
           </table>
@@ -81,26 +81,20 @@
                   <td class="left">
                     <strong>Subtotal</strong>
                   </td>
-                  <td class="right">$8.497,00</td>
+                  <td class="right">{{ subtotal }}$</td>
                 </tr>
                 <tr>
                   <td class="left">
-                    <strong>Discount (20%)</strong>
+                    <strong>VAT ({{ vatper }}%)</strong>
                   </td>
-                  <td class="right">$1,699,40</td>
-                </tr>
-                <tr>
-                  <td class="left">
-                    <strong>VAT (10%)</strong>
-                  </td>
-                  <td class="right">$679,76</td>
+                  <td class="right">{{ vatprice }}$</td>
                 </tr>
                 <tr>
                   <td class="left">
                     <strong>Total</strong>
                   </td>
                   <td class="right">
-                    <strong>$7.477,36</strong>
+                    <strong>{{ total }}$</strong>
                   </td>
                 </tr>
               </tbody>
@@ -127,37 +121,33 @@
             <p style="text-align: center">Seller's Signature & Name</p>
           </div>
         </div>
-        <div>
-          <small class="text-body-secondary">Last updated 3 mins ago</small>
-          <p>Invoice ID: {{ id }}</p>
+        <div class="footer">
+          <div class="row">
+            <div class="col">
+              <small class="text-body-secondary m-2">PostCode: 45464</small>
+            </div>
+            <div class="col">
+              <small class="text-body-secondary"
+                >សម្គាល់ : ច្បាប់ដើមសម្រាប់អ្នកទិញ
+                ច្បាប់ចម្លងសម្រាប់អ្នកលក់</small
+              ><br />
+              <small class="text-body-secondary"
+                >Note : Original invoice for customer, copied invoice for
+                seller.</small
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import { getInvoiceById } from "../../api/Service";
 const route = useRoute();
 const id = ref(route.params.id);
-const props = defineProps({
-  invoiceID: "",
-  date: String,
-  nameKH: String,
-  nameEng: String,
-  address: String,
-  phonenumber: "",
-  vattinumber: "",
-
-  item: "",
-  qty: "",
-  unitprice: "",
-  amount: "",
-  subtital: "",
-  discount: "",
-  vat: "",
-  totalprice: "",
-});
 const loading = ref(true);
 setTimeout(() => {
   loading.value = false;
@@ -172,29 +162,59 @@ const nameeng = ref("Y.S.C YORKSAN STAR (CAMBODIA) CO.,LTD");
 const add = ref(
   "Robert Robertson, 1234 NW Bobcat Lane, St. Robert, MO 65584-5678"
 );
-const data = [
-  {
-    itemname: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    qty: "5",
-    unitprice: "5000",
-    amount: "25000",
-  },
-  {
-    itemname: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    qty: "1",
-    unitprice: "500",
-    amount: "500",
-  },
-  {
-    itemname: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    qty: "5",
-    unitprice: "100",
-    amount: "500",
-  },
-];
-setTimeout(() => {
-  window.print();
-}, 1000);
+const phonenumber = ref();
+const vattin = ref();
+const subtotal = ref();
+const vatper = ref();
+const vatprice = ref();
+const total = ref();
+// const data = [
+//   {
+//     itemname: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+//     qty: "5",
+//     unitprice: "5000",
+//     amount: "25000",
+//   },
+//   {
+//     itemname: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+//     qty: "1",
+//     unitprice: "500",
+//     amount: "500",
+//   },
+//   {
+//     itemname: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+//     qty: "5",
+//     unitprice: "100",
+//     amount: "500",
+//   },
+// ];
+const data = ref([]);
+async function getInvoice() {
+  try {
+    const response = await getInvoiceById(id.value);
+    console.log(response);
+    add.value = response.data.client.address;
+    namekh.value = response.data.client.khmerName;
+    nameeng.value = response.data.client.engName;
+    invno.value = response.data.invoiceCode;
+    phonenumber.value = response.data.client.phone;
+    vattin.value = response.data.client.vattin;
+    data.value = response.data.invoiceDetails;
+    subtotal.value = response.data.subTotal;
+    vatper.value = response.data.vatPer;
+    vatprice.value = response.data.vatPrice;
+    total.value = response.data.total;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+onMounted(() => {
+  getInvoice();
+  setTimeout(() => {
+    window.print();
+  }, 1000);
+});
 </script>
 <style scoped>
 @page {
@@ -210,5 +230,8 @@ setTimeout(() => {
 }
 th {
   text-align: center;
+}
+.footer {
+  border: 1px black solid;
 }
 </style>

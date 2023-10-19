@@ -14,7 +14,6 @@
                 :data="tableData"
                 stripe
                 style="width: 1chrom00%"
-                height="700"
                 v-loading="loading"
               >
                 <el-table-column label="ID">
@@ -28,7 +27,7 @@
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{
-                        scope.row.name
+                        scope.row.invoiceName
                       }}</span>
                     </div>
                   </template>
@@ -38,7 +37,7 @@
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{
-                        scope.row.date
+                        scope.row.invoiceDate
                       }}</span>
                     </div>
                   </template>
@@ -52,11 +51,11 @@
                       width="auto"
                     >
                       <template #default>
-                        <div>Invoice: {{ scope.row.invoiceNo }}</div>
+                        <div>Invoice: {{ scope.row.invoiceCode }}</div>
                       </template>
                       <template #reference>
                         <el-tag type="success">{{
-                          scope.row.invoiceNo
+                          scope.row.invoiceCode
                         }}</el-tag>
                       </template>
                     </el-popover>
@@ -74,43 +73,51 @@
                   </template>
                 </el-table-column>
               </el-table>
+              <div class="mt-3">
+                <el-button type="success" @click="dialogVisible = true"
+                  >Create</el-button
+                >
+              </div>
             </div>
           </div>
         </div>
       </template>
     </Sidebar>
   </div>
+
+  <!-- dialog -->
+
+  <el-dialog v-model="dialogVisible" title="Create New Invoice" width="60%">
+    <CreateInvoice></CreateInvoice>
+  </el-dialog>
 </template>
 <script setup>
 import Sidebar from "../../components/Sidebar.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import VueCookies from "vue-cookies";
+import CreateInvoice from "../../components/CreateInvoice.vue";
+import { getAllInvoice } from "../../api/Service";
 const router = useRouter();
 const loading = ref(true);
+const dialogVisible = ref(false);
 setTimeout(() => {
   loading.value = false;
 }, 300);
-const tableData = [
-  {
-    id: 1,
-    name: "customer1",
-    date: "23/12/2022",
-    invoiceNo: "PPTI20230224",
-  },
-  {
-    id: 2,
-    name: "customer2",
-    date: "23/12/2022",
-    invoiceNo: "PPTI20230225",
-  },
-  {
-    id: 3,
-    name: "customer3",
-    date: "23/12/2022",
-    invoiceNo: "PPTI20230226",
-  },
-];
+const tableData = ref();
+
+async function allInvoice() {
+  try {
+    const res = await getAllInvoice();
+    tableData.value = res.data;
+  } catch (e) {
+    console.log(e);
+  }
+}
+onMounted(() => {
+  allInvoice();
+});
+
 function printInvoice(id) {
   VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
   const routeUrl = router.resolve({ name: "invoice", params: { id } }).href;

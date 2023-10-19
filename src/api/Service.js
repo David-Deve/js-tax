@@ -135,3 +135,61 @@ export async function getClient() {
     throw new Error("Error fetching data");
   }
 }
+
+export async function getAllInvoice() {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.get("/invoice/all", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
+export async function getInvoiceById(id) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.get(`/invoice/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
+export async function createInvoice(
+  invoiceName,
+  invoiceDate,
+  vatPer,
+  rateKh,
+  client,
+  invoiceDetailsPayloads
+) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.post(
+      "/invoice/",
+      {
+        invoiceName,
+        invoiceDate,
+        vatPer,
+        rateKh,
+        client,
+        invoiceDetailsPayloads,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
