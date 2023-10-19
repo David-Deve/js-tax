@@ -154,14 +154,12 @@ setTimeout(() => {
 }, 300);
 const title = ref("វិក្កយបត្រអាករ");
 const titleeng = ref("Tax Invoice");
-const invno = ref("PPTI20230224");
-const date = ref("4-Sep-2023");
+const invno = ref();
+const date = ref();
 const customer = ref("អតិថិជន / Customer");
-const namekh = ref("វ៉ាយ អេស សុី យ៉ក់សាន់​ ស្តារ (ខេមបូឌា)");
-const nameeng = ref("Y.S.C YORKSAN STAR (CAMBODIA) CO.,LTD");
-const add = ref(
-  "Robert Robertson, 1234 NW Bobcat Lane, St. Robert, MO 65584-5678"
-);
+const namekh = ref();
+const nameeng = ref();
+const add = ref();
 const phonenumber = ref();
 const vattin = ref();
 const subtotal = ref();
@@ -204,6 +202,7 @@ async function getInvoice() {
     vatper.value = response.data.vatPer;
     vatprice.value = response.data.vatPrice;
     total.value = response.data.total;
+    date.value = response.data.invoiceDate;
   } catch (e) {
     console.log(e);
   }
