@@ -166,26 +166,6 @@ const subtotal = ref();
 const vatper = ref();
 const vatprice = ref();
 const total = ref();
-// const data = [
-//   {
-//     itemname: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-//     qty: "5",
-//     unitprice: "5000",
-//     amount: "25000",
-//   },
-//   {
-//     itemname: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-//     qty: "1",
-//     unitprice: "500",
-//     amount: "500",
-//   },
-//   {
-//     itemname: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-//     qty: "5",
-//     unitprice: "100",
-//     amount: "500",
-//   },
-// ];
 const data = ref([]);
 async function getInvoice() {
   try {
