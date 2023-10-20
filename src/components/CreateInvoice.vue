@@ -101,6 +101,7 @@ import { ref, onMounted } from "vue";
 import { createInvoice } from "../api/Service";
 import { ElNotification } from "element-plus";
 import { getClient } from "../api/Service";
+
 const form = ref({
   invoiceName: "",
   invoiceDate: "",
@@ -147,13 +148,17 @@ async function submitForm() {
       form.value.client,
       form.value.invoiceDetailsPayloads
     );
-    console.log(res);
-    ElNotification({
-      title: "Success",
-      duration: 2000,
-      message: "Create Success",
-      type: "success",
-    });
+    if (res) {
+      ElNotification({
+        title: "Success",
+        duration: 2000,
+        message: "Create Success",
+        type: "success",
+      });
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
+    }
   } catch (e) {
     ElNotification({
       title: "Erorr",

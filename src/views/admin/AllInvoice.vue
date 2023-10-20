@@ -23,7 +23,7 @@
                     </div>
                   </template>
                 </el-table-column>
-                <el-table-column label="CustomerName">
+                <el-table-column label="InvoiceName">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{
@@ -33,7 +33,7 @@
                   </template>
                 </el-table-column>
 
-                <el-table-column label="Create Date">
+                <el-table-column label="Invoice Date">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{
