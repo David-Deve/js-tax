@@ -193,3 +193,51 @@ export async function createInvoice(
     throw new Error("Error fetching data");
   }
 }
+export async function getAllTax() {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.get("/tax/all", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
+export async function createTax(
+  name,
+  dateNote,
+  noteType,
+  rateToRiel,
+  total,
+  invoiceId,
+  clientId,
+  detailsPayloads
+) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.post(
+      "/tax/",
+      {
+        name,
+        dateNote,
+        noteType,
+        rateToRiel,
+        total,
+        invoiceId,
+        clientId,
+        detailsPayloads,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}

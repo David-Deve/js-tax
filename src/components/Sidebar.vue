@@ -82,6 +82,17 @@
         </ul>
       </li>
       <li>
+        <router-link to="/alltax">
+          <i class="bx bxs-dollar-circle"></i>
+          <span class="link_name">Tax</span>
+        </router-link>
+        <ul class="sub-menu blank">
+          <li>
+            <router-link class="link_name" to="/alltax">Tax</router-link>
+          </li>
+        </ul>
+      </li>
+      <li>
         <router-link to="/allinvoice">
           <i class="bx bxs-file-export"></i>
           <span class="link_name">Invoice</span>

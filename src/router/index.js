@@ -23,6 +23,7 @@ import CreateClient from "../views/admin/CreateClientView.vue";
 import ClientView from "../views/admin/ClientView.vue";
 import InvoiceView from "../views/admin/InvoiceView.vue";
 import AllInvoiceView from "../views/admin/AllInvoice.vue";
+import AllTaxView from "../views/admin/AllTaxView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -137,6 +138,12 @@ const router = createRouter({
       path: "/allinvoice",
       name: "allinvoicev",
       component: AllInvoiceView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/alltax",
+      name: "alltax",
+      component: AllTaxView,
       meta: { requiresAuth: true },
     },
   ],

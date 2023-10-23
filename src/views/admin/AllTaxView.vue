@@ -1,0 +1,124 @@
+<template>
+  <div>
+    <Sidebar>
+      <template v-slot:Content>
+        <div
+          class="container-xxl"
+          v-loading="loading"
+          element-loading-background="#f3f3f35d"
+        >
+          <div class="row">
+            <div class="col-md-12 mb-5">
+              <h2>All TAX</h2>
+              <el-table
+                :data="tableData"
+                stripe
+                style="width: 1chrom00%"
+                v-loading="loading"
+              >
+                <el-table-column label="ID">
+                  <template #default="scope">
+                    <div style="display: flex; align-items: center">
+                      <span style="margin-left: 10px">{{ scope.row.id }}</span>
+                    </div>
+                  </template>
+                </el-table-column>
+                <el-table-column label="InvoiceName">
+                  <template #default="scope">
+                    <div style="display: flex; align-items: center">
+                      <span style="margin-left: 10px">{{
+                        scope.row.name
+                      }}</span>
+                    </div>
+                  </template>
+                </el-table-column>
+
+                <el-table-column label="Invoice Date">
+                  <template #default="scope">
+                    <div style="display: flex; align-items: center">
+                      <span style="margin-left: 10px">{{
+                        scope.row.dateNote
+                      }}</span>
+                    </div>
+                  </template>
+                </el-table-column>
+                <el-table-column label="invoiceNo">
+                  <template #default="scope">
+                    <el-popover
+                      effect="light"
+                      trigger="hover"
+                      placement="top"
+                      width="auto"
+                    >
+                      <template #default>
+                        <div>Invoice: {{ scope.row.noteType }}</div>
+                      </template>
+                      <template #reference>
+                        <el-tag type="success">{{ scope.row.noteType }}</el-tag>
+                      </template>
+                    </el-popover>
+                  </template>
+                </el-table-column>
+                <el-table-column label="Operations">
+                  <template #default="scope">
+                    <el-button size="small" type="danger">Edit </el-button>
+                    <el-button
+                      @click="printInvoice(scope.row.id)"
+                      size="small"
+                      type="primary"
+                      >Print</el-button
+                    >
+                  </template>
+                </el-table-column>
+              </el-table>
+              <div class="mt-3">
+                <el-button type="success" @click="dialogVisible = true"
+                  >Create</el-button
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </Sidebar>
+  </div>
+
+  <!-- dialog -->
+
+  <el-dialog v-model="dialogVisible" title="Create New Tax" width="60%">
+    <CreateTax></CreateTax>
+  </el-dialog>
+</template>
+<script setup>
+import Sidebar from "../../components/Sidebar.vue";
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import VueCookies from "vue-cookies";
+import CreateTax from "../../components/CreateTax.vue";
+import { getAllTax } from "../../api/Service";
+const router = useRouter();
+const loading = ref(true);
+const dialogVisible = ref(false);
+setTimeout(() => {
+  loading.value = false;
+}, 300);
+const tableData = ref();
+
+async function allTax() {
+  try {
+    const res = await getAllTax();
+    tableData.value = res.data;
+  } catch (e) {
+    console.log(e);
+  }
+}
+onMounted(() => {
+  allTax();
+});
+
+function printInvoice(id) {
+  VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
+  const routeUrl = router.resolve({ name: "invoice", params: { id } }).href;
+  window.open(routeUrl, "popup", "width=1000,height=1000  ");
+}
+</script>
