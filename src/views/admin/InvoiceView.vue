@@ -62,9 +62,9 @@
                 </th>
               </tr>
             </thead>
-            <tbody v-for="item in data" :key="item.id">
+            <tbody v-for="(item, index) in data" :key="item.id">
               <tr>
-                <td class="center">{{}}</td>
+                <td class="center">{{ index + 1 }}</td>
                 <td class="left">{{ item.invoiceDetailName }}</td>
                 <td class="left">{{ item.qty }}</td>
                 <td class="right">${{ item.unitPrice }}</td>

@@ -61,7 +61,7 @@
                 </el-table-column>
                 <el-table-column label="Operations">
                   <template #default="scope">
-                    <el-button size="small" type="danger">Edit </el-button>
+                    <!-- <el-button size="small" type="danger">Edit </el-button> -->
                     <el-button
                       @click="printInvoice(scope.row.id)"
                       size="small"
