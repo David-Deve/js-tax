@@ -3,66 +3,79 @@
     <el-form-item label="Tax Name" prop="name">
       <el-input v-model="form.name"></el-input>
     </el-form-item>
-
-    <el-form-item label="Tax Date" prop="dateNote">
-      <el-date-picker
-        type="date"
-        placeholder="Select date and time"
-        style="width: 200px"
-        v-model="form.dateNote"
-      ></el-date-picker>
-    </el-form-item>
-
-    <el-form-item label="NoteType" prop="noteType">
-      <el-select v-model="form.noteType" filterable remote>
-        <el-option
-          v-for="item in type"
-          :key="item.id"
-          :label="item.value"
-          :value="item.value"
-        ></el-option>
-      </el-select>
-    </el-form-item>
-
-    <el-form-item label="Rate (Khmer Riel)" prop="rateKh">
-      <el-input
-        v-model="form.rateKh"
-        type="number"
-        clearable
-        style="width: 200px"
-      ></el-input>
-    </el-form-item>
-
-    <el-form-item label="Total" prop="total">
-      <el-input
-        v-model="form.total"
-        type="number"
-        clearable
-        style="width: 200px"
-      ></el-input>
-    </el-form-item>
-
-    <el-form-item label="Invoice" prop="invoiceId">
-      <el-select v-model="form.invoiceId" filterable remote>
-        <el-option
-          v-for="inv in invoice"
-          :key="inv.value"
-          :label="inv.invoiceCode"
-          :value="inv.id"
-        ></el-option>
-      </el-select>
-    </el-form-item>
-
-    <el-form-item label="Client" prop="clientId">
-      <el-select v-model="form.clientId" filterable remote>
-        <el-option
-          v-for="client in clients"
-          :key="client.value"
-          :label="client.engName"
-          :value="client.id"
-        ></el-option>
-      </el-select>
-    </el-form-item>
+    <div class="row">
+      <div class="col">
+        <el-form-item label="Tax Date" prop="dateNote">
+          <el-date-picker
+            type="date"
+            class="w-100"
+            placeholder="Select date and time"
+            style="width: 200px"
+            v-model="form.dateNote"
+          ></el-date-picker>
+        </el-form-item>
+      </div>
+      <div class="col">
+        <el-form-item label="NoteType" prop="noteType">
+          <el-select class="w-100" v-model="form.noteType" filterable remote>
+            <el-option
+              v-for="item in type"
+              :key="item.id"
+              :label="item.value"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+      </div>
+      <div class="col">
+        <el-form-item label="Rate (Khmer Riel)" prop="rateKh">
+          <el-input
+            v-model="form.rateToRiel"
+            class="w-100"
+            type="number"
+            clearable
+            style="width: 200px"
+          ></el-input>
+        </el-form-item>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <el-form-item label="Total" prop="total">
+          <el-input
+            class="w-100"
+            v-model="form.total"
+            type="number"
+            clearable
+            style="width: 200px"
+          ></el-input>
+        </el-form-item>
+      </div>
+      <div class="col">
+        <el-form-item label="Invoice" prop="invoiceId">
+          <el-select v-model="form.invoiceId" class="w-100" filterable remote>
+            <el-option
+              v-for="inv in invoice"
+              :key="inv.value"
+              :label="inv.invoiceCode"
+              :value="inv.id"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+      </div>
+      <div class="col">
+        <el-form-item label="Client" prop="clientId">
+          <el-select v-model="form.clientId" class="w-100" filterable remote>
+            <el-option
+              v-for="client in clients"
+              :key="client.value"
+              :label="client.engName"
+              :value="client.id"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+      </div>
+    </div>
 
     <el-form-item label="Invoice Item" prop="invoiceDetailsPayloads">
       <el-button type="success" @click="addItem">Add Item</el-button>
@@ -78,7 +91,7 @@
           </thead>
           <tbody>
             <tr v-for="(item, index) in form.detailsPayloads" :key="index">
-              <td>
+              <td class="me-4">
                 <el-input
                   v-model="item.name"
                   placeholder="Item Name"
@@ -127,8 +140,8 @@ const form = ref({
   name: "",
   dateNote: "",
   noteType: "",
-  rateToRiel: null,
-  total: null,
+  rateToRiel: "4100",
+  total: "",
   invoiceId: "",
   clientId: "",
   detailsPayloads: [

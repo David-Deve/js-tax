@@ -23,7 +23,7 @@
                     </div>
                   </template>
                 </el-table-column>
-                <el-table-column label="InvoiceName">
+                <el-table-column label="TaxName">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{
@@ -33,7 +33,7 @@
                   </template>
                 </el-table-column>
 
-                <el-table-column label="Invoice Date">
+                <el-table-column label="Tax Date">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{
@@ -42,7 +42,7 @@
                     </div>
                   </template>
                 </el-table-column>
-                <el-table-column label="invoiceNo">
+                <el-table-column label="TaxType">
                   <template #default="scope">
                     <el-popover
                       effect="light"
@@ -118,7 +118,7 @@ onMounted(() => {
 
 function printInvoice(id) {
   VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
-  const routeUrl = router.resolve({ name: "invoice", params: { id } }).href;
+  const routeUrl = router.resolve({ name: "taxinvoice", params: { id } }).href;
   window.open(routeUrl, "popup", "width=1000,height=1000  ");
 }
 </script>

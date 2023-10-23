@@ -241,3 +241,16 @@ export async function createTax(
     throw new Error("Error fetching data");
   }
 }
+export async function getTaxInvoiceById(id) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.get(`/tax/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
