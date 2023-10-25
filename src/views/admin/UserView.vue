@@ -86,6 +86,9 @@
                   </template>
                 </el-table-column>
               </el-table>
+              <el-button type="success" @click="handleCreateUser()" class="mt-2"
+                >Create</el-button
+              >
             </div>
           </div>
         </div>
@@ -98,9 +101,13 @@
   <el-dialog v-model="dialogFormUpdate">
     <UpdateUser :id="id" @cancelUpdate="dialogFormUpdate = false"></UpdateUser>
   </el-dialog>
+  <el-dialog v-model="dialogFromCreate">
+    <CreateUser></CreateUser>
+  </el-dialog>
 </template>
 <script setup>
 import Sidebar from "../../components/Sidebar.vue";
+import CreateUser from "../../components/CreateUser.vue";
 import { getAllUser } from "../../api/Service";
 import { ref, onMounted } from "vue";
 import dayjs from "dayjs";
@@ -109,6 +116,7 @@ import UpdateUser from "../../components/UpdateUser.vue";
 const tableData = ref([]);
 const dialogFormDelete = ref(false);
 const dialogFormUpdate = ref(false);
+const dialogFromCreate = ref(false);
 const id = ref("");
 const loading = ref(true);
 setTimeout(() => {
@@ -137,6 +145,9 @@ function handleGetIdUpdate(row) {
   dialogFormUpdate.value = true;
   console.log(row);
   id.value = row;
+}
+function handleCreateUser() {
+  dialogFromCreate.value = true;
 }
 
 onMounted(() => {

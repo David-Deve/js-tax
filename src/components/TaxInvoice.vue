@@ -14,7 +14,7 @@
     </div>
     <br /><br /><br />
     <br /><br /><br />
-    <div class="table-responsive-sm">
+    <div class="table-responsive-sm border p-1">
       <table class="table table-bordered">
         <thead>
           <tr>

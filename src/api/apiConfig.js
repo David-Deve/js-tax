@@ -6,26 +6,26 @@ const instanct = axios.create({
   baseURL,
 });
 
-instanct.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    if (error.response.status === 401) {
-      VueCookies.remove("jstoken");
-      ElNotification({
-        title: "warning",
-        duration: 2000,
-        message:
-          "Seen like someone has been logged your account, please log in again",
-        type: "warning",
-      });
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
-    }
-    return Promise.reject(error);
-  }
-);
+// instanct.interceptors.response.use(
+//   (response) => {
+//     return response;
+//   },
+//   (error) => {
+//     if (error.response.status === 401) {
+//       VueCookies.remove("jstoken");
+//       ElNotification({
+//         title: "warning",
+//         duration: 2000,
+//         message:
+//           "Seen like someone has been logged your account, please log in again",
+//         type: "warning",
+//       });
+//       setTimeout(() => {
+//         window.location.reload();
+//       }, 3000);
+//     }
+//     return Promise.reject(error);
+//   }
+// );
 
 export default instanct;

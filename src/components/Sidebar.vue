@@ -23,7 +23,7 @@
           </li>
         </ul>
       </li>
-      <li>
+      <!-- <li>
         <div class="iocn-link">
           <router-link to="#">
             <i class="bx bx-user"></i>
@@ -35,6 +35,17 @@
           <li><router-link class="link_name" to="#">User</router-link></li>
           <li><router-link to="/user">All User</router-link></li>
           <li><router-link to="/createuser">Create User</router-link></li>
+        </ul>
+      </li> -->
+      <li>
+        <router-link to="/user">
+          <i class="bx bx-user"></i>
+          <span class="link_name">User</span>
+        </router-link>
+        <ul class="sub-menu blank">
+          <li>
+            <router-link class="link_name" to="/user">User</router-link>
+          </li>
         </ul>
       </li>
       <li>

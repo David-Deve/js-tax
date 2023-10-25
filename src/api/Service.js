@@ -48,7 +48,7 @@ export async function createUser(
   const token = VueCookies.get("jstoken");
   try {
     const response = await apiConfig.post(
-      "/addUser",
+      "/auth/addUser",
       {
         firstname,
         lastname,
@@ -69,8 +69,81 @@ export async function createUser(
     throw new Error("Error fetching data");
   }
 }
-//Authentication
+export async function updateUser(
+  id,
+  idCard,
+  position,
+  joinDate,
+  gender,
+  dateOfBirth,
+  address,
+  homeNo,
+  streetNo,
+  companyName
+) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.put(
+      `/auth/${id}`,
+      {
+        idCard,
+        position,
+        joinDate,
+        gender,
+        dateOfBirth,
+        address,
+        homeNo,
+        streetNo,
+        companyName,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching Data");
+  }
+}
 
+export async function changeRoleUser(id, roles) {
+  const token = VueCookies.get("jstoken");
+  const params = new URLSearchParams({ roles });
+  try {
+    const response = await apiConfig.put(
+      `/auth/${id}/role?${params.toString()}`,
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching Data");
+  }
+}
+export async function changePasswordUser(id, password) {
+  const token = VueCookies.get("jstoken");
+  const params = new URLSearchParams({ password });
+  try {
+    const response = await apiConfig.put(
+      `/auth/${id}/change/?${params.toString()}`,
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching Data");
+  }
+}
 export async function UserConsultation(name, email, description) {
   try {
     const response = await apiConfig.post("/chat/", {

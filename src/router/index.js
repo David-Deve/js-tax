@@ -12,7 +12,6 @@ import VueCookies from "vue-cookies";
 //Admin Route
 import Dashboard from "../views/admin/DashboardView.vue";
 import User from "../views/admin/UserView.vue";
-import CreateUser from "../views/admin/CreateUserView.vue";
 import UpdateAboutView from "../views/admin/UpdateAboutView.vue";
 import UpdateHomeView from "../views/admin/UpdateHomeView.vue";
 import UpdateService1View from "../views/admin/UpdateService1View.vue";
@@ -73,12 +72,6 @@ const router = createRouter({
       path: "/user",
       name: "user",
       component: User,
-      meta: { requiresAuth: true },
-    },
-    {
-      path: "/createuser",
-      name: "createuser",
-      component: CreateUser,
       meta: { requiresAuth: true },
     },
     {
