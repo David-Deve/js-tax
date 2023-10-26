@@ -11,14 +11,14 @@
             <div class="col-md-12 mb-5">
               <h2>All User</h2>
               <el-table
-                :data="tableData"
+                :data="filterTableData"
                 stripe
                 style="width: 100%"
                 height="700"
                 v-loading="loading"
               >
                 <el-table-column type="index"> </el-table-column>
-                <el-table-column label="Name">
+                <el-table-column label="Username">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <i class="bx bx-user"></i>
@@ -28,17 +28,17 @@
                     </div>
                   </template>
                 </el-table-column>
-                <el-table-column label="Gender">
+                <el-table-column label="Email">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
-                      <div v-if="scope.row.gender == 'male'">
+                      <!-- <div v-if="scope.row.gender == 'male'">
                         <i class="bx bx-male"></i>
                       </div>
                       <div v-if="scope.row.gender == 'female'">
                         <i class="bx bx-female"></i>
-                      </div>
+                      </div> -->
                       <span style="margin-left: 10px">{{
-                        scope.row.gender
+                        scope.row.email
                       }}</span>
                     </div>
                   </template>
@@ -62,7 +62,7 @@
                       width="auto"
                     >
                       <template #default>
-                        <div>name: {{ scope.row.username }}</div>
+                        <div>name: {{ scope.row.firstname }}</div>
                       </template>
                       <template #reference>
                         <el-tag type="success">{{ scope.row.phone }}</el-tag>
@@ -70,7 +70,14 @@
                     </el-popover>
                   </template>
                 </el-table-column>
-                <el-table-column label="Operations">
+                <el-table-column>
+                  <template #header>
+                    <el-input
+                      v-model="search"
+                      size="small"
+                      placeholder="Type Name to search"
+                    />
+                  </template>
                   <template #default="scope">
                     <el-button
                       size="small"
@@ -106,10 +113,10 @@
   </el-dialog>
 </template>
 <script setup>
-import Sidebar from "../../components/Sidebar.vue";
-import CreateUser from "../../components/CreateUser.vue";
+import Sidebar from "@/components/Sidebar.vue";
+import CreateUser from "@/components/CreateUser.vue";
 import { getAllUser } from "../../api/Service";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import dayjs from "dayjs";
 import DeleteUser from "@/components/DeleteUser.vue";
 import UpdateUser from "../../components/UpdateUser.vue";
@@ -119,6 +126,7 @@ const dialogFormUpdate = ref(false);
 const dialogFromCreate = ref(false);
 const id = ref("");
 const loading = ref(true);
+const search = ref("");
 setTimeout(() => {
   loading.value = false;
 }, 300);
@@ -153,4 +161,11 @@ function handleCreateUser() {
 onMounted(() => {
   getUser();
 });
+const filterTableData = computed(() =>
+  tableData.value.filter(
+    (data) =>
+      !search.value ||
+      data.username.toLowerCase().includes(search.value.toLowerCase())
+  )
+);
 </script>

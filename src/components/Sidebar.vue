@@ -93,14 +93,19 @@
         </ul>
       </li>
       <li>
-        <router-link to="/alltax">
-          <i class="bx bxs-dollar-circle"></i>
-          <span class="link_name">Tax</span>
-        </router-link>
-        <ul class="sub-menu blank">
-          <li>
-            <router-link class="link_name" to="/alltax">Tax</router-link>
-          </li>
+        <div class="iocn-link">
+          <router-link to="#">
+            <i class="bx bxs-dollar-circle"></i>
+            <span class="link_name">Tax</span>
+          </router-link>
+          <i class="bx bxs-chevron-down arrow"></i>
+        </div>
+        <ul class="sub-menu">
+          <li><router-link to="/alltax">AllTax</router-link></li>
+          <li><router-link to="/credittax">CREDIT</router-link></li>
+          <li><router-link to="/debittax">DEBIT</router-link></li>
+          <li><router-link to="/reimburstax">REIMBURSEMENT</router-link></li>
+          <li><router-link to="/statementtax">STATEMENT</router-link></li>
         </ul>
       </li>
       <li>
@@ -132,7 +137,9 @@
           </div>
           <div class="name-job">
             <div class="profile_name">{{ getUserInfo.infoUser.username }}</div>
-            <div class="job">{{ getUserInfo.role }}</div>
+            <div class="job">
+              {{ getUserInfo.role }},{{ getUserInfo.infoUser.id }}
+            </div>
           </div>
           <a @click="deleteToken()"><i class="bx bx-log-out"></i></a>s
         </div>
@@ -150,7 +157,7 @@
 </template>
 <script setup>
 import { useAuthentication } from "../stores/Store";
-import { onMounted, computed, ref } from "vue";
+import { onMounted, ref } from "vue";
 import VueCookies from "vue-cookies";
 import { ElNotification } from "element-plus";
 import { useRouter } from "vue-router";

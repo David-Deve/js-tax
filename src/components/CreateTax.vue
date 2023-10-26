@@ -182,7 +182,6 @@ async function getAllClientInvoice() {
     const responseinv = await getAllInvoice();
     clients.value = responseclient.data;
     invoice.value = responseinv.data;
-    console.log(invoice.value);
   } catch (e) {
     console.log(e);
   }

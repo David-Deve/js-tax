@@ -144,6 +144,19 @@ export async function changePasswordUser(id, password) {
     throw new Error("Error fetching Data");
   }
 }
+export async function deleteUser(id) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.delete(`/auth/delete/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error deteleting");
+  }
+}
 export async function UserConsultation(name, email, description) {
   try {
     const response = await apiConfig.post("/chat/", {
@@ -325,5 +338,19 @@ export async function getTaxInvoiceById(id) {
     return response.data;
   } catch (error) {
     throw new Error("Error fetching data");
+  }
+}
+export async function getTaxByType(noteType) {
+  const token = VueCookies.get("jstoken");
+  const params = new URLSearchParams({ noteType });
+  try {
+    const response = await apiConfig.get(`/tax/status?${params.toString()}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching Data");
   }
 }

@@ -24,6 +24,10 @@ import InvoiceView from "../views/admin/InvoiceView.vue";
 import AllInvoiceView from "../views/admin/AllInvoice.vue";
 import AllTaxView from "../views/admin/AllTaxView.vue";
 import TaxInvoice from "../components/TaxInvoice.vue";
+import CreditTaxView from "../views/admin/CreditTaxView.vue";
+import DebitTaxView from "../views/admin/DebitTaxView.vue";
+import ReimbursTaxView from "../views/admin/ReimbursTaxView.vue";
+import StatementTaxView from "../views/admin/StatementTaxView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -144,6 +148,30 @@ const router = createRouter({
       path: "/alltax",
       name: "alltax",
       component: AllTaxView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/credittax",
+      name: "credittax",
+      component: CreditTaxView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/debittax",
+      name: "debittax",
+      component: DebitTaxView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/reimburstax",
+      name: "reimburstax",
+      component: ReimbursTaxView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/statementtax",
+      name: "statementtax",
+      component: StatementTaxView,
       meta: { requiresAuth: true },
     },
   ],

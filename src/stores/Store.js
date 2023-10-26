@@ -12,6 +12,7 @@ export const useAuthentication = defineStore("data", {
         const response = await getMe();
         this.infoUser = response;
         this.role = response.roles[0].name;
+        return this.infoUser;
       } catch (e) {
         console.error(e);
       }
