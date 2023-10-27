@@ -27,7 +27,7 @@ const carouselItems = [
 const isSmallScreen = ref(false);
 
 const carouselHeight = computed(() =>
-  isSmallScreen.value ? "150px" : "510px"
+  isSmallScreen.value ? "200px" : "510px"
 );
 
 const checkScreenSize = () => {
