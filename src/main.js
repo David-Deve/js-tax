@@ -13,8 +13,8 @@ import VueCookie from "vue-cookies";
 const app = createApp(App);
 loadMessage().then((messages) => {
   const i18n = createI18n({
-    locale: "en",
-    fallbackLocale: "en",
+    locale: "kh",
+    fallbackLocale: "kh",
     messages,
     legacy: false,
   });

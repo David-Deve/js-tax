@@ -20,6 +20,7 @@
             <div class="col-md-6 d-flex justify-content-center">
               <img
                 src="@\assets\picture\about1.png"
+                class="img-fluid"
                 alt=""
                 style="width: 100%; height: 100%"
               />
@@ -27,6 +28,7 @@
             <div class="col-md-6 d-flex justify-content-center">
               <img
                 src="@\assets\picture\about1.png"
+                class="img-fluid"
                 alt=""
                 style="width: 100%; height: 100%"
               />
