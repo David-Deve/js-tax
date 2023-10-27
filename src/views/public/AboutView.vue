@@ -19,16 +19,16 @@
           <div class="row">
             <div class="col-md-6 d-flex justify-content-center">
               <img
-                src="@\assets\picture\download1.jpeg"
+                src="@\assets\picture\about1.png"
                 alt=""
-                style="width: 100%; height: 100%; border: 1px solid black"
+                style="width: 100%; height: 100%"
               />
             </div>
             <div class="col-md-6 d-flex justify-content-center">
               <img
-                src="@\assets\picture\download1.jpeg"
+                src="@\assets\picture\about1.png"
                 alt=""
-                style="width: 100%; height: 100%; border: 1px solid black"
+                style="width: 100%; height: 100%"
               />
             </div>
           </div>

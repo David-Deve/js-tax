@@ -9,44 +9,52 @@
         >
           <div class="row">
             <div class="col-md-3">
-              <div class="card">
-                <div
-                  class="card-body d-flex flex-column align-items-center justify-content-center"
-                >
-                  <p class="text">Tax Service</p>
-                  <p class="number">6</p>
-                </div>
-              </div>
+              <router-link to="/user" class="btn-link"
+                ><div class="card">
+                  <div
+                    class="card-body d-flex flex-column align-items-center justify-content-center"
+                  >
+                    <p class="text">All User</p>
+                    <p class="number">6</p>
+                  </div>
+                </div></router-link
+              >
             </div>
             <div class="col-md-3">
-              <div class="card">
-                <div
-                  class="card-body d-flex flex-column align-items-center justify-content-center"
-                >
-                  <p class="text">Tax Service</p>
-                  <p class="number">6</p>
-                </div>
-              </div>
+              <router-link to="/client" class="btn-link"
+                ><div class="card">
+                  <div
+                    class="card-body d-flex flex-column align-items-center justify-content-center"
+                  >
+                    <p class="text">All Client</p>
+                    <p class="number">6</p>
+                  </div>
+                </div></router-link
+              >
             </div>
             <div class="col-md-3">
-              <div class="card">
-                <div
-                  class="card-body d-flex flex-column align-items-center justify-content-center"
-                >
-                  <p class="text">Tax Service</p>
-                  <p class="number">6</p>
-                </div>
-              </div>
+              <router-link to="/alltax" class="btn-link"
+                ><div class="card">
+                  <div
+                    class="card-body d-flex flex-column align-items-center justify-content-center"
+                  >
+                    <p class="text">All Tax Invoice</p>
+                    <p class="number">6</p>
+                  </div>
+                </div></router-link
+              >
             </div>
             <div class="col-md-3">
-              <div class="card">
-                <div
-                  class="card-body d-flex flex-column align-items-center justify-content-center"
-                >
-                  <p class="text">Tax Service</p>
-                  <p class="number">6</p>
-                </div>
-              </div>
+              <router-link to="/allinvoice" class="btn-link">
+                <div class="card">
+                  <div
+                    class="card-body d-flex flex-column align-items-center justify-content-center"
+                  >
+                    <p class="text">All Invoice</p>
+                    <p class="number">6</p>
+                  </div>
+                </div></router-link
+              >
             </div>
           </div>
           <br />
@@ -61,28 +69,36 @@
             </div>
             <div class="col-md-4">
               <div class="card mb-2">
-                <div class="card-body d-flex flex-column align-items-center">
-                  <p class="text-2">Tax Service</p>
-                  <p class="number-2">6</p>
-                </div>
+                <router-link to="/credittax" class="btn-link"
+                  ><div class="card-body d-flex flex-column align-items-center">
+                    <p class="text-2">Credit</p>
+                    <p class="number-2">6</p>
+                  </div></router-link
+                >
               </div>
               <div class="card mb-2">
-                <div class="card-body d-flex flex-column align-items-center">
-                  <p class="text-2">Tax Service</p>
-                  <p class="number-2">6</p>
-                </div>
+                <router-link to="/debittax" class="btn-link"
+                  ><div class="card-body d-flex flex-column align-items-center">
+                    <p class="text-2">Debit</p>
+                    <p class="number-2">6</p>
+                  </div></router-link
+                >
               </div>
               <div class="card mb-2">
-                <div class="card-body d-flex flex-column align-items-center">
-                  <p class="text-2">Tax Service</p>
-                  <p class="number-2">6</p>
-                </div>
+                <router-link to="/reimburstax" class="btn-link">
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <p class="text-2">REIMBURSEMENT</p>
+                    <p class="number-2">6</p>
+                  </div></router-link
+                >
               </div>
               <div class="card">
-                <div class="card-body d-flex flex-column align-items-center">
-                  <p class="text-2">Tax Service</p>
-                  <p class="number-2">6</p>
-                </div>
+                <router-link to="/statementtax" class="btn-link"
+                  ><div class="card-body d-flex flex-column align-items-center">
+                    <p class="text-2">Statement</p>
+                    <p class="number-2">6</p>
+                  </div></router-link
+                >
               </div>
             </div>
           </div>
@@ -178,5 +194,12 @@ onMounted(async () => {
 .number {
   font-weight: bold;
   font-size: 50px;
+}
+.btn-link {
+  text-decoration: none;
+  color: black;
+}
+.btn-link :hover {
+  color: rgb(75, 75, 75);
 }
 </style>
