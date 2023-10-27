@@ -14,7 +14,7 @@
 const carouselItems = [
   { imageSrc: "/assets/banner.png" },
   { imageSrc: "/assets/banner2.png" },
-  { imageSrc: "/assets/download.jpeg" },
+  { imageSrc: "/assets/banner3.png" },
   { imageSrc: "/assets/banner2.png" },
 ];
 </script>
