@@ -60,23 +60,24 @@
           <li><router-link class="link_name" to="#">Posts</router-link></li>
           <li><router-link to="/updatehomepage">Home</router-link></li>
           <li><router-link to="/updateaboutpage">About Us</router-link></li>
-          <li><router-link to="/updateservice1">Service1</router-link></li>
-          <li><router-link to="/updateservice2">Service2</router-link></li>
+          <li><router-link to="/updateservice1">Service(TAX)</router-link></li>
+          <li>
+            <router-link to="/updateservice2">Service(Accouting)</router-link>
+          </li>
           <li><router-link to="/updatecontact">Contact</router-link></li>
         </ul>
       </li>
       <li>
         <div class="iocn-link">
-          <router-link to="#">
+          <router-link to="/client">
             <i class="bx bx-buildings"></i>
             <span class="link_name">Client</span>
           </router-link>
-          <i class="bx bxs-chevron-down arrow"></i>
         </div>
-        <ul class="sub-menu">
-          <li><router-link class="link_name" to="#">Client</router-link></li>
-          <li><router-link to="/client">All Client</router-link></li>
-          <li><router-link to="/createclient">Create Client</router-link></li>
+        <ul class="sub-menu blank">
+          <li>
+            <router-link class="link_name" to="/client">Client</router-link>
+          </li>
         </ul>
       </li>
       <li>

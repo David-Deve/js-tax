@@ -12,115 +12,87 @@
           <div class="container mt-5 mb-3 form">
             <div class="mb-3">
               <label class="form-label">Khmer Paragraph 1</label>
-              <textarea
-                v-model="khpara1"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 100px"
-                class="form-control"
-                required
-              />
+              <p class="text">{{ khpara1 }}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">Khmer Paragraph 2</label>
-              <textarea
-                v-model="khpara2"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 100px"
-                class="form-control"
-                required
-              />
+              <p class="text">{{ khpara2 }}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">Khmer Paragraph 3</label>
-              <textarea
-                v-model="khpara3"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 100px"
-                class="form-control"
-                required
-              />
+              <p class="text">{{ khpara3 }}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">Khmer Paragraph 4</label>
-              <textarea
-                v-model="khpara4"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 100px"
-                class="form-control"
-                required
-              />
+              <p class="text">{{ khpara4 }}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">Khmer Paragraph 5</label>
-              <textarea
-                v-model="khpara5"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 100px"
-                class="form-control"
-                required
-              />
+              <p class="text">{{ khpara5 }}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">English Paragraph 1</label>
-              <textarea
-                v-model="engpara1"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 100px"
-                class="form-control"
-                required
-              />
+              <p class="text">{{ engpara1 }}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">English Paragraph 2</label>
-              <textarea
-                v-model="engpara2"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 100px"
-                class="form-control"
-                required
-              />
+              <p class="text">{{ engpara2 }}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">English Paragraph 3</label>
-              <textarea
-                v-model="engpara3"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 100px"
-                class="form-control"
-                required
-              />
+              <p class="text">{{ engpara3 }}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">English Paragraph 4</label>
-              <textarea
-                v-model="engpara4"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 100px"
-                class="form-control"
-                required
-              />
+              <p class="text">{{ engpara4 }}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">English Paragraph 5</label>
-              <textarea
-                v-model="engpara5"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 100px"
-                class="form-control"
-                required
-              />
+              <p class="text">{{ engpara5 }}</p>
             </div>
-            <button
-              @click="updateService1Paragrahp()"
-              class="btn btn-primary mt-3 mb-1"
+            <el-button
+              @click="dialogVisible = true"
+              class="mt-3 mb-1"
+              type="primary"
             >
               Update
-            </button>
+            </el-button>
           </div>
         </div>
       </template>
     </Sidebar>
   </div>
+  <el-dialog v-model="dialogVisible" title="Update Text HomePage" width="80%">
+    <span>Khmer text1</span>
+    <input class="form-control" type="text" v-model="khpara1" />
+    <span>Khmer text2</span>
+    <input class="form-control" type="text" v-model="khpara2" />
+    <span>Khmer text3</span>
+    <input class="form-control" type="text" v-model="khpara3" />
+    <span>Khmer text4</span>
+    <input class="form-control" type="text" v-model="khpara4" />
+    <span>Khmer Paragraph</span>
+    <textarea class="textarea form-control" type="text" v-model="khpara5" />
+    <br />
+    <span>English text1</span>
+    <input class="form-control" type="text" v-model="engpara1" />
+    <span>English text2</span>
+    <input class="form-control" type="text" v-model="engpara2" />
+    <span>English text3</span>
+    <input class="form-control" type="text" v-model="engpara3" />
+    <span>English text4</span>
+    <input class="form-control" type="text" v-model="engpara4" />
+    <span>English Paragraph</span>
+    <textarea class="textarea form-control" type="text" v-model="engpara5" />
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="updateService1Paragrahp()">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
@@ -130,6 +102,7 @@ import {
   getTextService1Page,
   updateTextService1Page,
 } from "../../api/PublicWebsiteService";
+const dialogVisible = ref(false);
 const loading = ref(true);
 const khpara1 = ref("");
 const engpara1 = ref("");
@@ -215,8 +188,12 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.form {
-  border: 1px solid black;
-  border-radius: 10px;
+.text {
+  border: 1px solid rgb(141, 141, 141);
+  border-radius: 5px;
+  padding: 10px;
+}
+.textarea {
+  height: 100px;
 }
 </style>

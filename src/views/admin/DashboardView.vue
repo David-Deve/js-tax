@@ -15,7 +15,7 @@
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
                     <p class="text">All User</p>
-                    <p class="number">6</p>
+                    <p class="number">{{ allusernumber }}</p>
                   </div>
                 </div></router-link
               >
@@ -112,13 +112,14 @@ import Sidebar from "@/components/Sidebar.vue";
 import { getAllUser } from "../../api/Service";
 import { onMounted, ref } from "vue";
 const loading = ref(true);
+const allusernumber = ref("");
 setTimeout(() => {
   loading.value = false;
 }, 300);
-function allUser() {
+async function allUser() {
   try {
-    const response = getAllUser();
-    console.log(response);
+    const response = await getAllUser();
+    allusernumber.value = response.data.length;
   } catch (e) {
     console.log(e);
   }

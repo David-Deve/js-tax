@@ -32,11 +32,50 @@
               ><span>{{ $t("navbar.about") }}</span></router-link
             >
           </li>
-          <li class="nav-item">
-            <router-link to="/service" class="nav-link"
+          <!-- <router-link to="/service" class="nav-link"
               ><span>{{ $t("navbar.service") }}</span></router-link
+            > -->
+          <!-- <a
+              class="btn nav-link"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
-          </li>
+              <span>{{ $t("navbar.service") }}</span>
+            </a> -->
+
+          <el-dropdown class="nav-item">
+            <a class="btn nav-link">
+              <span>{{ $t("navbar.service") }}</span>
+            </a>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item
+                  ><router-link to="/service1" class="menu-service">{{
+                    $t("service.taxservice")
+                  }}</router-link></el-dropdown-item
+                >
+                <el-dropdown-item
+                  ><router-link to="/service2" class="menu-service">{{
+                    $t("service.account")
+                  }}</router-link></el-dropdown-item
+                >
+                <el-dropdown-item
+                  ><router-link to="/contact" class="menu-service">{{
+                    $t("service.registeration")
+                  }}</router-link></el-dropdown-item
+                >
+                <el-dropdown-item
+                  ><a
+                    href="https://www.tax.gov.kh/km/categories/64qke344011330727"
+                    target="_blank"
+                    class="menu-service"
+                    >{{ $t("service.other") }}</a
+                  ></el-dropdown-item
+                >
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
           <li class="nav-item">
             <router-link to="/contact" class="nav-link"
               ><span>{{ $t("navbar.contact") }}</span></router-link
@@ -196,6 +235,7 @@ function changeLanguage(lang) {
 .nav-item {
   font-weight: bold;
   margin-left: 5px;
+  font-size: 16px;
 }
 .active {
   border: 1px solid rgb(9, 112, 182);
@@ -207,6 +247,10 @@ function changeLanguage(lang) {
   text-align: center;
   font-weight: bold;
   font-size: 25px;
+}
+.menu-service {
+  font-family: "Poppins";
+  text-decoration: none;
 }
 /* Add custom styles here */
 </style>

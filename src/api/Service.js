@@ -3,9 +3,10 @@ import VueCookies from "vue-cookies";
 
 //Authentication
 export async function getAllUser() {
+  const token = VueCookies.get("jstoken");
   try {
     const response = await apiConfig.get("/auth/all", {
-      headers: {},
+      headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
   } catch (error) {

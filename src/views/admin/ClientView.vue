@@ -14,7 +14,7 @@
                 :data="tableData"
                 stripe
                 style="width: 100%"
-                height="700"
+                height="500"
                 v-loading="loading"
               >
                 <el-table-column type="index"> </el-table-column>
@@ -103,10 +103,64 @@
               </el-table>
             </div>
           </div>
+          <el-button @click="dialogFormCreate = true" type="primary"
+            >Create</el-button
+          >
         </div>
       </template>
     </Sidebar>
   </div>
+  <!-- Dialog for create  -->
+  <el-dialog v-model="dialogFormCreate" title="Create">
+    <div
+      class="container-xxl"
+      v-loading="loading"
+      element-loading-background="#f3f3f35d"
+    >
+      <div class="container mt-5">
+        <el-form label-position="top">
+          <div class="mb-3">
+            <el-form-item label="KhmerName">
+              <el-input v-model="khname"></el-input>
+            </el-form-item>
+          </div>
+          <div class="mb-3">
+            <el-form-item label="EnglishName">
+              <el-input v-model="engname"></el-input>
+            </el-form-item>
+          </div>
+          <div class="mb-3">
+            <el-form-item label="Email">
+              <el-input v-model="email"></el-input>
+            </el-form-item>
+          </div>
+          <div class="mb-3">
+            <el-form-item label="Phone Number">
+              <el-input v-model="phone" type="number"></el-input>
+            </el-form-item>
+          </div>
+          <div class="mb-3">
+            <el-form-item label="Address">
+              <el-input v-model="address" type="text"></el-input>
+            </el-form-item>
+          </div>
+          <div class="mb-3">
+            <el-form-item label="Vattin">
+              <el-input v-model="vattin" type="text"></el-input>
+            </el-form-item>
+          </div>
+          <div class="mb-3">
+            <el-form-item label="CompanyName">
+              <el-input v-model="compname" type="text"></el-input>
+            </el-form-item>
+          </div>
+        </el-form>
+        <button @click="register()" class="btn btn-primary mt-3 mb-1">
+          Register
+        </button>
+      </div>
+    </div>
+  </el-dialog>
   <!-- Dialog for delete  -->
   <el-dialog v-model="dialogFormDelete" title="Delete">
     <p>Are you Sure ? You want delete User ID: {{ id }}</p>
@@ -211,12 +265,21 @@ import Sidebar from "../../components/Sidebar.vue";
 import { getClient } from "../../api/Service";
 import { ref, onMounted } from "vue";
 import dayjs from "dayjs";
-
+import { createClient } from "../../api/Service";
+import { ElNotification } from "element-plus";
 const tableData = ref([]);
+const dialogFormCreate = ref(false);
 const dialogFormDelete = ref(false);
 const dialogFormUpdate = ref(false);
 const id = ref("");
 const loading = ref(true);
+const khname = ref("");
+const engname = ref("");
+const email = ref("");
+const phone = ref("");
+const address = ref("");
+const vattin = ref("");
+const compname = ref("");
 setTimeout(() => {
   loading.value = false;
 }, 300);
@@ -232,6 +295,27 @@ async function getUser() {
     }, 1000);
   } catch (e) {
     console.log(e);
+  }
+}
+async function register() {
+  try {
+    await createClient(
+      khname.value,
+      engname.value,
+      email.value,
+      phone.value,
+      address.value,
+      vattin.value,
+      compname.value
+    );
+    ElNotification({
+      title: "Success",
+      duration: 2000,
+      message: "Create Client Success",
+      type: "success",
+    });
+  } catch (e) {
+    console.warn(e);
   }
 }
 function handleGetIdDelete(row) {

@@ -11,35 +11,41 @@
           <div class="container mt-5 form">
             <div class="mb-3">
               <label class="form-label">Khmer Paragraph</label>
-              <textarea
-                v-model="khpara"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 200px"
-                class="form-control"
-                required
-              />
+
+              <p class="text">{{ khpara }}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">English Paragraph</label>
-              <textarea
-                v-model="engpara"
-                type="text"
-                style="background-color: rgb(236, 236, 236); height: 200px"
-                class="form-control"
-                required
-              />
+              <p class="text">{{ engpara }}</p>
             </div>
-            <button
-              @click="updateHomeParagrahp()"
-              class="btn btn-primary mt-3 mb-1"
+            <el-button
+              @click="dialogVisible = true"
+              class="mt-3 mb-1"
+              type="primary"
             >
               Update
-            </button>
+            </el-button>
           </div>
         </div>
       </template>
     </Sidebar>
   </div>
+
+  <el-dialog v-model="dialogVisible" title="Update Text HomePage" width="80%">
+    <span>Khmer text</span>
+    <textarea class="textarea form-control" type="text" v-model="khpara" />
+    <br />
+    <span>English text</span>
+    <textarea class="textarea form-control" type="text" v-model="engpara" />
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="updateHomeParagrahp()">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
@@ -49,6 +55,7 @@ import {
   getTextHomePage,
   updateTextHomePage,
 } from "../../api/PublicWebsiteService";
+const dialogVisible = ref(false);
 const loading = ref(true);
 const khpara = ref("");
 const engpara = ref("");
@@ -98,8 +105,12 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.form {
-  border: 1px solid black;
-  border-radius: 10px;
+.text {
+  border: 1px solid rgb(141, 141, 141);
+  border-radius: 5px;
+  padding: 10px;
+}
+.textarea {
+  height: 200px;
 }
 </style>
