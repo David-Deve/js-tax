@@ -126,9 +126,6 @@ const getcredit = ref("");
 const getDebit = ref("");
 const getReimbes = ref("");
 const getStatement = ref("");
-setTimeout(() => {
-  loading.value = false;
-}, 1000);
 async function getData() {
   try {
     const user = await getAllUser();
@@ -147,6 +144,9 @@ async function getData() {
     getDebit.value = debit.data.length;
     getReimbes.value = reimbes.data.length;
     getStatement.value = statement.data.length;
+    setTimeout(() => {
+      loading.value = false;
+    }, 1000);
   } catch (e) {
     console.log(e);
   }
