@@ -27,7 +27,7 @@
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
                     <p class="text">All Client</p>
-                    <p class="number">6</p>
+                    <p class="number">{{ getAllClient }}</p>
                   </div>
                 </div></router-link
               >
@@ -39,7 +39,7 @@
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
                     <p class="text">All Tax Invoice</p>
-                    <p class="number">6</p>
+                    <p class="number">{{ getTax }}</p>
                   </div>
                 </div></router-link
               >
@@ -51,7 +51,7 @@
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
                     <p class="text">All Invoice</p>
-                    <p class="number">6</p>
+                    <p class="number">{{ getInvoice }}</p>
                   </div>
                 </div></router-link
               >
@@ -72,7 +72,7 @@
                 <router-link to="/credittax" class="btn-link"
                   ><div class="card-body d-flex flex-column align-items-center">
                     <p class="text-2">Credit</p>
-                    <p class="number-2">6</p>
+                    <p class="number-2">{{ getcredit }}</p>
                   </div></router-link
                 >
               </div>
@@ -80,7 +80,7 @@
                 <router-link to="/debittax" class="btn-link"
                   ><div class="card-body d-flex flex-column align-items-center">
                     <p class="text-2">Debit</p>
-                    <p class="number-2">6</p>
+                    <p class="number-2">{{ getDebit }}</p>
                   </div></router-link
                 >
               </div>
@@ -88,7 +88,7 @@
                 <router-link to="/reimburstax" class="btn-link">
                   <div class="card-body d-flex flex-column align-items-center">
                     <p class="text-2">REIMBURSEMENT</p>
-                    <p class="number-2">6</p>
+                    <p class="number-2">{{ getReimbes }}</p>
                   </div></router-link
                 >
               </div>
@@ -96,7 +96,7 @@
                 <router-link to="/statementtax" class="btn-link"
                   ><div class="card-body d-flex flex-column align-items-center">
                     <p class="text-2">Statement</p>
-                    <p class="number-2">6</p>
+                    <p class="number-2">{{ getStatement }}</p>
                   </div></router-link
                 >
               </div>
@@ -109,23 +109,50 @@
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
-import { getAllUser } from "../../api/Service";
+import {
+  getAllUser,
+  getClient,
+  getAllInvoice,
+  getAllTax,
+  getTaxByType,
+} from "../../api/Service";
 import { onMounted, ref } from "vue";
 const loading = ref(true);
 const allusernumber = ref("");
+const getAllClient = ref("");
+const getInvoice = ref("");
+const getTax = ref("");
+const getcredit = ref("");
+const getDebit = ref("");
+const getReimbes = ref("");
+const getStatement = ref("");
 setTimeout(() => {
   loading.value = false;
-}, 300);
-async function allUser() {
+}, 1000);
+async function getData() {
   try {
-    const response = await getAllUser();
-    allusernumber.value = response.data.length;
+    const user = await getAllUser();
+    const client = await getClient();
+    const invoice = await getAllInvoice();
+    const tax = await getAllTax();
+    const credit = await getTaxByType("CREDIT");
+    const debit = await getTaxByType("DEBIT");
+    const reimbes = await getTaxByType("RE_IN");
+    const statement = await getTaxByType("STATEMENT");
+    allusernumber.value = user.data.length;
+    getAllClient.value = client.data.length;
+    getInvoice.value = invoice.data.length;
+    getTax.value = tax.data.length;
+    getcredit.value = credit.data.length;
+    getDebit.value = debit.data.length;
+    getReimbes.value = reimbes.data.length;
+    getStatement.value = statement.data.length;
   } catch (e) {
     console.log(e);
   }
 }
 onMounted(() => {
-  allUser();
+  getData();
 });
 const series = ref([
   {
