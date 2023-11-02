@@ -105,36 +105,14 @@
             </li>
           </div>
           <li class="nav-item">
-            <el-dropdown>
-              <button class="btn btn-danger">
-                {{ $t("navbar.lang") }}
-                <i class="bx bx-chevrons-down"></i>
-              </button>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item @click="changeLanguage('kh')">
-                    <div class="row align-items-center">
-                      <div class="col-md-6 d-flex justify-content-center">
-                        <img src="../assets/svg/km.svg" width="25" />
-                      </div>
-                      <div class="col-md-6 mt-3">
-                        <p style="font-weight: bold">KH</p>
-                      </div>
-                    </div>
-                  </el-dropdown-item>
-                  <el-dropdown-item @click="changeLanguage('en')">
-                    <div class="row align-items-center">
-                      <div class="col-md-6 d-flex justify-content-center">
-                        <img src="../assets/svg/en.svg" width="25" />
-                      </div>
-                      <div class="col-md-6 mt-3">
-                        <p style="font-weight: bold">EN</p>
-                      </div>
-                    </div>
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
+            <button class="btn" @click="changeLanguage">
+              <div v-if="checkLang">
+                <img src="../assets/svg/en.svg" width="25" />
+              </div>
+              <div v-else>
+                <img src="../assets/svg/km.svg" width="25" />
+              </div>
+            </button>
           </li>
         </ul>
       </div>
@@ -188,7 +166,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { login } from "../api/Service";
 import { ElNotification } from "element-plus";
 import { useRouter } from "vue-router";
@@ -226,8 +204,10 @@ async function postLogin() {
 function home() {
   router.push("/");
 }
-function changeLanguage(lang) {
-  locale.value = lang;
+
+const checkLang = computed(() => locale.value === "en");
+function changeLanguage() {
+  locale.value = checkLang.value ? "kh" : "en";
 }
 </script>
 

@@ -139,10 +139,10 @@
           <div class="name-job">
             <div class="profile_name">{{ getUserInfo.infoUser.username }}</div>
             <div class="job">
-              {{ getUserInfo.role }},{{ getUserInfo.infoUser.id }}
+              {{ getUserInfo.role }},ID:{{ getUserInfo.infoUser.id }}
             </div>
           </div>
-          <a @click="deleteToken()"><i class="bx bx-log-out"></i></a>s
+          <a @click="deleteToken()"><i class="bx bx-log-out"></i></a>
         </div>
       </li>
     </ul>

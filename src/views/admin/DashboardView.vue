@@ -146,7 +146,7 @@ async function getData() {
     getStatement.value = statement.data.length;
     setTimeout(() => {
       loading.value = false;
-    }, 1000);
+    }, 10);
   } catch (e) {
     console.log(e);
   }

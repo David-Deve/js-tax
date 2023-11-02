@@ -10,8 +10,8 @@ export const useAuthentication = defineStore("data", {
     async getinfoUser() {
       try {
         const response = await getMe();
-        this.infoUser = response;
-        this.role = response.roles[0].name;
+        this.infoUser = response.data;
+        this.role = response.data.roles[0].name;
         return this.infoUser;
       } catch (e) {
         console.error(e);
