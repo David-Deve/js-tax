@@ -94,7 +94,7 @@ export async function getTextContactPage() {
   }
 }
 
-export async function updateTextContactPage() {
+export async function updateTextContactPage(bodyPayloads) {
   const token = VueCookies.get("jstoken");
   try {
     const response = await apiConfig.put(

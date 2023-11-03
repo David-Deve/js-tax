@@ -92,12 +92,12 @@
                       @click="handleGetIdUpdate(scope.row.id)"
                       >Detail
                     </el-button>
-                    <el-button
+                    <!-- <el-button
                       size="small"
                       type="danger"
                       @click="handleGetIdDelete(scope.row.id)"
                       >Delete
-                    </el-button>
+                    </el-button> -->
                   </template>
                 </el-table-column>
               </el-table>

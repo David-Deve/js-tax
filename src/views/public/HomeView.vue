@@ -35,12 +35,17 @@
                     class="card"
                     style="background-color: rgba(240, 240, 240, 0.5)"
                   >
-                    <div
-                      class="card-body d-flex flex-column align-items-center justify-content-center"
+                    <router-link
+                      to="/service1"
+                      style="text-decoration: none; color: black"
                     >
-                      <img src="@\assets\picture\taxservice.png" alt="" />
-                      <p class="text">{{ $t("service.taxservice") }}</p>
-                    </div>
+                      <div
+                        class="card-body d-flex flex-column align-items-center justify-content-center"
+                      >
+                        <img src="@\assets\picture\taxservice.png" alt="" />
+                        <p class="text">{{ $t("service.taxservice") }}</p>
+                      </div>
+                    </router-link>
                   </div>
                 </div>
                 <div class="col-sm-6">
@@ -48,12 +53,17 @@
                     class="card"
                     style="background-color: rgba(240, 240, 240, 0.5)"
                   >
-                    <div
-                      class="card-body d-flex flex-column align-items-center justify-content-center"
+                    <router-link
+                      to="/service2"
+                      style="text-decoration: none; color: black"
                     >
-                      <img src="@\assets\picture\acc.png" alt="" />
-                      <p class="text">{{ $t("service.account") }}</p>
-                    </div>
+                      <div
+                        class="card-body d-flex flex-column align-items-center justify-content-center"
+                      >
+                        <img src="@\assets\picture\acc.png" alt="" />
+                        <p class="text">{{ $t("service.account") }}</p>
+                      </div>
+                    </router-link>
                   </div>
                 </div>
                 <div class="col-sm-6 mt-3">
@@ -61,12 +71,17 @@
                     class="card"
                     style="background-color: rgba(240, 240, 240, 0.5)"
                   >
-                    <div
-                      class="card-body d-flex flex-column align-items-center justify-content-center"
+                    <router-link
+                      to="/contact"
+                      style="text-decoration: none; color: black"
                     >
-                      <img src="@\assets\picture\register.png" alt="" />
-                      <p class="text">{{ $t("service.registeration") }}</p>
-                    </div>
+                      <div
+                        class="card-body d-flex flex-column align-items-center justify-content-center"
+                      >
+                        <img src="@\assets\picture\register.png" alt="" />
+                        <p class="text">{{ $t("service.registeration") }}</p>
+                      </div>
+                    </router-link>
                   </div>
                 </div>
                 <div class="col-sm-6 mt-3">
@@ -74,12 +89,18 @@
                     class="card"
                     style="background-color: rgba(240, 240, 240, 0.5)"
                   >
-                    <div
-                      class="card-body d-flex flex-column align-items-center justify-content-center"
+                    <a
+                      href="https://www.tax.gov.kh/km/categories/64qke344011330727"
+                      style="text-decoration: none; color: black"
+                      target="_blank"
                     >
-                      <img src="@\assets\picture\licence.png" alt="" />
-                      <p class="text">{{ $t("service.other") }}</p>
-                    </div>
+                      <div
+                        class="card-body d-flex flex-column align-items-center justify-content-center"
+                      >
+                        <img src="@\assets\picture\licence.png" alt="" />
+                        <p class="text">{{ $t("service.other") }}</p>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -61,7 +61,7 @@
                   >
                     <i class="bx bx-envelope icon"></i>
                     <p class="text">{{ $t("contact.email") }}</p>
-                    <p>Js.tx@gmail.com</p>
+                    <p>{{ $t("contact.email_address") }}</p>
                   </div>
                 </div>
               </div>
@@ -75,7 +75,7 @@
                   >
                     <i class="bx bxs-phone-call icon"></i>
                     <p class="text">{{ $t("contact.phone") }}</p>
-                    <p>012 32 44 85</p>
+                    <p>{{ $t("contact.phonenumber") }}</p>
                   </div>
                 </div>
               </div>

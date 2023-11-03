@@ -34,6 +34,9 @@ export async function login(username, password) {
     });
     return response.data;
   } catch (error) {
+    if (error.response.status === 401) {
+      console.log(error.response.data.message);
+    }
     throw new Error("Error fetching data");
   }
 }
