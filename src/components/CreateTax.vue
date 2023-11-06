@@ -135,7 +135,9 @@ import { ref, onMounted } from "vue";
 import { createTax } from "../api/Service";
 import { ElNotification } from "element-plus";
 import { getClient, getAllInvoice } from "../api/Service";
-
+const props = defineProps({
+  emit: Function,
+});
 const form = ref({
   name: "",
   dateNote: "",
@@ -171,11 +173,7 @@ const addItem = () => {
     amount: null,
   });
 };
-function limitInputValue() {
-  if (form.value.vatPer > 100) {
-    form.value.vatPer = 100;
-  }
-}
+
 async function getAllClientInvoice() {
   try {
     const responseclient = await getClient();
@@ -205,9 +203,7 @@ async function submitForm() {
         message: "Create Success",
         type: "success",
       });
-      setTimeout(() => {
-        location.reload();
-      }, 2000);
+      props.emit("emit");
     }
   } catch (e) {
     ElNotification({

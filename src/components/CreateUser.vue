@@ -70,6 +70,7 @@
 import { createUser } from "../api/Service";
 import { ref } from "vue";
 import { ElNotification } from "element-plus";
+const { emit } = defineProps(["emit"]);
 const loading = ref(true);
 setTimeout(() => {
   loading.value = false;
@@ -92,7 +93,7 @@ const role = [
 async function register() {
   try {
     // let rolesArray = Array.isArray(roles.value) ? roles.value : [roles.value]; is that code for item value is array
-    await createUser(
+    const res = await createUser(
       firstname.value,
       lastname.value,
       phone.value,
@@ -101,15 +102,14 @@ async function register() {
       gender.value,
       roles.value
     );
+    console.log(res);
     ElNotification({
       title: "Success",
       duration: 2000,
       message: "Create User Success",
       type: "success",
     });
-    setTimeout(() => {
-      location.reload();
-    }, 2000);
+    emit("userCreated");
   } catch (e) {
     console.warn(e);
   }

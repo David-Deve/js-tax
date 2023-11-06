@@ -226,21 +226,21 @@
             <img
               src="@\assets\picture\form.jpg"
               alt=""
-              style="max-width: 60%; max-height: 60%"
+              style="max-width: 80%; max-height: 80%"
             />
           </div>
           <div class="col-md-4 d-flex justify-content-evenly">
             <img
               src="@\assets\picture\form.jpg"
               alt=""
-              style="max-width: 60%; max-height: 60%"
+              style="max-width: 80%; max-height: 80%"
             />
           </div>
           <div class="col-md-4 d-flex justify-content-evenly">
             <img
               src="@\assets\picture\form.jpg"
               alt=""
-              style="max-width: 60%; max-height: 60%"
+              style="max-width: 80%; max-height: 80%"
             />
           </div>
         </div>

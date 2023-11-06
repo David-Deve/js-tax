@@ -103,13 +103,17 @@
     </Sidebar>
   </div>
   <el-dialog v-model="dialogFormDelete" title="Delete">
-    <DeleteUser :id="id" @cancelDelete="dialogFormDelete = false"></DeleteUser>
+    <DeleteUser
+      :id="id"
+      @cancelDelete="dialogFormDelete = false"
+      :emit="emit"
+    ></DeleteUser>
   </el-dialog>
   <el-dialog v-model="dialogFormUpdate">
     <UpdateUser :id="id" @cancelUpdate="dialogFormUpdate = false"></UpdateUser>
   </el-dialog>
   <el-dialog v-model="dialogFromCreate">
-    <CreateUser></CreateUser>
+    <CreateUser :emit="emit"></CreateUser>
   </el-dialog>
 </template>
 <script setup>
@@ -143,6 +147,11 @@ async function getUser() {
   } catch (e) {
     console.log(e);
   }
+}
+function emit() {
+  getUser();
+  dialogFromCreate.value = false;
+  dialogFormDelete.value = false;
 }
 function handleGetIdDelete(row) {
   dialogFormDelete.value = true;

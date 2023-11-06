@@ -94,7 +94,7 @@
   <!-- dialog -->
 
   <el-dialog v-model="dialogVisible" title="Create New Tax" width="60%">
-    <CreateTax></CreateTax>
+    <CreateTax :emit="emit"></CreateTax>
   </el-dialog>
 </template>
 <script setup>
@@ -120,6 +120,10 @@ async function allTax() {
   } catch (e) {
     console.log(e);
   }
+}
+function emit() {
+  allTax();
+  dialogVisible.value = false;
 }
 onMounted(() => {
   allTax();

@@ -10,7 +10,9 @@ import { deleteUser } from "../api/Service";
 import { ElNotification } from "element-plus";
 const props = defineProps({
   id: Number,
+  emit: Function,
 });
+
 const emits = defineEmits(["cancelDelete"]);
 const handleCancel = () => {
   emits("cancelDelete");
@@ -24,9 +26,7 @@ async function submitDelete() {
       message: "Delete User Success",
       type: "success",
     });
-    setTimeout(() => {
-      location.reload();
-    }, 1000);
+    props.emit("emit");
   } catch (e) {
     console.error(e);
     ElNotification({
