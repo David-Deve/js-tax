@@ -51,7 +51,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 mt-3">
+              <!-- <div class="col-sm-6 mt-3">
                 <div
                   class="card"
                   style="background-color: rgba(240, 240, 240, 0.5)"
@@ -64,7 +64,7 @@
                     <p>{{ $t("contact.email_address") }}</p>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="col-sm-6 mt-3 mb-3">
                 <div
                   class="card"
