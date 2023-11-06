@@ -77,7 +77,7 @@ export async function loadMessage() {
         locatime: "",
         time: "",
         para: "",
-        email_address: "",
+        email_address: "Js.tx@gmail.com",
         phonenumber: "",
       },
       other: {
@@ -170,7 +170,7 @@ export async function loadMessage() {
         our_office: "ការិយាល័យរបស់យើង",
         work_hour: "ម៉ោងធ្វើការ",
         email: "អ៊ីមែល",
-        email_address: "",
+        email_address: "Js.tx@gmail.com",
         phone: "លេខទូរស័ព្ទ",
         phonenumber: "",
         locatime: "",
@@ -248,13 +248,13 @@ export async function loadMessage() {
     messages.en.contact.para = contact.data.bodies[0].descriptionEn;
     messages.en.contact.locatime = contact.data.bodies[1].descriptionEn;
     messages.en.contact.time = contact.data.bodies[2].descriptionEn;
-    messages.en.contact.email_address = contact.data.bodies[3].descriptionEn;
+    // messages.en.contact.email_address = contact.data.bodies[3].descriptionEn;
     messages.en.contact.phonenumber = contact.data.bodies[4].descriptionEn;
 
     messages.kh.contact.para = contact.data.bodies[0].descriptionKh;
     messages.kh.contact.locatime = contact.data.bodies[1].descriptionKh;
     messages.kh.contact.time = contact.data.bodies[2].descriptionKh;
-    messages.kh.contact.email_address = contact.data.bodies[3].descriptionKh;
+    // messages.kh.contact.email_address = contact.data.bodies[3].descriptionKh;
     messages.kh.contact.phonenumber = contact.data.bodies[4].descriptionKh;
   } catch (e) {}
   return messages;
