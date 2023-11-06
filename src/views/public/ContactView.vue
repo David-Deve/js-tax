@@ -61,7 +61,7 @@
                   >
                     <i class="bx bx-envelope icon"></i>
                     <p class="text">{{ $t("contact.email") }}</p>
-                    <p>{{ $t("contact.email_address") }}</p>
+                    <p>JS-Tax@gmail.com</p>
                   </div>
                 </div>
               </div>
