@@ -13,8 +13,7 @@
       </div>
     </div>
     <br /><br /><br />
-    <br /><br /><br />
-    <div class="table-responsive-sm border p-1">
+    <div class="table-responsive-sm p-1">
       <table class="table table-bordered">
         <thead>
           <tr>

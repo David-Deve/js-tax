@@ -144,8 +144,8 @@ import { useAuthentication } from "../../stores/Store";
 import { onMounted, ref } from "vue";
 const dashboard = useAuthentication();
 const loading = ref(true);
+dashboard.getDashboard();
 setTimeout(() => {
-  dashboard.getDashboard();
   loading.value = false;
 }, 1000);
 

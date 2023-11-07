@@ -1,8 +1,9 @@
 <template>
   <el-table
     :data="filterTableData"
+    border
     stripe
-    height="500"
+    height="600"
     style="width: 100%"
     v-loading="loading"
   >

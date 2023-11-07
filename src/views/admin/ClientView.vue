@@ -11,10 +11,11 @@
             <div class="col-md-12 mb-5">
               <h2>All Client</h2>
               <el-table
+                border
                 :data="filterTableData"
                 stripe
                 style="width: 100%"
-                height="500"
+                height="600"
                 v-loading="loading"
               >
                 <el-table-column type="index"> </el-table-column>
@@ -218,7 +219,7 @@
   </el-dialog>
 </template>
 <script setup>
-import Sidebar from "../../components/Sidebar.vue";
+import Sidebar from "@/components/Sidebar.vue";
 import { getClient, getClientId, updateClient } from "../../api/Service";
 import { ref, onMounted, computed } from "vue";
 import dayjs from "dayjs";

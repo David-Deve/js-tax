@@ -11,9 +11,9 @@
       <div class="col-md-4 d-flex justify-content-center">
         <div>
           <p class="title mt-5">{{ $t("footer.quickline") }}</p>
-          <a class="link" href="/">Home</a><br />
-          <a class="link" href="/about">About</a><br />
-          <a class="link" href="/about">Service</a><br />
+          <router-link class="link" to="/">Home</router-link><br />
+          <router-link class="link" to="/about">About</router-link><br />
+          <router-link class="link" to="/contact">Contact</router-link><br />
         </div>
       </div>
       <div class="col-md-4 d-flex justify-content-center">

@@ -11,11 +11,12 @@
             <div class="col-md-12 mb-5">
               <h2>Consultation</h2>
               <el-table
+                border
                 :data="tableData"
                 stripe
                 v-loading="loading"
                 style="width: 100%"
-                height="700"
+                height="600"
               >
                 <el-table-column type="index"> </el-table-column>
                 <el-table-column label="Name">
@@ -65,7 +66,7 @@
   </div>
 </template>
 <script setup>
-import Sidebar from "../../components/Sidebar.vue";
+import Sidebar from "@/components/Sidebar.vue";
 import { onMounted, ref } from "vue";
 import { getConsultation } from "../../api/Service";
 import dayjs from "dayjs";

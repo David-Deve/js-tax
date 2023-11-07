@@ -7,6 +7,7 @@
             <div class="col-md-12 mb-5">
               <h2>All Invoice</h2>
               <el-table
+                border
                 :data="filterTableData"
                 stripe
                 height="600"
@@ -76,7 +77,6 @@
                   </template>
                 </el-table-column>
               </el-table>
-              <el-pagination layout="prev, pager, next" :total="pagination" />
               <div class="mt-3">
                 <el-button type="success" @click="dialogVisible = true"
                   >Create</el-button

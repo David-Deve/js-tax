@@ -149,8 +149,8 @@
   </div>
   <section class="home-section" :class="{ close: !isSidebarOpen }">
     <div class="home-content">
-      <i class="bx bx-menu" @click="toggleSidebar"></i>
-      <h3>Admin Panel</h3>
+      <!-- <i class="bx bx-menu" @click="toggleSidebar"></i> -->
+      <h3 class="ms-4">Admin Panel</h3>
     </div>
     <br /><br /><br />
     <slot name="Content"></slot>
@@ -166,9 +166,9 @@ const isSidebarOpen = ref(true);
 
 const getUserInfo = useAuthentication();
 getUserInfo.getinfoUser();
-const toggleSidebar = () => {
-  isSidebarOpen.value = !isSidebarOpen.value;
-};
+// const toggleSidebar = () => {
+//   isSidebarOpen.value = !isSidebarOpen.value;
+// };
 const router = useRouter();
 function deleteToken() {
   VueCookies.remove("jstoken");
@@ -188,11 +188,11 @@ onMounted(() => {
       arrowParent.classList.toggle("showMenu");
     });
   }
-  let sidebar = document.querySelector(".sidebar");
-  let sidebarBtn = document.querySelector(".bx-menu");
-  sidebarBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
-  });
+  // let sidebar = document.querySelector(".sidebar");
+  // let sidebarBtn = document.querySelector(".bx-menu");
+  // sidebarBtn.addEventListener("click", () => {
+  //   sidebar.classList.toggle("close");
+  // });
 });
 </script>
 <style scoped>

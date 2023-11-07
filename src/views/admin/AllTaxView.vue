@@ -11,9 +11,10 @@
             <div class="col-md-12 mb-5">
               <h2>All TAX</h2>
               <el-table
+                border
                 :data="filterTableData"
                 stripe
-                height="500"
+                height="600"
                 style="width: 100%"
                 v-loading="loading"
               >
@@ -98,7 +99,7 @@
   </el-dialog>
 </template>
 <script setup>
-import Sidebar from "../../components/Sidebar.vue";
+import Sidebar from "@/components/Sidebar.vue";
 import { ref, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 import VueCookies from "vue-cookies";
