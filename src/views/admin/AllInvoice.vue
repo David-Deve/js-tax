@@ -2,11 +2,7 @@
   <div>
     <Sidebar>
       <template v-slot:Content>
-        <div
-          class="container-xxl"
-          v-loading="loading"
-          element-loading-background="#f3f3f35d"
-        >
+        <div class="container-xxl" element-loading-background="#f3f3f35d">
           <div class="row">
             <div class="col-md-12 mb-5">
               <h2>All Invoice</h2>
@@ -80,6 +76,7 @@
                   </template>
                 </el-table-column>
               </el-table>
+              <el-pagination layout="prev, pager, next" :total="pagination" />
               <div class="mt-3">
                 <el-button type="success" @click="dialogVisible = true"
                   >Create</el-button
@@ -104,10 +101,12 @@ import { useRouter } from "vue-router";
 import VueCookies from "vue-cookies";
 import CreateInvoice from "../../components/CreateInvoice.vue";
 import { getAllInvoice } from "../../api/Service";
+
 const router = useRouter();
 const search = ref("");
 const loading = ref(true);
 const dialogVisible = ref(false);
+const pagination = ref("");
 setTimeout(() => {
   loading.value = false;
 }, 300);
@@ -117,6 +116,7 @@ async function allInvoice() {
   try {
     const res = await getAllInvoice();
     tableData.value = res.data;
+    pagination.value = tableData.value.length;
     console.log(tableData.value);
   } catch (e) {
     console.log(e);

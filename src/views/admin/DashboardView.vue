@@ -14,8 +14,15 @@
                   <div
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
-                    <p class="text">All User</p>
-                    <p class="number">{{ allusernumber }}</p>
+                    <div class="row">
+                      <div class="col">
+                        <i class="bx bx-user" style="font-size: 35px"></i>
+                      </div>
+                      <div class="col">
+                        <p class="text">User</p>
+                      </div>
+                    </div>
+                    <p class="number">{{ dashboard.allusernumber }}</p>
                   </div>
                 </div></router-link
               >
@@ -26,8 +33,15 @@
                   <div
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
-                    <p class="text">All Client</p>
-                    <p class="number">{{ getAllClient }}</p>
+                    <div class="row">
+                      <div class="col">
+                        <i class="bx bxs-briefcase" style="font-size: 35px"></i>
+                      </div>
+                      <div class="col">
+                        <p class="text">Client</p>
+                      </div>
+                    </div>
+                    <p class="number">{{ dashboard.getAllClient }}</p>
                   </div>
                 </div></router-link
               >
@@ -38,8 +52,18 @@
                   <div
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
-                    <p class="text">All Tax Invoice</p>
-                    <p class="number">{{ getTax }}</p>
+                    <div class="row">
+                      <div class="col">
+                        <i
+                          class="bx bxs-coin-stack"
+                          style="font-size: 35px"
+                        ></i>
+                      </div>
+                      <div class="col">
+                        <p class="text">Tax</p>
+                      </div>
+                    </div>
+                    <p class="number">{{ dashboard.getTax }}</p>
                   </div>
                 </div></router-link
               >
@@ -50,8 +74,15 @@
                   <div
                     class="card-body d-flex flex-column align-items-center justify-content-center"
                   >
-                    <p class="text">All Invoice</p>
-                    <p class="number">{{ getInvoice }}</p>
+                    <div class="row">
+                      <div class="col">
+                        <i class="bx bx-file" style="font-size: 35px"></i>
+                      </div>
+                      <div class="col">
+                        <p class="text">Invoice</p>
+                      </div>
+                    </div>
+                    <p class="number">{{ dashboard.getInvoice }}</p>
                   </div>
                 </div></router-link
               >
@@ -59,7 +90,7 @@
           </div>
           <br />
           <div class="row">
-            <div class="col-md-8">
+            <div class="col">
               <div class="card h-100">
                 <div class="card-body">
                   <h5 class="card-title">Reports <span>/Today</span></h5>
@@ -67,12 +98,12 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               <div class="card mb-2">
                 <router-link to="/credittax" class="btn-link"
                   ><div class="card-body d-flex flex-column align-items-center">
                     <p class="text-2">Credit</p>
-                    <p class="number-2">{{ getcredit }}</p>
+                    <p class="number-2">{{ dashboard.getcredit }}</p>
                   </div></router-link
                 >
               </div>
@@ -80,7 +111,7 @@
                 <router-link to="/debittax" class="btn-link"
                   ><div class="card-body d-flex flex-column align-items-center">
                     <p class="text-2">Debit</p>
-                    <p class="number-2">{{ getDebit }}</p>
+                    <p class="number-2">{{ dashboard.getDebit }}</p>
                   </div></router-link
                 >
               </div>
@@ -88,7 +119,7 @@
                 <router-link to="/reimburstax" class="btn-link">
                   <div class="card-body d-flex flex-column align-items-center">
                     <p class="text-2">REIMBURSEMENT</p>
-                    <p class="number-2">{{ getReimbes }}</p>
+                    <p class="number-2">{{ dashboard.getReimbes }}</p>
                   </div></router-link
                 >
               </div>
@@ -96,11 +127,11 @@
                 <router-link to="/statementtax" class="btn-link"
                   ><div class="card-body d-flex flex-column align-items-center">
                     <p class="text-2">Statement</p>
-                    <p class="number-2">{{ getStatement }}</p>
+                    <p class="number-2">{{ dashboard.getStatement }}</p>
                   </div></router-link
                 >
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </template>
@@ -109,62 +140,23 @@
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
-import {
-  getAllUser,
-  getClient,
-  getAllInvoice,
-  getAllTax,
-  getTaxByType,
-} from "../../api/Service";
+import { useAuthentication } from "../../stores/Store";
 import { onMounted, ref } from "vue";
+const dashboard = useAuthentication();
 const loading = ref(true);
-const allusernumber = ref("");
-const getAllClient = ref("");
-const getInvoice = ref("");
-const getTax = ref("");
-const getcredit = ref("");
-const getDebit = ref("");
-const getReimbes = ref("");
-const getStatement = ref("");
-async function getData() {
-  try {
-    const user = await getAllUser();
-    const client = await getClient();
-    const invoice = await getAllInvoice();
-    const tax = await getAllTax();
-    const credit = await getTaxByType("CREDIT");
-    const debit = await getTaxByType("DEBIT");
-    const reimbes = await getTaxByType("RE_IN");
-    const statement = await getTaxByType("STATEMENT");
-    allusernumber.value = user.data.length;
-    getAllClient.value = client.data.length;
-    getInvoice.value = invoice.data.length;
-    getTax.value = tax.data.length;
-    getcredit.value = credit.data.length;
-    getDebit.value = debit.data.length;
-    getReimbes.value = reimbes.data.length;
-    getStatement.value = statement.data.length;
-    setTimeout(() => {
-      loading.value = false;
-    }, 10);
-  } catch (e) {
-    console.log(e);
-  }
-}
-onMounted(() => {
-  getData();
-});
+dashboard.getDashboard().then((loading.value = false));
+
 const series = ref([
   {
-    name: "Sales",
+    name: "User",
     data: [55, 32, 45, 32, 32, 45, 55],
   },
   {
-    name: "Revenue",
+    name: "Client",
     data: [11, 32, 45, 32, 34, 52, 41],
   },
   {
-    name: "Customers",
+    name: "Invoice",
     data: [15, 11, 32, 18, 9, 24, 11],
   },
 ]);
