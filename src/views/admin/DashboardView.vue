@@ -144,7 +144,10 @@ import { useAuthentication } from "../../stores/Store";
 import { onMounted, ref } from "vue";
 const dashboard = useAuthentication();
 const loading = ref(true);
-dashboard.getDashboard().then((loading.value = false));
+setTimeout(() => {
+  dashboard.getDashboard();
+  loading.value = false;
+}, 1000);
 
 const series = ref([
   {

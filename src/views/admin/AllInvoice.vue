@@ -95,7 +95,7 @@
   </el-dialog>
 </template>
 <script setup>
-import Sidebar from "../../components/Sidebar.vue";
+import Sidebar from "@/components/Sidebar.vue";
 import { ref, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 import VueCookies from "vue-cookies";

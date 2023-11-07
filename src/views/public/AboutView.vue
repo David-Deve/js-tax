@@ -17,17 +17,9 @@
             {{ $t("about.text1") }}
           </p>
           <div class="row">
-            <div class="col-md-6 d-flex justify-content-center">
+            <div class="col justify-content-center">
               <img
-                src="@\assets\picture\about1.png"
-                class="img-fluid"
-                alt=""
-                style="width: 100%; height: 100%"
-              />
-            </div>
-            <div class="col-md-6 d-flex justify-content-center">
-              <img
-                src="@\assets\picture\about1.png"
+                src="/assets/aboutpage.png"
                 class="img-fluid"
                 alt=""
                 style="width: 100%; height: 100%"
