@@ -15,9 +15,9 @@
                 :tableData="tableData"
               ></TaxPage>
               <div class="mt-3">
-                <el-button type="success" @click="dialogVisible = true"
+                <!-- <el-button type="success" @click="dialogVisible = true"
                   >Create</el-button
-                >
+                > -->
               </div>
             </div>
           </div>

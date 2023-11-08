@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <!-- <div class="col">
         <el-form-item label="Total" prop="total">
           <el-input
             class="w-100"
@@ -50,7 +50,7 @@
             style="width: 200px"
           ></el-input>
         </el-form-item>
-      </div>
+      </div> -->
       <div class="col">
         <el-form-item label="Invoice" prop="invoiceId">
           <el-select v-model="form.invoiceId" class="w-100" filterable remote>
