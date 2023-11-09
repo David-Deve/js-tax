@@ -93,45 +93,11 @@
             <div class="col">
               <div class="card h-100">
                 <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
+                  <h5 class="card-title">Reports</h5>
                   <div id="reportsChart"></div>
                 </div>
               </div>
             </div>
-            <!-- <div class="col-md-4">
-              <div class="card mb-2">
-                <router-link to="/credittax" class="btn-link"
-                  ><div class="card-body d-flex flex-column align-items-center">
-                    <p class="text-2">Credit</p>
-                    <p class="number-2">{{ dashboard.getcredit }}</p>
-                  </div></router-link
-                >
-              </div>
-              <div class="card mb-2">
-                <router-link to="/debittax" class="btn-link"
-                  ><div class="card-body d-flex flex-column align-items-center">
-                    <p class="text-2">Debit</p>
-                    <p class="number-2">{{ dashboard.getDebit }}</p>
-                  </div></router-link
-                >
-              </div>
-              <div class="card mb-2">
-                <router-link to="/reimburstax" class="btn-link">
-                  <div class="card-body d-flex flex-column align-items-center">
-                    <p class="text-2">REIMBURSEMENT</p>
-                    <p class="number-2">{{ dashboard.getReimbes }}</p>
-                  </div></router-link
-                >
-              </div>
-              <div class="card">
-                <router-link to="/statementtax" class="btn-link"
-                  ><div class="card-body d-flex flex-column align-items-center">
-                    <p class="text-2">Statement</p>
-                    <p class="number-2">{{ dashboard.getStatement }}</p>
-                  </div></router-link
-                >
-              </div>
-            </div> -->
           </div>
         </div>
       </template>
@@ -142,27 +108,66 @@
 import Sidebar from "@/components/Sidebar.vue";
 import { useAuthentication } from "../../stores/Store";
 import { onMounted, ref } from "vue";
+import { dataGraph } from "../../api/Service";
+import dayjs from "dayjs";
 const dashboard = useAuthentication();
 const loading = ref(true);
 dashboard.getDashboard();
 setTimeout(() => {
   loading.value = false;
 }, 1000);
-
 const series = ref([
   {
     name: "User",
-    data: [55, 32, 45, 32, 32, 45, 55],
-  },
-  {
-    name: "Client",
-    data: [11, 32, 45, 32, 34, 52, 41],
+    data: [],
   },
   {
     name: "Invoice",
-    data: [15, 11, 32, 18, 9, 24, 11],
+    data: [],
+  },
+  {
+    name: "Client",
+    data: [],
   },
 ]);
+const fromdate = ref("2022-01-01");
+const date = dayjs();
+const currentdate = dayjs().add(1, "day").format("YYYY-MM-DD");
+const fourmonthago = date.subtract(4, "month").format("YYYY-MM-DD");
+const threemonthago = date.subtract(3, "month").format("YYYY-MM-DD");
+const twomonthago = date.subtract(2, "month").format("YYYY-MM-DD");
+const onemonthago = date.subtract(1, "month").format("YYYY-MM-DD");
+async function getdataGraph() {
+  try {
+    const res1 = await dataGraph(fromdate.value, currentdate);
+    const res2 = await dataGraph(fromdate.value, onemonthago);
+    const res3 = await dataGraph(fromdate.value, twomonthago);
+    const res4 = await dataGraph(fromdate.value, threemonthago);
+    const res5 = await dataGraph(fromdate.value, fourmonthago);
+    series.value[0].data.push(res1.data[0].data);
+    series.value[0].data.push(res2.data[0].data);
+    series.value[0].data.push(res3.data[0].data);
+    series.value[0].data.push(res4.data[0].data);
+    series.value[0].data.push(res5.data[0].data);
+
+    series.value[1].data.push(res1.data[1].data);
+    series.value[1].data.push(res2.data[1].data);
+    series.value[1].data.push(res3.data[1].data);
+    series.value[1].data.push(res4.data[1].data);
+    series.value[1].data.push(res5.data[1].data);
+
+    series.value[2].data.push(res1.data[2].data);
+    series.value[2].data.push(res2.data[2].data);
+    series.value[2].data.push(res3.data[2].data);
+    series.value[2].data.push(res4.data[2].data);
+    series.value[2].data.push(res5.data[2].data);
+
+    console.log(series.value);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 const chart = ref({
   height: 350,
   type: "area",
@@ -197,16 +202,18 @@ const tooltip = ref({
 });
 
 onMounted(async () => {
-  new ApexCharts(document.querySelector("#reportsChart"), {
-    series: series.value,
-    chart: chart.value,
-    markers: markers.value,
-    stroke: stroke.value,
-    color: color.value,
-    fill: fill.value,
-    dataLabels: dataLabels,
-    tooltip: tooltip.value,
-  }).render();
+  await getdataGraph();
+  console.log(series.value),
+    new ApexCharts(document.querySelector("#reportsChart"), {
+      series: series.value,
+      chart: chart.value,
+      markers: markers.value,
+      stroke: stroke.value,
+      color: color.value,
+      fill: fill.value,
+      dataLabels: dataLabels,
+      tooltip: tooltip.value,
+    }).render();
 });
 </script>
 

@@ -16,10 +16,6 @@ export const useAuthentication = defineStore("data", {
     getAllClient: "",
     getInvoice: "",
     getTax: "",
-    getcredit: "",
-    getDebit: "",
-    getReimbes: "",
-    getStatement: "",
   }),
   actions: {
     async getinfoUser() {
@@ -37,20 +33,13 @@ export const useAuthentication = defineStore("data", {
         const client = await getClient();
         const invoice = await getAllInvoice();
         const tax = await getAllTax();
-        const credit = await getTaxByType("CREDIT");
-        const debit = await getTaxByType("DEBIT");
-        const reimbes = await getTaxByType("RE_IN");
-        const statement = await getTaxByType("STATEMENT");
         this.allusernumber = user.data.length;
         this.getAllClient = client.data.length;
         this.getInvoice = invoice.data.length;
         this.getTax = tax.data.length;
-        this.getcredit = credit.data.length;
-        this.getDebit = debit.data.length;
-        this.getReimbes = reimbes.data.length;
-        this.getStatement = statement.data.length;
-        console.log(this.allusernumber);
-      } catch (e) {}
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 });

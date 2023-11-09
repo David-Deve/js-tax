@@ -32,7 +32,7 @@
 </template>
 <script setup>
 import TaxPage from "../../components/TaxPage.vue";
-import Sidebar from "../../components/Sidebar.vue";
+import Sidebar from "@/components/Sidebar.vue";
 import { ref, onMounted } from "vue";
 import CreateTax from "../../components/CreateTax.vue";
 import { getTaxByType } from "../../api/Service";

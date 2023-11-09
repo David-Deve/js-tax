@@ -13,7 +13,17 @@ export async function getAllUser() {
     throw new Error("Error fetching data");
   }
 }
-
+export async function getUserById(id) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.get(`/auth/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
 export async function getMe() {
   const token = VueCookies.get("jstoken");
   try {
@@ -391,6 +401,25 @@ export async function getTaxByType(noteType) {
         Authorization: `Bearer ${token}`,
       },
     });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching Data");
+  }
+}
+
+export async function dataGraph(fromDate, toDate) {
+  const token = VueCookies.get("jstoken");
+  const params1 = new URLSearchParams({ fromDate });
+  const params2 = new URLSearchParams({ toDate });
+  try {
+    const response = await apiConfig.get(
+      `/post/graph?${params1.toString()}&${params2.toString()}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     throw new Error("Error fetching Data");

@@ -87,6 +87,12 @@
                       @click="handleGetIdDelete(scope.row.id)"
                       >Delete
                     </el-button>
+                    <el-button
+                      size="small"
+                      type="success"
+                      @click="handleGetIdDetail(scope.row.id)"
+                      >Detail
+                    </el-button>
                   </template>
                 </el-table-column>
               </el-table>
@@ -112,22 +118,58 @@
   <el-dialog v-model="dialogFromCreate">
     <CreateUser :emit="emit"></CreateUser>
   </el-dialog>
+  <el-dialog v-model="dialogFromDetail">
+    <div>
+      <el-card class="box-card">
+        <template #header>
+          <p style="font-size: 20px">User Detail</p>
+        </template>
+        <p>
+          FirstName:
+          <span>{{ firstname }} </span>
+        </p>
+        <p>
+          LastName: <span>{{ lastname }} </span>
+        </p>
+        <p>
+          Username: <span>{{ username }} </span>
+        </p>
+        <p>
+          Gender: <span>{{ gender }} </span>
+        </p>
+        <p>
+          Email: <span>{{ email }} </span>
+        </p>
+        <p>
+          Role: <span>{{ role }} </span>
+        </p>
+      </el-card>
+    </div>
+  </el-dialog>
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
 import CreateUser from "@/components/CreateUser.vue";
-import { getAllUser } from "../../api/Service";
+import { getAllUser, getUserById } from "../../api/Service";
 import { ref, onMounted, computed } from "vue";
 import dayjs from "dayjs";
 import DeleteUser from "@/components/DeleteUser.vue";
-import UpdateUser from "../../components/UpdateUser.vue";
+import UpdateUser from "@/components/UpdateUser.vue";
 const tableData = ref([]);
 const dialogFormDelete = ref(false);
 const dialogFormUpdate = ref(false);
 const dialogFromCreate = ref(false);
+const dialogFromDetail = ref(false);
 const id = ref("");
 const loading = ref(true);
 const search = ref("");
+
+const firstname = ref();
+const lastname = ref();
+const username = ref();
+const gender = ref();
+const email = ref();
+const role = ref();
 setTimeout(() => {
   loading.value = false;
 }, 300);
@@ -145,6 +187,20 @@ async function getUser() {
     console.log(e);
   }
 }
+async function getInfo(id) {
+  try {
+    const response = await getUserById(id);
+    console.log(response.data);
+    firstname.value = response.data.firstname;
+    lastname.value = response.data.lastname;
+    username.value = response.data.username;
+    gender.value = response.data.gender;
+    email.value = response.data.email;
+    role.value = response.data.roles[0].name;
+  } catch (e) {
+    console.error(e);
+  }
+}
 function emit() {
   getUser();
   dialogFromCreate.value = false;
@@ -160,10 +216,16 @@ function handleGetIdUpdate(row) {
   console.log(row);
   id.value = row;
 }
+
+function handleGetIdDetail(row) {
+  dialogFromDetail.value = true;
+  console.log(row);
+  id.value = row;
+  getInfo(id.value);
+}
 function handleCreateUser() {
   dialogFromCreate.value = true;
 }
-
 onMounted(() => {
   getUser();
 });
