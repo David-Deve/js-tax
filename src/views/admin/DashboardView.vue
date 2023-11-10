@@ -201,19 +201,18 @@ const tooltip = ref({
   },
 });
 
-onMounted(async () => {
+onMounted(async function () {
   await getdataGraph();
-  console.log(series.value),
-    new ApexCharts(document.querySelector("#reportsChart"), {
-      series: series.value,
-      chart: chart.value,
-      markers: markers.value,
-      stroke: stroke.value,
-      color: color.value,
-      fill: fill.value,
-      dataLabels: dataLabels,
-      tooltip: tooltip.value,
-    }).render();
+  new ApexCharts(document.querySelector("#reportsChart"), {
+    series: series.value,
+    chart: chart.value,
+    markers: markers.value,
+    stroke: stroke.value,
+    color: color.value,
+    fill: fill.value,
+    dataLabels: dataLabels,
+    tooltip: tooltip.value,
+  }).render();
 });
 </script>
 

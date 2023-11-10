@@ -2,11 +2,7 @@
   <div>
     <Sidebar>
       <template v-slot:Content>
-        <div
-          class="container-xxl"
-          v-loading="loading"
-          element-loading-background="#f3f3f35d"
-        >
+        <div class="container-xxl" element-loading-background="#f3f3f35d">
           <div class="row">
             <div class="col-md-12 mb-5">
               <h2>All TAX</h2>
