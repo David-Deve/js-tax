@@ -1,5 +1,6 @@
 <template>
   <el-table
+    v-if="filterTableData && filterTableData.length > 0"
     :data="filterTableData"
     border
     stripe

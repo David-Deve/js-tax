@@ -1,87 +1,22 @@
 <template>
   <div>
-    <Sidebar>
-      <template v-slot:Content>
-        <div
-          class="container-xxl"
-          v-loading="loading"
-          element-loading-background="#f3f3f35d"
-        >
-          <h2>Home Page</h2>
-          <div class="container mt-5 form">
-            <div class="mb-3">
-              <label class="form-label">Khmer Paragraph</label>
+    <div class="p-5">
+      <div class="editor" v-if="editor">
+        <menu-bar class="editor__header" :editor="editor" />
+        <editor-content
+          class="editor__content text-left p-1 border-0"
+          :editor="editor"
+        />
+      </div>
+    </div>
+    <button @click="printText">Print Text</button>
 
-              <p class="text" v-html="khpara"></p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">English Paragraph</label>
-              <p class="text" v-html="engpara"></p>
-            </div>
-            <el-button
-              @click="dialogVisible = true"
-              class="mt-3 mb-1"
-              type="primary"
-            >
-              Update
-            </el-button>
-          </div>
-        </div>
-      </template>
-    </Sidebar>
+    <code v-html="value"></code>
   </div>
-
-  <el-dialog v-model="dialogVisible" width="80%">
-    <!-- <span>Khmer text</span>
-    <textarea class="textarea form-control" type="text" v-model="khpara" />
-    <br />
-    <span>English text</span>
-    <textarea class="textarea form-control" type="text" v-model="engpara" /> -->
-    <span class="ms-5">Khmer text</span>
-    <div class="p-5">
-      <div class="editor" v-if="editorkh">
-        <menu-bar class="editor__header" :editor="editorkh" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editor="editorkh"
-        />
-      </div>
-    </div>
-    <span class="ms-5">English text</span>
-    <div class="p-5">
-      <div class="editor" v-if="editoreng">
-        <menu-bar class="editor__header" :editor="editoreng" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editor="editoreng"
-        />
-      </div>
-    </div>
-
-    <!-- <div class="p-5">
-      <div class="editor" v-if="editoreng">
-        <menu-bar class="editor__header" :editor="editoreng" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editoreng="editoreng"
-        />
-      </div>
-    </div> -->
-
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="dialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="updateHomeParagrahp()">
-          Confirm
-        </el-button>
-      </span>
-    </template>
-  </el-dialog>
 </template>
+
 <script setup>
-import Sidebar from "@/components/Sidebar.vue";
-import { onMounted, ref } from "vue";
-import { ElNotification } from "element-plus";
+import { ref, onMounted } from "vue";
 import Document from "@tiptap/extension-document";
 import History from "@tiptap/extension-history";
 import Paragraph from "@tiptap/extension-paragraph";
@@ -91,65 +26,12 @@ import TaskItem from "@tiptap/extension-task-item";
 import TaskList from "@tiptap/extension-task-list";
 import StarterKit from "@tiptap/starter-kit";
 import { Editor, EditorContent } from "@tiptap/vue-3";
-import MenuBar from "@/components/tiptap.vue";
-import {
-  getTextHomePage,
-  updateTextHomePage,
-} from "../../api/PublicWebsiteService";
-const dialogVisible = ref(false);
-const loading = ref(true);
-const khpara = ref(null);
-const engpara = ref(null);
-const editorkh = ref(null);
-const editoreng = ref(null);
-const valuekh = ref("");
-const valueeng = ref("");
-setTimeout(() => {
-  loading.value = false;
-}, 300);
+import MenuBar from "../components/tiptap.vue";
 
-async function getHomeParagrahp() {
-  try {
-    const res = await getTextHomePage();
-    khpara.value = res.data.bodies[0].descriptionKh;
-    engpara.value = res.data.bodies[0].descriptionEn;
-    console.log(res);
-  } catch (e) {
-    console.log(e);
-  }
-}
-async function updateHomeParagrahp() {
-  try {
-    valuekh.value = editorkh.value.getHTML();
-    valueeng.value = editoreng.value.getHTML();
-    const bodyPayloads = [
-      {
-        descriptionKh: valuekh.value,
-        descriptionEn: valueeng.value,
-      },
-    ];
-    const res = await updateTextHomePage(bodyPayloads);
-    ElNotification({
-      title: "Success",
-      duration: 2000,
-      message: "Update Success",
-      type: "success",
-    });
-    console.log(res);
-  } catch (e) {
-    ElNotification({
-      title: "Error",
-      duration: 2000,
-      message: "Update Faild",
-      type: "error",
-    });
-    console.log(e);
-  }
-}
-function gettext() {}
-onMounted(async () => {
-  await getHomeParagrahp();
-  editorkh.value = new Editor({
+const editor = ref(null);
+const value = ref("");
+onMounted(() => {
+  editor.value = new Editor({
     extensions: [
       StarterKit.configure({
         history: false,
@@ -162,35 +44,19 @@ onMounted(async () => {
       Text,
       History,
     ],
-    content: khpara.value,
-  });
-  editoreng.value = new Editor({
-    extensions: [
-      StarterKit.configure({
-        history: false,
-      }),
-      Highlight,
-      TaskList,
-      TaskItem,
-      Document,
-      Paragraph,
-      Text,
-      History,
-    ],
-    content: engpara.value,
+    content: "",
   });
 });
+const printText = () => {
+  if (editor.value) {
+    console.log(editor.value.getHTML());
+    value.value = editor.value.getHTML();
+    // You can use the editor's content in other ways, like sending it to a server for processing or displaying it in another part of your application.
+  }
+};
 </script>
 
-<style scoped lang="scss">
-.text {
-  border: 1px solid rgb(141, 141, 141);
-  border-radius: 5px;
-  padding: 10px;
-}
-.textarea {
-  height: 200px;
-}
+<style lang="scss">
 .editor {
   background-color: #fff;
   border: 3px solid #0d0d0d;

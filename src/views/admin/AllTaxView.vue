@@ -113,7 +113,11 @@ const tableData = ref([]);
 async function allTax() {
   try {
     const res = await getAllTax();
-    tableData.value = res.data;
+    if (res.data === null) {
+      tableData.value = [];
+    } else {
+      tableData.value = res.data;
+    }
   } catch (e) {
     console.log(e);
   }

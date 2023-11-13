@@ -13,9 +13,11 @@
             class="img-fluid"
             style="border-radius: 10px; margin-top: 10px"
           />
-          <p class="mt-1 p-2" style="text-indent: 30px; font-size: 18px">
-            {{ $t("home.para") }}
-          </p>
+          <p
+            class="mt-1 p-2"
+            style="text-indent: 30px; font-size: 18px"
+            v-html="$t('home.para')"
+          ></p>
         </div>
       </div>
       <div

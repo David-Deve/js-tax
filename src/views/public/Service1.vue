@@ -8,10 +8,17 @@
           <div class="dot"></div>
           <p class="title">{{ $t("service.service1.taxservice") }}</p>
           <div class="ms-3">
-            <p>. {{ $t("service.service1.text1") }}</p>
+            <!-- <p>. {{ $t("service.service1.text1") }}</p>
             <p>. {{ $t("service.service1.text2") }}</p>
             <p>. {{ $t("service.service1.text3") }}</p>
-            <p>. {{ $t("service.service1.text4") }}</p>
+            <p>. {{ $t("service.service1.text4") }}</p> -->
+            <ul>
+              <li><p>sdasdasdasd</p></li>
+              <li><p>asdasdsad</p></li>
+              <li><p>asdasdasd</p></li>
+              <li><p>asdasdadasd</p></li>
+              <li><p>asdasda</p></li>
+            </ul>
           </div>
 
           <p class="ms-1" style="text-indent: 30px; font-size: 18px">

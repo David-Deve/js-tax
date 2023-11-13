@@ -144,6 +144,7 @@ async function getdataGraph() {
     const res3 = await dataGraph(fromdate.value, twomonthago);
     const res4 = await dataGraph(fromdate.value, threemonthago);
     const res5 = await dataGraph(fromdate.value, fourmonthago);
+
     series.value[0].data.push(res1.data[0].data);
     series.value[0].data.push(res2.data[0].data);
     series.value[0].data.push(res3.data[0].data);
