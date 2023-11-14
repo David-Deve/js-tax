@@ -406,7 +406,36 @@ export async function getTaxByType(noteType) {
     throw new Error("Error fetching Data");
   }
 }
-
+export async function changeCloseTax(id, value) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.put(
+      `/tax/close/${id}?close=${value}`,
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching Data");
+  }
+}
+export async function getCloseTax(value) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.get(`/tax/close=${value}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching Data");
+  }
+}
 export async function dataGraph(fromDate, toDate) {
   const token = VueCookies.get("jstoken");
   const params1 = new URLSearchParams({ fromDate });

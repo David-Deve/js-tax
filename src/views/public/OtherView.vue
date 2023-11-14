@@ -15,16 +15,22 @@
                     class="card"
                     style="background-color: rgba(240, 240, 240, 0.5)"
                   >
-                    <div class="row g-0">
-                      <div class="col-md-4 d-flex align-items-start">
-                        <p class="number">1</p>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <p class="text">{{ $t("other.general") }}</p>
+                    <a
+                      href="https://www.tax.gov.kh/km/taxpayer-catagories/RqUJi129203948505"
+                      style="color: black"
+                      target="”_blank”"
+                    >
+                      <div class="row g-0">
+                        <div class="col-md-4 d-flex align-items-start">
+                          <p class="number">1</p>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <p class="text">{{ $t("other.general") }}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
                 <div class="col-sm-11 mb-3">
@@ -32,34 +38,22 @@
                     class="card"
                     style="background-color: rgba(240, 240, 240, 0.5)"
                   >
-                    <div class="row g-0">
-                      <div class="col-md-4 d-flex align-items-center">
-                        <p class="number">2</p>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <p class="text">{{ $t("other.small") }}</p>
+                    <a
+                      href="https://www.tax.gov.kh/km/taxpayer-catagories/v4pHu725594097430"
+                      style="color: black"
+                      target="_blank"
+                    >
+                      <div class="row g-0">
+                        <div class="col-md-4 d-flex align-items-center">
+                          <p class="number">2</p>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <p class="text">{{ $t("other.small") }}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-11 mb-3">
-                  <div
-                    class="card"
-                    style="background-color: rgba(240, 240, 240, 0.5)"
-                  >
-                    <div class="row g-0">
-                      <div class="col-md-4 d-flex align-items-center">
-                        <p class="number">3</p>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <p class="text">{{ $t("other.meduim") }}</p>
-                        </div>
-                      </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
 
@@ -68,16 +62,46 @@
                     class="card"
                     style="background-color: rgba(240, 240, 240, 0.5)"
                   >
-                    <div class="row g-0">
-                      <div class="col-md-4 d-flex align-items-center">
-                        <p class="number">4</p>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <p class="text">{{ $t("other.major") }}</p>
+                    <a
+                      href="https://www.tax.gov.kh/km/taxpayer-catagories/OMVTk449374253342"
+                      style="color: black"
+                      target="_blank"
+                    >
+                      <div class="row g-0">
+                        <div class="col-md-4 d-flex align-items-center">
+                          <p class="number">3</p>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <p class="text">{{ $t("other.meduim") }}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-sm-11 mb-3">
+                  <div
+                    class="card"
+                    style="background-color: rgba(240, 240, 240, 0.5)"
+                  >
+                    <a
+                      href="https://www.tax.gov.kh/km/taxpayer-catagories/FseiA431654397744"
+                      style="color: black"
+                      target="_blank"
+                    >
+                      <div class="row g-0">
+                        <div class="col-md-4 d-flex align-items-center">
+                          <p class="number">4</p>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <p class="text">{{ $t("other.major") }}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>

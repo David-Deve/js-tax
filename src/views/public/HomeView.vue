@@ -226,21 +226,21 @@
         <div class="row">
           <div class="col-md-4 d-flex justify-content-evenly">
             <img
-              src="@\assets\picture\form.jpg"
+              src="@\assets\picture\JS Patent 2023.jpg"
               alt=""
               style="max-width: 80%; max-height: 80%"
             />
           </div>
           <div class="col-md-4 d-flex justify-content-evenly">
             <img
-              src="@\assets\picture\form.jpg"
+              src="@\assets\picture\JS Tax Agent License 2023-2025.jpg"
               alt=""
               style="max-width: 80%; max-height: 80%"
             />
           </div>
           <div class="col-md-4 d-flex justify-content-evenly">
             <img
-              src="@\assets\picture\form.jpg"
+              src="@\assets\picture\JS VAT Certificate New Location.jpg"
               alt=""
               style="max-width: 80%; max-height: 80%"
             />

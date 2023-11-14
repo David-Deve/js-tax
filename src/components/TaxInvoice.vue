@@ -14,7 +14,7 @@
     </div>
     <br /><br /><br />
     <div class="table-responsive-sm p-1">
-      <table class="table table-bordered">
+      <table class="table table-bordered bold-table">
         <thead>
           <tr>
             <th style="text-align: center">
@@ -32,7 +32,10 @@
           <tr v-for="(item, index) in data" :key="item.id">
             <td class="center">{{ index + 1 }}</td>
             <td class="left">{{ item.name }}</td>
-            <td class="right">${{ item.amount }}</td>
+            <td class="right">
+              ${{ item.amount }}
+              <p></p>
+            </td>
           </tr>
 
           <tr>
@@ -92,5 +95,11 @@ onMounted(() => {
 <style scoped>
 .text {
   font-size: 25px;
+  font-family: monospace;
+}
+.bold-table {
+  border-width: 2px; /* Adjust the width as needed */
+  border-style: solid;
+  border-color: black; /* Adjust the color as needed */
 }
 </style>

@@ -28,6 +28,7 @@ import CreditTaxView from "../views/admin/CreditTaxView.vue";
 import DebitTaxView from "../views/admin/DebitTaxView.vue";
 import ReimbursTaxView from "../views/admin/ReimbursTaxView.vue";
 import StatementTaxView from "../views/admin/StatementTaxView.vue";
+import TaxCloseView from "../views/admin/TaxCloseView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -172,6 +173,12 @@ const router = createRouter({
       path: "/statementtax",
       name: "statementtax",
       component: StatementTaxView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/taxclose",
+      name: "taxclose",
+      component: TaxCloseView,
       meta: { requiresAuth: true },
     },
   ],

@@ -8,15 +8,14 @@
           <div class="dot"></div>
           <p class="title">{{ $t("service.service2.accountservice") }}</p>
           <div class="ms-3">
-            <p>. {{ $t("service.service2.text1") }}</p>
-            <p>. {{ $t("service.service2.text2") }}</p>
-            <p>. {{ $t("service.service2.text3") }}</p>
-            <p>. {{ $t("service.service2.text4") }}</p>
+            <p v-html="$t('service.service2.text1')"></p>
           </div>
 
-          <p class="ms-1" style="text-indent: 30px; font-size: 18px">
-            {{ $t("service.service2.para") }}
-          </p>
+          <p
+            class="ms-1"
+            style="text-indent: 30px; font-size: 18px"
+            v-html="$t('service.service2.para')"
+          ></p>
         </div>
       </div>
     </div>

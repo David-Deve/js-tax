@@ -12,44 +12,21 @@
           <div class="container mt-5 mb-3 form">
             <div class="mb-3">
               <label class="form-label">Khmer Paragraph 1</label>
-              <p class="text">{{ khpara1 }}</p>
+              <p class="text" v-html="khpara1"></p>
             </div>
             <div class="mb-3">
               <label class="form-label">Khmer Paragraph 2</label>
-              <p class="text">{{ khpara2 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Khmer Paragraph 3</label>
-              <p class="text">{{ khpara3 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Khmer Paragraph 4</label>
-              <p class="text">{{ khpara4 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Khmer Paragraph 5</label>
-              <p class="text">{{ khpara5 }}</p>
+              <p class="text" v-html="khpara2"></p>
             </div>
             <div class="mb-3">
               <label class="form-label">English Paragraph 1</label>
-              <p class="text">{{ engpara1 }}</p>
+              <p class="text" v-html="engpara1"></p>
             </div>
             <div class="mb-3">
               <label class="form-label">English Paragraph 2</label>
-              <p class="text">{{ engpara2 }}</p>
+              <p class="text" v-html="engpara2"></p>
             </div>
-            <div class="mb-3">
-              <label class="form-label">English Paragraph 3</label>
-              <p class="text">{{ engpara3 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">English Paragraph 4</label>
-              <p class="text">{{ engpara4 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">English Paragraph 5</label>
-              <p class="text">{{ engpara5 }}</p>
-            </div>
+
             <el-button
               @click="dialogVisible = true"
               class="mt-3 mb-1"
@@ -63,27 +40,46 @@
     </Sidebar>
   </div>
   <el-dialog v-model="dialogVisible" title="Update Text HomePage" width="80%">
-    <span>Khmer text1</span>
-    <input class="form-control" type="text" v-model="khpara1" />
-    <span>Khmer text2</span>
-    <input class="form-control" type="text" v-model="khpara2" />
-    <span>Khmer text3</span>
-    <input class="form-control" type="text" v-model="khpara3" />
-    <span>Khmer text4</span>
-    <input class="form-control" type="text" v-model="khpara4" />
-    <span>Khmer Paragraph</span>
-    <textarea class="textarea form-control" type="text" v-model="khpara5" />
-    <br />
-    <span>English text1</span>
-    <input class="form-control" type="text" v-model="engpara1" />
-    <span>English text2</span>
-    <input class="form-control" type="text" v-model="engpara2" />
-    <span>English text3</span>
-    <input class="form-control" type="text" v-model="engpara3" />
-    <span>English text4</span>
-    <input class="form-control" type="text" v-model="engpara4" />
-    <span>English Paragraph</span>
-    <textarea class="textarea form-control" type="text" v-model="engpara5" />
+    <h5 class="ms-5">Khmer Paragraph1</h5>
+    <div class="p-2">
+      <div class="editor" v-if="editorkh1">
+        <menu-bar class="editor__header" :editor="editorkh1" />
+        <editor-content
+          class="editor__content text-left p-1 border-0"
+          :editor="editorkh1"
+        />
+      </div>
+    </div>
+    <h5 class="ms-5">Khmer Paragraph2</h5>
+    <div class="p-2">
+      <div class="editor" v-if="editorkh2">
+        <menu-bar class="editor__header" :editor="editorkh2" />
+        <editor-content
+          class="editor__content text-left p-1 border-0"
+          :editor="editorkh2"
+        />
+      </div>
+    </div>
+    <h5 class="ms-5">English Paragraph1</h5>
+    <div class="p-2">
+      <div class="editor" v-if="editoreng1">
+        <menu-bar class="editor__header" :editor="editoreng1" />
+        <editor-content
+          class="editor__content text-left p-1 border-0"
+          :editor="editoreng1"
+        />
+      </div>
+    </div>
+    <h5 class="ms-5">English Paragraph2</h5>
+    <div class="p-2">
+      <div class="editor" v-if="editoreng2">
+        <menu-bar class="editor__header" :editor="editoreng2" />
+        <editor-content
+          class="editor__content text-left p-1 border-0"
+          :editor="editoreng2"
+        />
+      </div>
+    </div>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">Cancel</el-button>
@@ -102,18 +98,30 @@ import {
   getTextService1Page,
   updateTextService1Page,
 } from "../../api/PublicWebsiteService";
+import Document from "@tiptap/extension-document";
+import History from "@tiptap/extension-history";
+import Paragraph from "@tiptap/extension-paragraph";
+import Text from "@tiptap/extension-text";
+import Highlight from "@tiptap/extension-highlight";
+import TaskItem from "@tiptap/extension-task-item";
+import TaskList from "@tiptap/extension-task-list";
+import StarterKit from "@tiptap/starter-kit";
+import { Editor, EditorContent } from "@tiptap/vue-3";
+import MenuBar from "@/components/tiptap.vue";
 const dialogVisible = ref(false);
 const loading = ref(true);
 const khpara1 = ref("");
 const engpara1 = ref("");
 const khpara2 = ref("");
 const engpara2 = ref("");
-const khpara3 = ref("");
-const engpara3 = ref("");
-const khpara4 = ref("");
-const engpara4 = ref("");
-const khpara5 = ref("");
-const engpara5 = ref("");
+const editorkh1 = ref(null);
+const editorkh2 = ref(null);
+const editoreng1 = ref(null);
+const editoreng2 = ref(null);
+const valuekh1 = ref("");
+const valuekh2 = ref("");
+const valueeng1 = ref("");
+const valueeng2 = ref("");
 setTimeout(() => {
   loading.value = false;
 }, 300);
@@ -124,44 +132,40 @@ async function getService1Paragrahp() {
     khpara1.value = res.data.bodies[0].descriptionKh;
     engpara1.value = res.data.bodies[0].descriptionEn;
 
-    khpara2.value = res.data.bodies[1].descriptionKh;
-    engpara2.value = res.data.bodies[1].descriptionEn;
+    khpara2.value = res.data.bodies[4].descriptionKh;
+    engpara2.value = res.data.bodies[4].descriptionEn;
 
-    khpara3.value = res.data.bodies[2].descriptionKh;
-    engpara3.value = res.data.bodies[2].descriptionEn;
-
-    khpara4.value = res.data.bodies[3].descriptionKh;
-    engpara4.value = res.data.bodies[3].descriptionEn;
-
-    khpara5.value = res.data.bodies[4].descriptionKh;
-    engpara5.value = res.data.bodies[4].descriptionEn;
     console.log(res);
   } catch (e) {
     console.log(e);
   }
 }
 async function updateService1Paragrahp() {
+  valuekh1.value = editorkh1.value.getHTML();
+  valuekh2.value = editorkh2.value.getHTML();
+  valueeng1.value = editoreng1.value.getHTML();
+  valueeng2.value = editoreng2.value.getHTML();
   try {
     const bodyPayloads = [
       {
-        descriptionKh: khpara1.value,
-        descriptionEn: engpara1.value,
+        descriptionKh: valuekh1.value,
+        descriptionEn: valueeng1.value,
       },
       {
-        descriptionKh: khpara2.value,
-        descriptionEn: engpara2.value,
+        descriptionKh: "",
+        descriptionEn: "",
       },
       {
-        descriptionKh: khpara3.value,
-        descriptionEn: engpara3.value,
+        descriptionKh: "",
+        descriptionEn: "",
       },
       {
-        descriptionKh: khpara4.value,
-        descriptionEn: engpara4.value,
+        descriptionKh: "",
+        descriptionEn: "",
       },
       {
-        descriptionKh: khpara5.value,
-        descriptionEn: engpara5.value,
+        descriptionKh: valuekh2.value,
+        descriptionEn: valueeng2.value,
       },
     ];
     const res = await updateTextService1Page(bodyPayloads);
@@ -171,6 +175,7 @@ async function updateService1Paragrahp() {
       message: "Update Success",
       type: "success",
     });
+    getService1Paragrahp();
     console.log(res);
   } catch (e) {
     ElNotification({
@@ -182,12 +187,72 @@ async function updateService1Paragrahp() {
     console.log(e);
   }
 }
-onMounted(() => {
-  getService1Paragrahp();
+onMounted(async () => {
+  await getService1Paragrahp();
+  editorkh1.value = new Editor({
+    extensions: [
+      StarterKit.configure({
+        history: false,
+      }),
+      Highlight,
+      TaskList,
+      TaskItem,
+      Document,
+      Paragraph,
+      Text,
+      History,
+    ],
+    content: khpara1.value,
+  });
+  editorkh2.value = new Editor({
+    extensions: [
+      StarterKit.configure({
+        history: false,
+      }),
+      Highlight,
+      TaskList,
+      TaskItem,
+      Document,
+      Paragraph,
+      Text,
+      History,
+    ],
+    content: khpara2.value,
+  });
+  editoreng1.value = new Editor({
+    extensions: [
+      StarterKit.configure({
+        history: false,
+      }),
+      Highlight,
+      TaskList,
+      TaskItem,
+      Document,
+      Paragraph,
+      Text,
+      History,
+    ],
+    content: engpara1.value,
+  });
+  editoreng2.value = new Editor({
+    extensions: [
+      StarterKit.configure({
+        history: false,
+      }),
+      Highlight,
+      TaskList,
+      TaskItem,
+      Document,
+      Paragraph,
+      Text,
+      History,
+    ],
+    content: engpara2.value,
+  });
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .text {
   border: 1px solid rgb(141, 141, 141);
   border-radius: 5px;
@@ -195,5 +260,264 @@ onMounted(() => {
 }
 .textarea {
   height: 100px;
+}
+.editor {
+  background-color: #fff;
+  border: 3px solid #0d0d0d;
+  border-radius: 0.75rem;
+  color: #0d0d0d;
+  display: flex;
+  flex-direction: column;
+  max-height: 46rem;
+
+  &__header {
+    align-items: center;
+    background: #0d0d0d;
+    border-bottom: 3px solid #0d0d0d;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    padding: 0.25rem;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 1.25rem 1rem;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+      background-color: #f5f5f5 !important;
+    }
+  }
+
+  &__footer {
+    align-items: center;
+    border-top: 3px solid #0d0d0d;
+    color: #0d0d0d;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    font-size: 12px;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 0.25rem 0.75rem;
+    white-space: nowrap;
+  }
+
+  /* Some information about the status */
+  &__status {
+    align-items: center;
+    border-radius: 5px;
+    display: flex;
+
+    &::before {
+      background: rgba(#0d0d0d, 0.5);
+      border-radius: 50%;
+      content: " ";
+      display: inline-block;
+      flex: 0 0 auto;
+      height: 0.5rem;
+      margin-right: 0.5rem;
+      width: 0.5rem;
+    }
+
+    &--connecting::before {
+      background: #616161;
+    }
+
+    &--connected::before {
+      background: #b9f18d;
+    }
+  }
+
+  &__name {
+    button {
+      background: none;
+      border: none;
+      border-radius: 0.4rem;
+      color: #0d0d0d;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 0.25rem 0.5rem;
+
+      &:hover {
+        background-color: #0d0d0d;
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* Give a remote user a caret */
+.collaboration-cursor__caret {
+  border-left: 1px solid #0d0d0d;
+  border-right: 1px solid #0d0d0d;
+  margin-left: -1px;
+  margin-right: -1px;
+  pointer-events: none;
+  position: relative;
+  word-break: normal;
+}
+
+/* Render the username above the caret */
+.collaboration-cursor__label {
+  border-radius: 3px 3px 3px 0;
+  color: #0d0d0d;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  left: -1px;
+  line-height: normal;
+  padding: 0.1rem 0.3rem;
+  position: absolute;
+  top: -1.4em;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Basic editor styles */
+.ProseMirror {
+  &:focus {
+    border: 0 !important;
+    outline: none !important;
+  }
+
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem !important;
+  }
+  ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+  }
+  ol {
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+  }
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: 16px;
+  }
+  h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  code {
+    background-color: rgba(#616161, 0.1);
+    color: #616161;
+  }
+
+  pre {
+    background: #0d0d0d;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-family: "JetBrainsMono", monospace;
+    padding: 0.75rem 1rem;
+
+    code {
+      background: none;
+      color: inherit;
+      font-size: 0.8rem;
+      padding: 0;
+    }
+  }
+
+  mark {
+    background-color: #faf594;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  hr {
+    margin: 1rem 0;
+  }
+
+  blockquote {
+    border-left: 2px solid rgba(#0d0d0d, 0.1);
+    padding-left: 1rem;
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(#0d0d0d, 0.1);
+    margin: 2rem 0;
+  }
+
+  ul[data-type="taskList"] {
+    list-style: none;
+    padding: 0;
+
+    li {
+      align-items: center;
+      display: flex;
+
+      > label {
+        flex: 0 0 auto;
+        margin-right: 0.5rem;
+        user-select: none;
+      }
+
+      > div {
+        flex: 1 1 auto;
+      }
+    }
+  }
 }
 </style>

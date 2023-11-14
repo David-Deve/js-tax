@@ -14,13 +14,7 @@
                 style="width: 100%"
                 v-loading="loading"
               >
-                <el-table-column label="ID">
-                  <template #default="scope">
-                    <div style="display: flex; align-items: center">
-                      <span style="margin-left: 10px">{{ scope.row.id }}</span>
-                    </div>
-                  </template>
-                </el-table-column>
+                <el-table-column type="index" label="No" />
                 <el-table-column label="TaxName">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">

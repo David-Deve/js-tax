@@ -83,7 +83,7 @@ export async function loadMessage() {
       other: {
         taxpayer: "TAXPAYER",
         documents: "Documents",
-        general: "General Population",
+        general: "General Taxpaper",
         small: "Small Tax Payer",
         meduim: "Meduim Tax Payer",
         major: "Major Tax Payer",
@@ -181,9 +181,9 @@ export async function loadMessage() {
         taxpayer: "អ្នកជាប់ពន្ធ",
         documents: "ឯកសារ",
         general: "ប្រជាជនទូទៅ",
-        small: "អ្នកបង់ពន្ធតូច",
-        meduim: "អ្នកបង់ពន្ធមធ្យម",
-        major: "អ្នកបង់ពន្ធធំ",
+        small: "អ្នកជាប់ពន្ធតូច",
+        meduim: "អ្នកជាប់ពន្ធមធ្យម",
+        major: "អ្នកជាប់ពន្ធធំ",
         doc1: "ពាក្យស្នើសុំបើកដំណើរការវិញ្ញាបនបត្រអាករលើតម្លៃបន្ថែម ក្រោយការព្យួរទុក- ទម្រង់ VAT-SUS-02",
         doc2: "ពាក្យស្នើសុំផ្អាកដំណើរការសកម្មភាពអាជីវកម្មជាបណ្ដោះអាសន្ន ឬបើកដំណើរការអាជីវកម្មឡើង- ទម្រង់ SUS-01",
         doc3: "ពាក្យស្នើសុំធ្វើប័ណ្ណសម្គាល់ការបង់ពន្ធអចលនទ្រព្យ- ទម្រង់ PTI 01",
@@ -248,15 +248,17 @@ export async function loadMessage() {
     messages.en.contact.para = contact.data.bodies[0].descriptionEn;
     messages.en.contact.locatime = contact.data.bodies[1].descriptionEn;
     messages.en.contact.time = contact.data.bodies[2].descriptionEn;
-    // messages.en.contact.email_address = contact.data.bodies[3].descriptionEn;
+    messages.en.contact.email_address = contact.data.bodies[3].descriptionEn;
     messages.en.contact.phonenumber = contact.data.bodies[4].descriptionEn;
 
     messages.kh.contact.para = contact.data.bodies[0].descriptionKh;
     messages.kh.contact.locatime = contact.data.bodies[1].descriptionKh;
     messages.kh.contact.time = contact.data.bodies[2].descriptionKh;
-    // messages.kh.contact.email_address = contact.data.bodies[3].descriptionKh;
+    messages.kh.contact.email_address = contact.data.bodies[3].descriptionKh;
     messages.kh.contact.phonenumber = contact.data.bodies[4].descriptionKh;
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
   return messages;
 }
 // homepage

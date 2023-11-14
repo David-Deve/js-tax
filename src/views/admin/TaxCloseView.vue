@@ -5,7 +5,7 @@
         <div class="container-xxl" element-loading-background="#f3f3f35d">
           <div class="row">
             <div class="col-md-12 mb-5">
-              <h2>Credit</h2>
+              <h2>Tax Close</h2>
               <el-table
                 border
                 :data="filterTableData"
@@ -14,7 +14,13 @@
                 style="width: 100%"
                 v-loading="loading"
               >
-                <el-table-column type="index" label="No" />
+                <el-table-column type="index" label="No">
+                  <!-- <template #default="scope">
+                    <div style="display: flex; align-items: center">
+                      <span style="margin-left: 10px">{{ scope.row.id }}</span>
+                    </div>
+                  </template> -->
+                </el-table-column>
                 <el-table-column label="TaxName">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
@@ -51,6 +57,21 @@
                     </el-popover>
                   </template>
                 </el-table-column>
+                <!-- <el-table-column label="Tax Close">
+                  <template #default="scope">
+                    <span>Status</span>
+                    <el-switch
+                      v-model="scope.row.close"
+                      @click="updateClose(scope.row.id, scope.row.close)"
+                      class="ms-4"
+                      style="
+                        --el-switch-on-color: #13ce66;
+                        --el-switch-off-color: #ff4949;
+                      "
+                    />
+                    
+                  </template>
+                </el-table-column> -->
                 <el-table-column>
                   <template #header>
                     <el-input
@@ -70,41 +91,62 @@
                   </template>
                 </el-table-column>
               </el-table>
-              <div class="mt-3">
-                <!-- <el-button type="success" @click="dialogVisible = true"
+              <!-- <div class="mt-3">
+                <el-button type="success" @click="dialogVisible = true"
                   >Create</el-button
-                > -->
-              </div>
+                >
+              </div> -->
             </div>
           </div>
         </div>
       </template>
     </Sidebar>
   </div>
+
+  <!-- dialog -->
+
+  <el-dialog v-model="dialogVisible" title="Create New Tax" width="60%">
+    <CreateTax :emit="emit"></CreateTax>
+  </el-dialog>
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
 import { ref, onMounted, computed } from "vue";
-import { getTaxByType } from "../../api/Service";
+import { useRouter } from "vue-router";
+import VueCookies from "vue-cookies";
+import CreateTax from "../../components/CreateTax.vue";
+import { getCloseTax } from "../../api/Service";
+import { ElNotification } from "element-plus";
+const router = useRouter();
 const loading = ref(true);
+const dialogVisible = ref(false);
+const search = ref("");
 setTimeout(() => {
   loading.value = false;
 }, 300);
 const tableData = ref([]);
-const url = ref("CREDIT");
-const search = ref("");
+
 async function allTax() {
   try {
-    const res = await getTaxByType(url.value);
+    const res = await getCloseTax(true);
     if (res.data === null) {
       tableData.value = [];
     } else {
       tableData.value = res.data;
     }
+    console.log(res.data);
   } catch (e) {
     console.log(e);
   }
 }
+function emit() {
+  allTax();
+  dialogVisible.value = false;
+}
+onMounted(() => {
+  allTax();
+});
+
 const filterTableData = computed(() =>
   tableData.value.filter(
     (data) =>
@@ -112,7 +154,9 @@ const filterTableData = computed(() =>
       data.name.toLowerCase().includes(search.value.toLowerCase())
   )
 );
-onMounted(() => {
-  allTax();
-});
+function printInvoice(id) {
+  VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
+  const routeUrl = router.resolve({ name: "taxinvoice", params: { id } }).href;
+  window.open(routeUrl, "popup", "width=1000,height=1000  ");
+}
 </script>

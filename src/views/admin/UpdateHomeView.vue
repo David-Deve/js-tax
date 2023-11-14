@@ -37,8 +37,8 @@
     <br />
     <span>English text</span>
     <textarea class="textarea form-control" type="text" v-model="engpara" /> -->
-    <span class="ms-5">Khmer text</span>
-    <div class="p-5">
+    <h5 class="ms-5">Khmer Paragraph</h5>
+    <div class="p-2">
       <div class="editor" v-if="editorkh">
         <menu-bar class="editor__header" :editor="editorkh" />
         <editor-content
@@ -47,8 +47,8 @@
         />
       </div>
     </div>
-    <span class="ms-5">English text</span>
-    <div class="p-5">
+    <h5 class="ms-5">English Paragraph</h5>
+    <div class="p-2">
       <div class="editor" v-if="editoreng">
         <menu-bar class="editor__header" :editor="editoreng" />
         <editor-content
@@ -82,6 +82,10 @@
 import Sidebar from "@/components/Sidebar.vue";
 import { onMounted, ref } from "vue";
 import { ElNotification } from "element-plus";
+import {
+  getTextHomePage,
+  updateTextHomePage,
+} from "../../api/PublicWebsiteService";
 import Document from "@tiptap/extension-document";
 import History from "@tiptap/extension-history";
 import Paragraph from "@tiptap/extension-paragraph";
@@ -92,10 +96,7 @@ import TaskList from "@tiptap/extension-task-list";
 import StarterKit from "@tiptap/starter-kit";
 import { Editor, EditorContent } from "@tiptap/vue-3";
 import MenuBar from "@/components/tiptap.vue";
-import {
-  getTextHomePage,
-  updateTextHomePage,
-} from "../../api/PublicWebsiteService";
+
 const dialogVisible = ref(false);
 const loading = ref(true);
 const khpara = ref(null);
@@ -146,7 +147,6 @@ async function updateHomeParagrahp() {
     console.log(e);
   }
 }
-function gettext() {}
 onMounted(async () => {
   await getHomeParagrahp();
   editorkh.value = new Editor({

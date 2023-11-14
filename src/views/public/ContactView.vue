@@ -9,16 +9,17 @@
           <p class="title">{{ $t("contact.contact") }}</p>
           <iframe
             class="mb-3"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62539.464479267284!2d104.87879505807479!3d11.572167563236412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109513dc76a6be3%3A0xf8f1809319cea6df!2z4Z6W4Z-S4Z6a4Z-H4oCL4Z6U4Z6a4Z6Y4oCL4Z6a4Z624Z6H4oCL4Z6c4Z624Z-G4Z6E4oCL4Z6F4Z6P4Z674Z6Y4Z-S4Z6Y4Z674Z6B4oCL4Z6Y4Z6E4Z-S4Z6C4Z6b!5e0!3m2!1skm!2skh!4v1695892906262!5m2!1skm!2skh"
+            :src="map"
             style="border-radius: 10px; width: 100%; height: 400px"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
           <p class="title">{{ $t("contact.contact") }}</p>
-          <p style="margin: 30px; text-indent: 30px; font-size: 18px">
-            {{ $t("contact.para") }}
-          </p>
+          <p
+            style="margin: 30px; text-indent: 30px; font-size: 18px"
+            v-html="$t('contact.para')"
+          ></p>
           <div class="container">
             <div class="row">
               <div class="col-sm-6 mb-3 mb-sm-0">
@@ -61,7 +62,7 @@
                   >
                     <i class="bx bx-envelope icon"></i>
                     <p class="text">{{ $t("contact.email") }}</p>
-                    <p>JS-Tax@gmail.com</p>
+                    <p>{{ $t("contact.email_address") }}@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -93,6 +94,9 @@ import Footer from "@/components/Footer.vue";
 import NavBarVue from "@/components/NavBar.vue";
 import SlideShow from "@/components/SlideShow.vue";
 const loading = ref(true);
+const map = ref(
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62539.464479267284!2d104.87879505807479!3d11.572167563236412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109513dc76a6be3%3A0xf8f1809319cea6df!2z4Z6W4Z-S4Z6a4Z-H4oCL4Z6U4Z6a4Z6Y4oCL4Z6a4Z624Z6H4oCL4Z6c4Z624Z-G4Z6E4oCL4Z6F4Z6P4Z674Z6Y4Z-S4Z6Y4Z674Z6B4oCL4Z6Y4Z6E4Z-S4Z6C4Z6b!5e0!3m2!1skm!2skh!4v1695892906262!5m2!1skm!2skh"
+);
 setTimeout(() => {
   loading.value = false;
 }, 300);
