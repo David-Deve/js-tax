@@ -15,7 +15,7 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
-          <p class="title">{{ $t("contact.contact") }}</p>
+          <!-- <p class="title">{{ $t("contact.contact") }}</p> -->
           <p
             style="margin: 30px; text-indent: 30px; font-size: 18px"
             v-html="$t('contact.para')"
