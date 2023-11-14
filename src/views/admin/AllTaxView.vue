@@ -53,7 +53,8 @@
                 </el-table-column>
                 <el-table-column label="Tax Close">
                   <template #default="scope">
-                    <span>Status</span>
+                    <span v-if="scope.row.close == true">Close</span>
+                    <span v-if="scope.row.close == false">Open</span>
                     <el-switch
                       v-model="scope.row.close"
                       @click="updateClose(scope.row.id, scope.row.close)"
@@ -114,6 +115,8 @@ const router = useRouter();
 const loading = ref(true);
 const dialogVisible = ref(false);
 const search = ref("");
+const status = ref("");
+
 setTimeout(() => {
   loading.value = false;
 }, 300);
@@ -121,6 +124,7 @@ const tableData = ref([]);
 async function updateClose(id, value) {
   console.log(id);
   console.log(value);
+
   try {
     await changeCloseTax(id, value);
     ElNotification({
@@ -129,7 +133,14 @@ async function updateClose(id, value) {
       message: "Update Success",
       type: "success",
     });
+
+    if (value == true) {
+      status.value = "Open";
+    } else {
+      status.value = "Close";
+    }
   } catch (e) {
+    allTax();
     console.log(e);
   }
 }
