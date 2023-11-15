@@ -45,11 +45,10 @@
             </a> -->
 
           <el-dropdown class="nav-item">
-            <a class="btn nav-link d-flex align-items-center">
-              <span class="me-2"
-                >{{ $t("navbar.service") }} <i class="bx bx-chevron-down"></i
-              ></span>
-            </a>
+            <router-link class="nav-link" to="/service" style="margin-top: 2px"
+              >{{ $t("navbar.service") }} <i class="bx bx-chevron-down"></i
+            ></router-link>
+
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item

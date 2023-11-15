@@ -14,15 +14,14 @@
                   class="card"
                   style="background-color: rgba(240, 240, 240, 0.5)"
                 >
-                  <div
-                    class="card-body d-flex flex-column align-items-center justify-content-center"
-                  >
-                    <img src="@\assets\picture\taxservice.png" alt="" />
-                    <p class="text mt-2">{{ $t("service.taxservice") }}</p>
-                    <router-link to="/service1"
-                      ><span>{{ $t("service.readmore") }}</span></router-link
+                  <router-link to="/service1">
+                    <div
+                      class="card-body d-flex flex-column align-items-center justify-content-center"
                     >
-                  </div>
+                      <img src="@\assets\picture\taxservice.png" alt="" />
+                      <p class="text mt-2">{{ $t("service.taxservice") }}</p>
+                    </div>
+                  </router-link>
                 </div>
               </div>
               <div class="col-sm-6">
@@ -30,15 +29,14 @@
                   class="card"
                   style="background-color: rgba(240, 240, 240, 0.5)"
                 >
-                  <div
-                    class="card-body d-flex flex-column align-items-center justify-content-center"
-                  >
-                    <img src="@\assets\picture\acc.png" alt="" />
-                    <p class="text mt-2">{{ $t("service.account") }}</p>
-                    <router-link to="/service2">{{
-                      $t("service.readmore")
-                    }}</router-link>
-                  </div>
+                  <router-link to="/service2">
+                    <div
+                      class="card-body d-flex flex-column align-items-center justify-content-center"
+                    >
+                      <img src="@\assets\picture\acc.png" alt="" />
+                      <p class="text mt-2">{{ $t("service.account") }}</p>
+                    </div>
+                  </router-link>
                 </div>
               </div>
               <div class="col-sm-6 mt-3">
@@ -46,15 +44,14 @@
                   class="card"
                   style="background-color: rgba(240, 240, 240, 0.5)"
                 >
-                  <div
-                    class="card-body d-flex flex-column align-items-center justify-content-center"
-                  >
-                    <img src="@\assets\picture\register.png" alt="" />
-                    <p class="text mt-2">{{ $t("service.registeration") }}</p>
-                    <router-link to="/contact"
-                      ><span>{{ $t("service.readmore") }}</span></router-link
+                  <router-link to="/contact">
+                    <div
+                      class="card-body d-flex flex-column align-items-center justify-content-center"
                     >
-                  </div>
+                      <img src="@\assets\picture\register.png" alt="" />
+                      <p class="text mt-2">{{ $t("service.registeration") }}</p>
+                    </div>
+                  </router-link>
                 </div>
               </div>
               <div class="col-sm-6 mt-3 mb-3">
@@ -62,17 +59,17 @@
                   class="card"
                   style="background-color: rgba(240, 240, 240, 0.5)"
                 >
-                  <div
-                    class="card-body d-flex flex-column align-items-center justify-content-center"
+                  <a
+                    href="https://www.tax.gov.kh/km/categories/64qke344011330727"
+                    target="_blank"
                   >
-                    <img src="@\assets\picture\licence.png" class="" alt="" />
-                    <p class="text mt-2">{{ $t("service.other") }}</p>
-                    <a
-                      href="https://www.tax.gov.kh/km/categories/64qke344011330727"
-                      target="_blank"
-                      >{{ $t("service.readmore") }}</a
+                    <div
+                      class="card-body d-flex flex-column align-items-center justify-content-center"
                     >
-                  </div>
+                      <img src="@\assets\picture\licence.png" class="" alt="" />
+                      <p class="text mt-2">{{ $t("service.other") }}</p>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
