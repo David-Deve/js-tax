@@ -48,7 +48,7 @@ export async function loadMessage() {
       service: {
         taxservice: "Tax Service",
         account: "Account Service",
-        registeration: "Registerations",
+        registeration: "Bussiness Registerations",
         other: "Other Documents",
         readmore: "Readmore",
         service1: {
