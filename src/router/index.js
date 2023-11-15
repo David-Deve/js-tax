@@ -7,6 +7,7 @@ import ContactView from "../views/public/ContactView.vue";
 import OtherView from "../views/public/OtherView.vue";
 import Service1 from "../views/public/Service1.vue";
 import Service2 from "../views/public/Service2.vue";
+import BusinessRegister from "../views/public/BusinessRegisterView.vue";
 import VueCookies from "vue-cookies";
 
 //Admin Route
@@ -29,6 +30,7 @@ import DebitTaxView from "../views/admin/DebitTaxView.vue";
 import ReimbursTaxView from "../views/admin/ReimbursTaxView.vue";
 import StatementTaxView from "../views/admin/StatementTaxView.vue";
 import TaxCloseView from "../views/admin/TaxCloseView.vue";
+import UpdateBusinessView from "../views/admin/UpdateBusinessView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -56,6 +58,11 @@ const router = createRouter({
       path: "/service",
       name: "service",
       component: ServiceView,
+    },
+    {
+      path: "/businessregister",
+      name: "businessregister",
+      component: BusinessRegister,
     },
     {
       path: "/contact",
@@ -101,6 +108,12 @@ const router = createRouter({
       path: "/updateservice2",
       name: "updateservice2",
       component: UpdateService2View,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/updatebusniesspage",
+      name: "updatebusniesspage",
+      component: UpdateBusinessView,
       meta: { requiresAuth: true },
     },
     {

@@ -64,6 +64,11 @@
           <li>
             <router-link to="/updateservice2">Service(Accouting)</router-link>
           </li>
+          <li>
+            <router-link to="/updatebusniesspage"
+              >Business Register</router-link
+            >
+          </li>
           <li><router-link to="/updatecontact">Contact</router-link></li>
         </ul>
       </li>

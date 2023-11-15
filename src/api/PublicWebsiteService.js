@@ -64,6 +64,27 @@ export async function updateTextService1Page(bodyPayloads) {
     throw new Error("Error updating data");
   }
 }
+export async function getBusinessRegister() {
+  try {
+    const response = await apiConfig.get("/post/id=18");
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
+export async function updateBusinessRegister(bodyPayloads) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.put(
+      "/post/update/18",
+      { bodyPayloads },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error("Error updating data");
+  }
+}
 export async function getTextService2Page() {
   try {
     const response = await apiConfig.get("/post/id=14");

@@ -63,7 +63,7 @@
                   }}</router-link></el-dropdown-item
                 >
                 <el-dropdown-item
-                  ><router-link to="/contact" class="menu-service">{{
+                  ><router-link to="/businessregister" class="menu-service">{{
                     $t("service.registeration")
                   }}</router-link></el-dropdown-item
                 >
