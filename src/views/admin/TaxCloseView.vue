@@ -5,7 +5,7 @@
         <div class="container-xxl" element-loading-background="#f3f3f35d">
           <div class="row">
             <div class="col-md-12 mb-5">
-              <h2>Tax Close</h2>
+              <h2>Check List</h2>
               <el-table
                 border
                 :data="filterTableData"
@@ -14,12 +14,13 @@
                 style="width: 100%"
                 v-loading="loading"
               >
-                <el-table-column type="index" label="No">
-                  <!-- <template #default="scope">
+                <el-table-column type="index" label="No"> </el-table-column>
+                <el-table-column label="ID">
+                  <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{ scope.row.id }}</span>
                     </div>
-                  </template> -->
+                  </template>
                 </el-table-column>
                 <el-table-column label="TaxName">
                   <template #default="scope">
@@ -57,9 +58,10 @@
                     </el-popover>
                   </template>
                 </el-table-column>
-                <!-- <el-table-column label="Tax Close">
+                <el-table-column label="Tax Close">
                   <template #default="scope">
-                    <span>Status</span>
+                    <span v-if="scope.row.close == true">Close</span>
+                    <span v-if="scope.row.close == false">Open</span>
                     <el-switch
                       v-model="scope.row.close"
                       @click="updateClose(scope.row.id, scope.row.close)"
@@ -69,9 +71,8 @@
                         --el-switch-off-color: #ff4949;
                       "
                     />
-                    
                   </template>
-                </el-table-column> -->
+                </el-table-column>
                 <el-table-column>
                   <template #header>
                     <el-input
@@ -81,7 +82,6 @@
                     />
                   </template>
                   <template #default="scope">
-                    <!-- <el-button size="small" type="danger">Edit </el-button> -->
                     <el-button
                       @click="printInvoice(scope.row.id)"
                       size="small"
@@ -91,11 +91,6 @@
                   </template>
                 </el-table-column>
               </el-table>
-              <!-- <div class="mt-3">
-                <el-button type="success" @click="dialogVisible = true"
-                  >Create</el-button
-                >
-              </div> -->
             </div>
           </div>
         </div>
@@ -115,7 +110,7 @@ import { ref, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 import VueCookies from "vue-cookies";
 import CreateTax from "../../components/CreateTax.vue";
-import { getCloseTax } from "../../api/Service";
+import { getCloseTax, changeCloseTax } from "../../api/Service";
 import { ElNotification } from "element-plus";
 const router = useRouter();
 const loading = ref(true);
@@ -128,13 +123,29 @@ const tableData = ref([]);
 
 async function allTax() {
   try {
-    const res = await getCloseTax(true);
+    const res = await getCloseTax(false);
     if (res.data === null) {
       tableData.value = [];
     } else {
       tableData.value = res.data;
     }
     console.log(res.data);
+  } catch (e) {
+    console.log(e);
+  }
+}
+async function updateClose(id, value) {
+  console.log(id);
+  console.log(value);
+  try {
+    await changeCloseTax(id, value);
+    ElNotification({
+      title: "Success",
+      duration: 2000,
+      message: "Update Success",
+      type: "success",
+    });
+    allTax();
   } catch (e) {
     console.log(e);
   }

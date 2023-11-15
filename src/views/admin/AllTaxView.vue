@@ -15,6 +15,13 @@
                 v-loading="loading"
               >
                 <el-table-column type="index" label="No" />
+                <el-table-column label="ID">
+                  <template #default="scope">
+                    <div style="display: flex; align-items: center">
+                      <span style="margin-left: 10px">{{ scope.row.id }}</span>
+                    </div>
+                  </template>
+                </el-table-column>
                 <el-table-column label="TaxName">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
@@ -51,19 +58,26 @@
                     </el-popover>
                   </template>
                 </el-table-column>
-                <el-table-column label="Tax Close">
+                <el-table-column label="Status">
                   <template #default="scope">
-                    <span v-if="scope.row.close == true">Close</span>
-                    <span v-if="scope.row.close == false">Open</span>
-                    <el-switch
-                      v-model="scope.row.close"
-                      @click="updateClose(scope.row.id, scope.row.close)"
-                      class="ms-4"
-                      style="
-                        --el-switch-on-color: #13ce66;
-                        --el-switch-off-color: #ff4949;
-                      "
-                    />
+                    <el-popover
+                      effect="light"
+                      trigger="hover"
+                      placement="top"
+                      width="auto"
+                    >
+                      <template #default>
+                        <div>{{ scope.row.close }}</div>
+                      </template>
+                      <template #reference>
+                        <el-tag v-if="scope.row.close == true" type="success"
+                          >Close</el-tag
+                        >
+                        <el-tag v-if="scope.row.close == false" type="danger"
+                          >Open</el-tag
+                        >
+                      </template>
+                    </el-popover>
                   </template>
                 </el-table-column>
                 <el-table-column>
@@ -81,6 +95,9 @@
                       size="small"
                       type="primary"
                       >Print</el-button
+                    >
+                    <el-button @click="goDetail(scope.row.id)" size="small"
+                      >Detail</el-button
                     >
                   </template>
                 </el-table-column>
@@ -102,6 +119,15 @@
   <el-dialog v-model="dialogVisible" title="Create New Tax" width="60%">
     <CreateTax :emit="emit"></CreateTax>
   </el-dialog>
+
+  <el-dialog
+    v-model="dialogDetail"
+    title="Detail Invoice"
+    width="60%"
+    style="height: 300px"
+  >
+    <DetailTaxInvoice :data="tableDataDetail"></DetailTaxInvoice>
+  </el-dialog>
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
@@ -109,41 +135,20 @@ import { ref, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 import VueCookies from "vue-cookies";
 import CreateTax from "../../components/CreateTax.vue";
-import { getAllTax, changeCloseTax } from "../../api/Service";
-import { ElNotification } from "element-plus";
+import { getAllTax, getTaxInvoiceById } from "../../api/Service";
+
+import DetailTaxInvoice from "../../components/DetailTaxInvoice.vue";
 const router = useRouter();
 const loading = ref(true);
 const dialogVisible = ref(false);
+const dialogDetail = ref(false);
 const search = ref("");
-const status = ref("");
-
+const tableDataDetail = ref([]);
 setTimeout(() => {
   loading.value = false;
 }, 300);
 const tableData = ref([]);
-async function updateClose(id, value) {
-  console.log(id);
-  console.log(value);
 
-  try {
-    await changeCloseTax(id, value);
-    ElNotification({
-      title: "Success",
-      duration: 2000,
-      message: "Update Success",
-      type: "success",
-    });
-
-    if (value == true) {
-      status.value = "Open";
-    } else {
-      status.value = "Close";
-    }
-  } catch (e) {
-    allTax();
-    console.log(e);
-  }
-}
 async function allTax() {
   try {
     const res = await getAllTax();
@@ -153,6 +158,16 @@ async function allTax() {
       tableData.value = res.data;
     }
     console.log(res.data);
+  } catch (e) {
+    console.log(e);
+  }
+}
+async function goDetail(id) {
+  dialogDetail.value = true;
+  try {
+    const res = await getTaxInvoiceById(id);
+    tableDataDetail.value[0] = res.data;
+    console.log(tableDataDetail.value);
   } catch (e) {
     console.log(e);
   }

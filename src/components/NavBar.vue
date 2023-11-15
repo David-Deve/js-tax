@@ -46,8 +46,9 @@
 
           <el-dropdown class="nav-item">
             <a class="btn nav-link d-flex align-items-center">
-              <span class="me-2">{{ $t("navbar.service") }}</span>
-              <i class="bx bx-chevron-down" style="font-size: 20px"></i>
+              <span class="me-2"
+                >{{ $t("navbar.service") }} <i class="bx bx-chevron-down"></i
+              ></span>
             </a>
             <template #dropdown>
               <el-dropdown-menu>

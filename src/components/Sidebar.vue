@@ -107,7 +107,7 @@
           <li><router-link to="/debittax">DEBIT</router-link></li>
           <li><router-link to="/reimburstax">REIMBURSEMENT</router-link></li>
           <li><router-link to="/statementtax">STATEMENT</router-link></li>
-          <li><router-link to="/taxclose">Tax Close</router-link></li>
+          <li><router-link to="/taxclose">Check List</router-link></li>
         </ul>
       </li>
       <li>

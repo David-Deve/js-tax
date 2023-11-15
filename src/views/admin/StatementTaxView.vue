@@ -51,6 +51,28 @@
                     </el-popover>
                   </template>
                 </el-table-column>
+                <el-table-column label="Status">
+                  <template #default="scope">
+                    <el-popover
+                      effect="light"
+                      trigger="hover"
+                      placement="top"
+                      width="auto"
+                    >
+                      <template #default>
+                        <div>{{ scope.row.close }}</div>
+                      </template>
+                      <template #reference>
+                        <el-tag v-if="scope.row.close == true" type="success"
+                          >Close</el-tag
+                        >
+                        <el-tag v-if="scope.row.close == false" type="danger"
+                          >Open</el-tag
+                        >
+                      </template>
+                    </el-popover>
+                  </template>
+                </el-table-column>
                 <el-table-column>
                   <template #header>
                     <el-input
@@ -67,6 +89,9 @@
                       type="primary"
                       >Print</el-button
                     >
+                    <el-button @click="goDetail(scope.row.id)" size="small"
+                      >Detail</el-button
+                    >
                   </template>
                 </el-table-column>
               </el-table>
@@ -82,18 +107,27 @@
     </Sidebar>
   </div>
 
-  <el-dialog v-model="dialogVisible" title="Create New Tax" width="60%">
-    <CreateTax></CreateTax>
+  <el-dialog
+    v-model="dialogDetail"
+    title="Detail Invoice"
+    width="60%"
+    style="height: 300px"
+  >
+    <DetailTaxInvoice :data="tableDataDetail"></DetailTaxInvoice>
   </el-dialog>
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
 import { ref, onMounted, computed } from "vue";
-import CreateTax from "../../components/CreateTax.vue";
-import { getTaxByType } from "../../api/Service";
+import VueCookies from "vue-cookies";
+import DetailTaxInvoice from "../../components/DetailTaxInvoice.vue";
+import { getTaxByType, getTaxInvoiceById } from "../../api/Service";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const loading = ref(true);
-const dialogVisible = ref(false);
+const dialogDetail = ref(false);
 const search = ref("");
+const tableDataDetail = ref([]);
 setTimeout(() => {
   loading.value = false;
 }, 300);
@@ -111,6 +145,16 @@ async function allTax() {
     console.log(e);
   }
 }
+async function goDetail(id) {
+  dialogDetail.value = true;
+  try {
+    const res = await getTaxInvoiceById(id);
+    tableDataDetail.value[0] = res.data;
+    console.log(tableDataDetail.value);
+  } catch (e) {
+    console.log(e);
+  }
+}
 const filterTableData = computed(() =>
   tableData.value.filter(
     (data) =>
@@ -121,4 +165,9 @@ const filterTableData = computed(() =>
 onMounted(() => {
   allTax();
 });
+function printInvoice(id) {
+  VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
+  const routeUrl = router.resolve({ name: "taxinvoice", params: { id } }).href;
+  window.open(routeUrl, "popup", "width=1000,height=1000  ");
+}
 </script>
