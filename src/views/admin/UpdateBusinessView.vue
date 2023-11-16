@@ -49,7 +49,7 @@
             </div>
           </div>
           <el-button
-            @click="dialogVisible = true"
+            @click="updateAboutParagrahp()"
             class="mt-3 mb-1"
             type="primary"
           >
@@ -59,7 +59,7 @@
       </template>
     </Sidebar>
   </div>
-  <el-dialog v-model="dialogVisible" title="Update Text HomePage" width="80%">
+  <!-- <el-dialog v-model="dialogVisible" title="Update Text HomePage" width="80%">
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">Cancel</el-button>
@@ -68,7 +68,7 @@
         </el-button>
       </span>
     </template>
-  </el-dialog>
+  </el-dialog> -->
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";

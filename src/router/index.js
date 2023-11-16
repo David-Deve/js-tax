@@ -151,13 +151,11 @@ const router = createRouter({
       path: "/taxinvoice/:id",
       name: "taxinvoice",
       component: TaxInvoice,
-      meta: { requiresAuth: true },
     },
     {
       path: "/statementinvoice/:id",
       name: "statementinvoice",
       component: StatementInvoice,
-      meta: { requiresAuth: true },
     },
     {
       path: "/allinvoice",

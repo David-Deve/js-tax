@@ -121,10 +121,13 @@ import Sidebar from "@/components/Sidebar.vue";
 import { ref, onMounted, computed } from "vue";
 import DetailTaxInvoice from "../../components/DetailTaxInvoice.vue";
 import { getTaxByType, getTaxInvoiceById } from "../../api/Service";
+import { useRouter } from "vue-router";
+import VueCookies from "vue-cookies";
 const dialogDetail = ref(false);
 const loading = ref(true);
 const search = ref("");
 const tableDataDetail = ref([]);
+const router = useRouter();
 setTimeout(() => {
   loading.value = false;
 }, 300);
@@ -162,4 +165,9 @@ const filterTableData = computed(() =>
 onMounted(() => {
   allTax();
 });
+function printInvoice(id) {
+  VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
+  const routeUrl = router.resolve({ name: "taxinvoice", params: { id } }).href;
+  window.open(routeUrl, "popup", "width=1000,height=1000  ");
+}
 </script>

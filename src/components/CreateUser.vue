@@ -111,6 +111,12 @@ async function register() {
     });
     emit("userCreated");
   } catch (e) {
+    ElNotification({
+      title: "Fail",
+      duration: 2000,
+      message: "User does have Right Role",
+      type: "error",
+    });
     console.warn(e);
   }
 }
