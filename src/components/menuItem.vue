@@ -16,7 +16,7 @@ import remixiconUrl from "remixicon/fonts/remixicon.symbol.svg";
 const props = defineProps(["icon", "title", "action", "isActive"]);
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .menu-item {
   background: transparent;
   border: none;

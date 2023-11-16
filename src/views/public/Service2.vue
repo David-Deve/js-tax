@@ -13,7 +13,7 @@
 
           <p
             class="ms-1"
-            style="text-indent: 30px; font-size: 18px"
+            style="font-size: 18px"
             v-html="$t('service.service2.para')"
           ></p>
         </div>

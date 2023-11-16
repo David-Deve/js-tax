@@ -8,107 +8,87 @@
           v-loading="loading"
           element-loading-background="#f3f3f35d"
         >
-          <h2>Service1(TAX Service)</h2>
-          <div class="container mt-5 mb-3 form">
-            <div class="mb-3">
-              <label class="form-label">Khmer Paragraph 1</label>
-              <p class="text">{{ khpara1 }}</p>
+          <h2 class="mb-5">Service1(TAX Service)</h2>
+          <h5 class="ms-3">Khmer Paragraph</h5>
+          <div class="p-2">
+            <div class="editor" v-if="editorkh">
+              <menu-bar class="editor__header" :editor="editorkh" />
+              <editor-content
+                class="editor__content text-left p-1 border-0"
+                :editor="editorkh"
+              />
             </div>
-            <div class="mb-3">
-              <label class="form-label">Location (Khmer)</label>
-              <p class="text">{{ khpara2 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Working Time (Khmer)</label>
-              <p class="text">{{ khpara3 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Email (Khmer )</label>
-              <p class="text">{{ khpara4 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Phone number (Khmer)</label>
-              <p class="text">{{ khpara5 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">English Paragraph 1</label>
-              <p class="text">{{ engpara1 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Location (English)</label>
-              <p class="text">{{ engpara2 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Working Time (English)</label>
-              <p class="text">{{ engpara3 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Email (English)</label>
-              <p class="text">{{ engpara4 }}</p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Phone number (English)</label>
-              <p class="text">{{ engpara5 }}</p>
-            </div>
-            <el-button
-              @click="dialogVisible = true"
-              class="mt-3 mb-1"
-              type="primary"
-            >
-              Update
-            </el-button>
           </div>
+          <h5 class="ms-3 mb-2">Khmer Location</h5>
+          <textarea
+            class="textarea form-control mb-2"
+            type="text"
+            v-model="khpara2"
+          />
+          <h5 class="ms-3 mb-2">Khmer working time</h5>
+          <textarea
+            class="textarea form-control mb-2"
+            type="text"
+            v-model="khpara3"
+          />
+          <h5 class="ms-3 mb-2">Khmer Email</h5>
+          <textarea
+            class="textarea form-control mb-2"
+            type="text"
+            v-model="khpara4"
+          />
+          <h5 class="ms-3 mb-2">Khmer Phonenumber</h5>
+          <textarea
+            class="textarea form-control mb-2"
+            type="text"
+            v-model="khpara5"
+          />
+          <br />
+          <h5 class="ms-3 mb-2">English Paragraph</h5>
+          <div class="p-2">
+            <div class="editor" v-if="editoreng">
+              <menu-bar class="editor__header" :editor="editoreng" />
+              <editor-content
+                class="editor__content text-left p-1 border-0"
+                :editor="editoreng"
+              />
+            </div>
+          </div>
+          <h5 class="ms-3 mb-2">English Location</h5>
+          <textarea
+            class="textarea form-control mb-2"
+            type="text"
+            v-model="engpara2"
+          />
+          <h5 class="ms-3 mb-2">English working time</h5>
+          <textarea
+            class="textarea form-control mb-2"
+            type="text"
+            v-model="engpara3"
+          />
+          <h5 class="ms-3 mb-2">English Email</h5>
+          <textarea
+            class="textarea form-control mb-2"
+            type="text"
+            v-model="engpara4"
+          />
+          <h5 class="ms-3 mb-2">English Phonenumber</h5>
+          <textarea
+            class="textarea form-control mb-2"
+            type="text"
+            v-model="engpara5"
+          />
+          <el-button
+            @click="updateContactParagrahp()"
+            class="mt-3 mb-1 mb-5"
+            type="primary"
+          >
+            Update
+          </el-button>
         </div>
       </template>
     </Sidebar>
   </div>
-  <el-dialog v-model="dialogVisible" title="Update Text HomePage" width="80%">
-    <span>Khmer Paragraph</span>
-    <div class="p-2">
-      <div class="editor" v-if="editorkh">
-        <menu-bar class="editor__header" :editor="editorkh" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editor="editorkh"
-        />
-      </div>
-    </div>
-    <span>Khmer Location</span>
-    <textarea class="textarea form-control" type="text" v-model="khpara2" />
-    <span>Khmer working time</span>
-    <textarea class="textarea form-control" type="text" v-model="khpara3" />
-    <span>Khmer Email</span>
-    <textarea class="textarea form-control" type="text" v-model="khpara4" />
-    <span>Khmer Phonenumber</span>
-    <textarea class="textarea form-control" type="text" v-model="khpara5" />
-    <br />
-    <span>English Paragraph</span>
-    <div class="p-2">
-      <div class="editor" v-if="editoreng">
-        <menu-bar class="editor__header" :editor="editoreng" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editor="editoreng"
-        />
-      </div>
-    </div>
-    <span>English Location</span>
-    <textarea class="textarea form-control" type="text" v-model="engpara2" />
-    <span>English working time</span>
-    <textarea class="textarea form-control" type="text" v-model="engpara3" />
-    <span>English Email</span>
-    <textarea class="textarea form-control" type="text" v-model="engpara4" />
-    <span>English Phonenumber</span>
-    <textarea class="textarea form-control" type="text" v-model="engpara5" />
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="dialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="updateContactParagrahp()">
-          Confirm
-        </el-button>
-      </span>
-    </template>
-  </el-dialog>
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";

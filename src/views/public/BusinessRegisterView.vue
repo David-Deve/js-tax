@@ -10,11 +10,14 @@
             {{ $t("service.businessregister.businessregister") }}
           </p>
           <div class="ms-3">
-            <p v-html="$t('service.businessregister.text1')"></p>
+            <p
+              style="font-size: 18px"
+              v-html="$t('service.businessregister.text1')"
+            ></p>
           </div>
           <p
             class="ms-1"
-            style="text-indent: 30px; font-size: 18px"
+            style="font-size: 18px"
             v-html="$t('service.businessregister.para')"
           ></p>
         </div>

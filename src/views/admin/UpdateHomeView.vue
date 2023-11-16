@@ -7,76 +7,37 @@
           v-loading="loading"
           element-loading-background="#f3f3f35d"
         >
-          <h2>Home Page</h2>
-          <div class="container mt-5 form">
-            <div class="mb-3">
-              <label class="form-label">Khmer Paragraph</label>
-
-              <p class="text" v-html="khpara"></p>
+          <h2 class="mb-5">Home Page</h2>
+          <h5 class="ms-3">Khmer Paragraph</h5>
+          <div class="p-2">
+            <div class="editor" v-if="editorkh">
+              <menu-bar class="editor__header" :editor="editorkh" />
+              <editor-content class="p-3" :editor="editorkh" />
             </div>
-            <div class="mb-3">
-              <label class="form-label">English Paragraph</label>
-              <p class="text" v-html="engpara"></p>
-            </div>
-            <el-button
-              @click="dialogVisible = true"
-              class="mt-3 mb-1"
-              type="primary"
-            >
-              Update
-            </el-button>
           </div>
+
+          <h5 class="ms-3">English Paragraph</h5>
+          <div class="p-2">
+            <div class="editor" v-if="editoreng">
+              <menu-bar class="editor__header" :editor="editoreng" />
+              <editor-content
+                class="editor__content text-left p-1 border-0"
+                :editor="editoreng"
+              />
+            </div>
+          </div>
+
+          <el-button
+            @click="updateHomeParagrahp()"
+            class="mt-3 mb-1"
+            type="primary"
+          >
+            Update
+          </el-button>
         </div>
       </template>
     </Sidebar>
   </div>
-
-  <el-dialog v-model="dialogVisible" width="80%">
-    <!-- <span>Khmer text</span>
-    <textarea class="textarea form-control" type="text" v-model="khpara" />
-    <br />
-    <span>English text</span>
-    <textarea class="textarea form-control" type="text" v-model="engpara" /> -->
-    <h5 class="ms-5">Khmer Paragraph</h5>
-    <div class="p-2">
-      <div class="editor" v-if="editorkh">
-        <menu-bar class="editor__header" :editor="editorkh" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editor="editorkh"
-        />
-      </div>
-    </div>
-    <h5 class="ms-5">English Paragraph</h5>
-    <div class="p-2">
-      <div class="editor" v-if="editoreng">
-        <menu-bar class="editor__header" :editor="editoreng" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editor="editoreng"
-        />
-      </div>
-    </div>
-
-    <!-- <div class="p-5">
-      <div class="editor" v-if="editoreng">
-        <menu-bar class="editor__header" :editor="editoreng" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editoreng="editoreng"
-        />
-      </div>
-    </div> -->
-
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="dialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="updateHomeParagrahp()">
-          Confirm
-        </el-button>
-      </span>
-    </template>
-  </el-dialog>
 </template>
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
@@ -97,7 +58,6 @@ import StarterKit from "@tiptap/starter-kit";
 import { Editor, EditorContent } from "@tiptap/vue-3";
 import MenuBar from "@/components/tiptap.vue";
 
-const dialogVisible = ref(false);
 const loading = ref(true);
 const khpara = ref(null);
 const engpara = ref(null);

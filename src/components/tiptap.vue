@@ -31,6 +31,12 @@ const items = ref([
     isActive: () => editor.isActive("strike"),
   },
   {
+    icon: "code-view",
+    title: "Code",
+    action: () => editor.chain().focus().toggleCode().run(),
+    isActive: () => editor.isActive("code"),
+  },
+  {
     icon: "mark-pen-line",
     title: "Highlight",
     action: () => editor.chain().focus().toggleHighlight().run(),
@@ -74,7 +80,19 @@ const items = ref([
     isActive: () => editor.isActive("orderedList"),
   },
 
+  {
+    icon: "code-box-line",
+    title: "Code Block",
+    action: () => editor.chain().focus().toggleCodeBlock().run(),
+    isActive: () => editor.isActive("codeBlock"),
+  },
   { type: "divider" },
+  {
+    icon: "double-quotes-l",
+    title: "Blockquote",
+    action: () => editor.chain().focus().toggleBlockquote().run(),
+    isActive: () => editor.isActive("blockquote"),
+  },
   {
     icon: "separator",
     title: "Horizontal Rule",
@@ -107,7 +125,7 @@ const items = ref([
 const { editor } = props;
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .divider {
   background-color: rgba(#fff, 0.25);
   height: 1.25rem;

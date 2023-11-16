@@ -44,7 +44,7 @@
                   class="card"
                   style="background-color: rgba(240, 240, 240, 0.5)"
                 >
-                  <router-link to="/contact">
+                  <router-link to="/businessregister">
                     <div
                       class="card-body d-flex flex-column align-items-center justify-content-center"
                     >

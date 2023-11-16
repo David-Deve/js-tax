@@ -8,78 +8,60 @@
           v-loading="loading"
           element-loading-background="#f3f3f35d"
         >
-          <h2>Service1(TAX Service)</h2>
-          <div class="container mt-5 mb-3 form">
-            <div class="mb-3">
-              <label class="form-label">Khmer Paragraph 1</label>
-              <p class="text" v-html="khpara1"></p>
+          <h2 class="mb-5">Service1(TAX Service)</h2>
+          <h5 class="ms-3">Khmer Paragraph1</h5>
+          <div class="p-2">
+            <div class="editor" v-if="editorkh1">
+              <menu-bar class="editor__header" :editor="editorkh1" />
+              <editor-content
+                class="editor__content text-left p-1 border-0"
+                :editor="editorkh1"
+              />
             </div>
-            <div class="mb-3">
-              <label class="form-label">Khmer Paragraph 2</label>
-              <p class="text" v-html="khpara2"></p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">English Paragraph 1</label>
-              <p class="text" v-html="engpara1"></p>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">English Paragraph 2</label>
-              <p class="text" v-html="engpara2"></p>
-            </div>
-
-            <el-button
-              @click="dialogVisible = true"
-              class="mt-3 mb-1"
-              type="primary"
-            >
-              Update
-            </el-button>
           </div>
+          <h5 class="ms-3">Khmer Paragraph2</h5>
+          <div class="p-2">
+            <div class="editor" v-if="editorkh2">
+              <menu-bar class="editor__header" :editor="editorkh2" />
+              <editor-content
+                class="editor__content text-left p-1 border-0"
+                :editor="editorkh2"
+              />
+            </div>
+          </div>
+          <h5 class="ms-3">English Paragraph1</h5>
+          <div class="p-2">
+            <div class="editor" v-if="editoreng1">
+              <menu-bar class="editor__header" :editor="editoreng1" />
+              <editor-content
+                class="editor__content text-left p-1 border-0"
+                :editor="editoreng1"
+              />
+            </div>
+          </div>
+          <h5 class="ms-3">English Paragraph2</h5>
+          <div class="p-2">
+            <div class="editor" v-if="editoreng2">
+              <menu-bar class="editor__header" :editor="editoreng2" />
+              <editor-content
+                class="editor__content text-left p-1 border-0"
+                :editor="editoreng2"
+              />
+            </div>
+          </div>
+
+          <el-button
+            @click="updateService1Paragrahp()"
+            class="mt-3 mb-5"
+            type="primary"
+          >
+            Update
+          </el-button>
         </div>
       </template>
     </Sidebar>
   </div>
   <el-dialog v-model="dialogVisible" title="Update Text HomePage" width="80%">
-    <h5 class="ms-5">Khmer Paragraph1</h5>
-    <div class="p-2">
-      <div class="editor" v-if="editorkh1">
-        <menu-bar class="editor__header" :editor="editorkh1" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editor="editorkh1"
-        />
-      </div>
-    </div>
-    <h5 class="ms-5">Khmer Paragraph2</h5>
-    <div class="p-2">
-      <div class="editor" v-if="editorkh2">
-        <menu-bar class="editor__header" :editor="editorkh2" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editor="editorkh2"
-        />
-      </div>
-    </div>
-    <h5 class="ms-5">English Paragraph1</h5>
-    <div class="p-2">
-      <div class="editor" v-if="editoreng1">
-        <menu-bar class="editor__header" :editor="editoreng1" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editor="editoreng1"
-        />
-      </div>
-    </div>
-    <h5 class="ms-5">English Paragraph2</h5>
-    <div class="p-2">
-      <div class="editor" v-if="editoreng2">
-        <menu-bar class="editor__header" :editor="editoreng2" />
-        <editor-content
-          class="editor__content text-left p-1 border-0"
-          :editor="editoreng2"
-        />
-      </div>
-    </div>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">Cancel</el-button>
@@ -252,15 +234,7 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped lang="scss">
-.text {
-  border: 1px solid rgb(141, 141, 141);
-  border-radius: 5px;
-  padding: 10px;
-}
-.textarea {
-  height: 100px;
-}
+<style lang="scss">
 .editor {
   background-color: #fff;
   border: 3px solid #0d0d0d;
