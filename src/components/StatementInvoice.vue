@@ -13,24 +13,23 @@
     <div class="">
       <div class="">
         <div class="m-0">
-          <p class="title d-flex flex-column align-items-end title m-0">
+          <!-- <p class="title d-flex flex-column align-items-center title m-0">
             {{ title }}
-          </p>
-          <p class="titleeng d-flex flex-column align-items-end title m-0">
+          </p> -->
+          <p class="titleeng d-flex flex-column align-items-center title m-0">
             {{ titleeng }}
           </p>
           <div class="d-flex flex-column align-items-end detial m-0">
-            <div class="m-0 border content p-1 border-black">
+            <div class="m-0 content p-1">
               <p class="m-0">វិក្កយបត្រ / Invoice : {{ invno }}</p>
-              <p>កាលបរិច្ជេទ / Date : {{ date }}</p>
             </div>
           </div>
         </div>
         <p class="m-0">{{ customer }}</p>
-        <hr class="line m-0" />
+        <hr class="line m-1" />
         <p class="m-0">ឈ្មោះក្រុមហ៊ុន / អតិថិជន​: {{ namekh }}</p>
         <p class="m-0">Company Name / Customer: {{ nameeng }}</p>
-        <p class="m-0">អាស័យដ្ធាន: {{ add }}</p>
+        <p class="m-0">អាស័យដ្ធាន / Address: {{ add }}</p>
         <p class="m-0">លេខទូរសព្ធ / Phone: {{ phonenumber }}</p>
         <p class="m-0">
           លេខអត្តសញ្ញាណកម្មសារពើពន្ធ (VATTIN):
@@ -46,24 +45,12 @@
             <thead class="table-primary">
               <tr>
                 <th class="center">
-                  <p>ល.រ</p>
                   <p>No</p>
                 </th>
                 <th class="text">
-                  <p>បរិយាយមុខទំនិញ​</p>
-                  <p>Item Description</p>
+                  <p>Description</p>
                 </th>
                 <th>
-                  <p>បរិមាណ</p>
-                  <p>Quatity</p>
-                </th>
-
-                <th class="right">
-                  <p>តម្លៃឯកតា</p>
-                  <p>Unit Price</p>
-                </th>
-                <th class="right">
-                  <p>តម្លៃទំនិញ</p>
                   <p>Amount</p>
                 </th>
               </tr>
@@ -73,15 +60,11 @@
                 <td class="center" style="text-align: center">
                   {{ index + 1 }}
                 </td>
-                <td class="left" style="text-align: center">
-                  {{ item.invoiceDetailName }}
+                <td class="center" style="text-align: center">
+                  {{ item.name }}
                 </td>
-                <td class="left" style="text-align: center">{{ item.qty }}</td>
-                <td class="right" style="text-align: center">
-                  ${{ item.unitPrice }}
-                </td>
-                <td class="right" style="text-align: center">
-                  ${{ item.lineItemPrice }}
+                <td class="center" style="text-align: center">
+                  {{ item.amount }}.00
                 </td>
               </tr>
             </tbody>
@@ -93,28 +76,18 @@
               <tbody>
                 <tr>
                   <td class="left">
-                    <strong>Subtotal</strong>
-                  </td>
-                  <td class="right">{{ subtotal }}$</td>
-                </tr>
-                <tr>
-                  <td class="left">
-                    <strong>VAT ({{ vatper }}%)</strong>
-                  </td>
-                  <td class="right">{{ vatprice }}$</td>
-                </tr>
-                <tr>
-                  <td class="left">
                     <strong>Total</strong>
                   </td>
                   <td class="right">
-                    <strong>{{ total }}$</strong>
+                    <strong>{{ total }}.00$</strong>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
+        <br /><br /><br />
+        <br />
         <br /><br /><br />
         <br />
         <div class="row">
@@ -135,7 +108,7 @@
             <p style="text-align: center">Seller's Signature & Name</p>
           </div>
         </div>
-        <div class="footer">
+        <!-- <div class="footer">
           <div class="row">
             <div class="col">
               <small class="text-body-secondary m-2">PostCode: 45464</small>
@@ -151,7 +124,7 @@
               >
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -159,7 +132,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import { getInvoiceById } from "../../api/Service";
+import { getTaxInvoiceById } from "../api/Service";
 const route = useRoute();
 const id = ref(route.params.id);
 const loading = ref(true);
@@ -167,7 +140,7 @@ setTimeout(() => {
   loading.value = false;
 }, 300);
 const title = ref("វិក្កយបត្រអាករ");
-const titleeng = ref("Tax Invoice");
+const titleeng = ref("Statement");
 const invno = ref();
 const date = ref();
 const customer = ref("អតិថិជន / Customer");
@@ -183,15 +156,15 @@ const total = ref();
 const data = ref([]);
 async function getInvoice() {
   try {
-    const response = await getInvoiceById(id.value);
+    const response = await getTaxInvoiceById(id.value);
     console.log(response);
     add.value = response.data.client.address;
     namekh.value = response.data.client.khmerName;
     nameeng.value = response.data.client.engName;
-    invno.value = response.data.invoiceCode;
+    invno.value = response.data.noteCode;
     phonenumber.value = response.data.client.phone;
     vattin.value = response.data.client.vattin;
-    data.value = response.data.invoiceDetails;
+    data.value = response.data.noteDetails;
     subtotal.value = response.data.subTotal;
     vatper.value = response.data.vatPer;
     vatprice.value = response.data.vatPrice;

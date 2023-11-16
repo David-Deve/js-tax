@@ -148,10 +148,10 @@ export async function loadMessage() {
         text2: "",
       },
       service: {
-        taxservice: "សេវាកម្មពន្ធ",
-        account: "សេវាកម្មគណនី",
-        registeration: "ការចុះឈ្មោះ ",
-        other: "ឯកសារផ្សេងទៀត",
+        taxservice: "សេវាកម្មពន្ធដារ",
+        account: "សេវាកម្មគណនេយ្យ",
+        registeration: "សេវាកម្មការចុះឈ្មោះក្រុមហ៊ុនថ្មី",
+        other: "សេវាកម្មផ្សេងៗ",
         readmore: "ចុចមើល",
 
         service1: {

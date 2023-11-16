@@ -91,7 +91,7 @@
                   <template #default="scope">
                     <!-- <el-button size="small" type="danger">Edit </el-button> -->
                     <el-button
-                      @click="printInvoice(scope.row.id)"
+                      @click="printInvoice(scope.row.id, scope.row.noteType)"
                       size="small"
                       type="primary"
                       >Print</el-button
@@ -187,9 +187,21 @@ const filterTableData = computed(() =>
       data.name.toLowerCase().includes(search.value.toLowerCase())
   )
 );
-function printInvoice(id) {
-  VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
-  const routeUrl = router.resolve({ name: "taxinvoice", params: { id } }).href;
-  window.open(routeUrl, "popup", "width=1000,height=1000  ");
+function printInvoice(id, type) {
+  if (type == "STATEMENT") {
+    VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
+    const routeUrl = router.resolve({
+      name: "statementinvoice",
+      params: { id },
+    }).href;
+    window.open(routeUrl, "popup", "width=1000,height=1000  ");
+  } else {
+    VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
+    const routeUrl = router.resolve({
+      name: "taxinvoice",
+      params: { id },
+    }).href;
+    window.open(routeUrl, "popup", "width=1000,height=1000  ");
+  }
 }
 </script>

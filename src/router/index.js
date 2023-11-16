@@ -31,6 +31,7 @@ import ReimbursTaxView from "../views/admin/ReimbursTaxView.vue";
 import StatementTaxView from "../views/admin/StatementTaxView.vue";
 import TaxCloseView from "../views/admin/TaxCloseView.vue";
 import UpdateBusinessView from "../views/admin/UpdateBusinessView.vue";
+import StatementInvoice from "../components/StatementInvoice.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -150,6 +151,12 @@ const router = createRouter({
       path: "/taxinvoice/:id",
       name: "taxinvoice",
       component: TaxInvoice,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/statementinvoice/:id",
+      name: "statementinvoice",
+      component: StatementInvoice,
       meta: { requiresAuth: true },
     },
     {

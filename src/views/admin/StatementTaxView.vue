@@ -167,7 +167,10 @@ onMounted(() => {
 });
 function printInvoice(id) {
   VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);
-  const routeUrl = router.resolve({ name: "taxinvoice", params: { id } }).href;
+  const routeUrl = router.resolve({
+    name: "statementinvoice",
+    params: { id },
+  }).href;
   window.open(routeUrl, "popup", "width=1000,height=1000  ");
 }
 </script>
