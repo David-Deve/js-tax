@@ -20,7 +20,7 @@
             {{ titleeng }}
           </p>
           <div class="d-flex flex-column align-items-end detial m-0">
-            <div class="m-0 border content pt-1 border-black">
+            <div class="m-0 border content p-1 border-black">
               <p class="m-0">វិក្កយបត្រ / Invoice : {{ invno }}</p>
               <p>កាលបរិច្ជេទ / Date : {{ date }}</p>
             </div>
@@ -32,7 +32,13 @@
         <p class="m-0">Company Name / Customer: {{ nameeng }}</p>
         <p class="m-0">អាស័យដ្ធាន: {{ add }}</p>
         <p class="m-0">លេខទូរសព្ធ / Phone: {{ phonenumber }}</p>
-        <p class="m-0">លេខអត្តសញ្ញាណកម្មសារពើពន្ធ (VATTIN): {{ vattin }}</p>
+        <p class="m-0">
+          លេខអត្តសញ្ញាណកម្មសារពើពន្ធ (VATTIN):
+          <span v-for="(char, index) in vattin" :key="index" class="styled">{{
+            char
+          }}</span>
+        </p>
+        <br />
       </div>
       <div class="card-body">
         <div class="table-responsive-sm">
@@ -212,5 +218,13 @@ th {
 }
 .footer {
   border: 1px black solid;
+}
+.styled {
+  border: 1px solid aqua;
+  border-radius: 3px;
+  margin: 1px;
+  padding: 5px;
+
+  /* Add any other styles you want here */
 }
 </style>

@@ -142,7 +142,7 @@ const form = ref({
   name: "",
   dateNote: "",
   noteType: "",
-  rateToRiel: "4100",
+  rateToRiel: "4000",
   total: "",
   invoiceId: "",
   clientId: "",

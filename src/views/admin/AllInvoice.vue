@@ -115,9 +115,13 @@ const tableData = ref([]);
 async function allInvoice() {
   try {
     const res = await getAllInvoice();
-    tableData.value = res.data;
-    pagination.value = tableData.value.length;
-    console.log(tableData.value);
+    if (res.data == null) {
+      tableData.value = [];
+    } else {
+      tableData.value = res.data;
+    }
+
+    console.log(res.data);
   } catch (e) {
     console.log(e);
   }
