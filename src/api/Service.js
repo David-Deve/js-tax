@@ -292,7 +292,7 @@ export async function getInvoiceById(id) {
   try {
     const response = await apiConfig.get(`/invoice/${id}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        // Authorization: `Bearer ${token}`,
       },
     });
     return response.data;
@@ -384,7 +384,7 @@ export async function getTaxInvoiceById(id) {
   try {
     const response = await apiConfig.get(`/tax/${id}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        // Authorization: `Bearer ${token}`,
       },
     });
     return response.data;
