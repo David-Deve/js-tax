@@ -74,7 +74,7 @@
                     style="background-color: rgba(240, 240, 240, 0.5)"
                   >
                     <router-link
-                      to="/contact"
+                      to="/businessregister"
                       style="text-decoration: none; color: black"
                     >
                       <div
@@ -91,10 +91,9 @@
                     class="card"
                     style="background-color: rgba(240, 240, 240, 0.5)"
                   >
-                    <a
-                      href="https://www.tax.gov.kh/km/categories/64qke344011330727"
+                    <router-link
+                      to="/otherlicenses"
                       style="text-decoration: none; color: black"
-                      target="_blank"
                     >
                       <div
                         class="card-body d-flex flex-column align-items-center justify-content-center"
@@ -102,7 +101,7 @@
                         <img src="@\assets\picture\licence.png" alt="" />
                         <p class="text">{{ $t("service.other") }}</p>
                       </div>
-                    </a>
+                    </router-link>
                   </div>
                 </div>
               </div>
