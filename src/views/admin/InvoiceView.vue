@@ -228,7 +228,7 @@ th {
   border: 1px black solid;
 }
 .styled {
-  border: 1px solid aqua;
+  border: 1px solid #0a6fb8;
   border-radius: 3px;
   margin: 1px;
   padding: 5px;
