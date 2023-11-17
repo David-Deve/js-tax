@@ -51,7 +51,7 @@ export async function loadMessage() {
         taxservice: "Tax Service",
         account: "Account Service",
         registeration: "Bussiness Registerations",
-        other: "Other Documents",
+        other: "Other Services",
         readmore: "Readmore",
         service1: {
           taxservice: "Tax Service",
@@ -75,7 +75,7 @@ export async function loadMessage() {
           para: "",
         },
         otherlicense: {
-          other: "Other License",
+          other: "Other Services",
           text1: "",
           para: "",
         },
@@ -182,7 +182,7 @@ export async function loadMessage() {
           para: "",
         },
         otherlicense: {
-          other: "អាជ្ញាប័ណ្ណផ្សេងទៀត",
+          other: "សេវាកម្មផ្សេងៗ",
           text1: "",
           para: "",
         },
