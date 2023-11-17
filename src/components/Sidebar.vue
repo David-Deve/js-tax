@@ -7,7 +7,7 @@
         src="@\assets\picture\logo.png"
         alt=""
       />
-      <span class="logo_name">JS TAX SERVICE</span>
+      <span class="logo_name">JS TAX SERVICES</span>
     </div>
     <ul class="nav-links">
       <li>
@@ -69,6 +69,9 @@
               >Business Register</router-link
             >
           </li>
+          <li>
+            <router-link to="/updateotherlicenses">Other License</router-link>
+          </li>
           <li><router-link to="/updatecontact">Contact</router-link></li>
         </ul>
       </li>
@@ -116,16 +119,17 @@
         </ul>
       </li>
       <li>
-        <router-link to="/allinvoice">
-          <i class="bx bxs-file-export"></i>
-          <span class="link_name">Invoice</span>
-        </router-link>
-        <ul class="sub-menu blank">
-          <li>
-            <router-link class="link_name" to="/allinvoice"
-              >Invoice</router-link
-            >
-          </li>
+        <div class="iocn-link">
+          <router-link to="#">
+            <i class="bx bxs-file-export"></i>
+            <span class="link_name">Invoice</span>
+          </router-link>
+          <i class="bx bxs-chevron-down arrow"></i>
+        </div>
+        <ul class="sub-menu">
+          <li><router-link to="/allinvoice">Invoice</router-link></li>
+          <li><router-link to="/credittax">CREDIT</router-link></li>
+          <li><router-link to="/debittax">DEBIT</router-link></li>
         </ul>
       </li>
       <li>

@@ -67,12 +67,9 @@
                   }}</router-link></el-dropdown-item
                 >
                 <el-dropdown-item
-                  ><a
-                    href="https://www.tax.gov.kh/km/categories/64qke344011330727"
-                    target="_blank"
-                    class="menu-service"
-                    >{{ $t("service.other") }}</a
-                  ></el-dropdown-item
+                  ><router-link to="otherlicenses" class="menu-service">{{
+                    $t("service.other")
+                  }}</router-link></el-dropdown-item
                 >
               </el-dropdown-menu>
             </template>

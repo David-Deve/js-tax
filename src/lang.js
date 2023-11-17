@@ -5,6 +5,7 @@ import {
   getTextService2Page,
   getTextContactPage,
   getBusinessRegister,
+  getOtherLicensePage,
 } from "./api/PublicWebsiteService";
 export async function loadMessage() {
   const messages = {
@@ -70,6 +71,11 @@ export async function loadMessage() {
         },
         businessregister: {
           businessregister: "Business Registerations",
+          text1: "",
+          para: "",
+        },
+        otherlicense: {
+          other: "Other License",
           text1: "",
           para: "",
         },
@@ -175,6 +181,11 @@ export async function loadMessage() {
           text1: "",
           para: "",
         },
+        otherlicense: {
+          other: "អាជ្ញាប័ណ្ណផ្សេងទៀត",
+          text1: "",
+          para: "",
+        },
       },
       contact: {
         contact: "ទំនាក់ទំនង",
@@ -219,6 +230,7 @@ export async function loadMessage() {
     const service2 = await getTextService2Page();
     const contact = await getTextContactPage();
     const bussiness = await getBusinessRegister();
+    const other = await getOtherLicensePage();
     //home Pags
     messages.en.home.para = home.data.bodies[0].descriptionEn;
     messages.kh.home.para = home.data.bodies[0].descriptionKh;
@@ -266,6 +278,13 @@ export async function loadMessage() {
       bussiness.data.bodies[0].descriptionKh;
     messages.kh.service.businessregister.para =
       bussiness.data.bodies[1].descriptionKh;
+
+    //Other licenses
+    messages.en.service.otherlicense.text1 = other.data.bodies[0].descriptionEn;
+    messages.en.service.otherlicense.para = other.data.bodies[1].descriptionEn;
+
+    messages.kh.service.otherlicense.text1 = other.data.bodies[0].descriptionKh;
+    messages.kh.service.otherlicense.para = other.data.bodies[1].descriptionKh;
     //Contact Pages
     messages.en.contact.para = contact.data.bodies[0].descriptionEn;
     messages.en.contact.locatime = contact.data.bodies[1].descriptionEn;

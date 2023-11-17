@@ -9,7 +9,7 @@ import Service1 from "../views/public/Service1.vue";
 import Service2 from "../views/public/Service2.vue";
 import BusinessRegister from "../views/public/BusinessRegisterView.vue";
 import VueCookies from "vue-cookies";
-
+import OtherLicense from "../views/public/OtherLicenceView.vue";
 //Admin Route
 import Dashboard from "../views/admin/DashboardView.vue";
 import User from "../views/admin/UserView.vue";
@@ -18,6 +18,7 @@ import UpdateHomeView from "../views/admin/UpdateHomeView.vue";
 import UpdateService1View from "../views/admin/UpdateService1View.vue";
 import UpdateService2View from "../views/admin/UpdateService2View.vue";
 import UpdateContactView from "../views/admin/UpdateContactView.vue";
+import UpdateOtherLicense from "../views/admin/UpdateOtherLicense.vue";
 import Consultation from "../views/admin/ConsultationView.vue";
 import CreateClient from "../views/admin/CreateClientView.vue";
 import ClientView from "../views/admin/ClientView.vue";
@@ -66,6 +67,11 @@ const router = createRouter({
       component: BusinessRegister,
     },
     {
+      path: "/otherlicenses",
+      name: "otherlicenses",
+      component: OtherLicense,
+    },
+    {
       path: "/contact",
       name: "contact",
       component: ContactView,
@@ -91,6 +97,12 @@ const router = createRouter({
       path: "/updateaboutpage",
       name: "updateaboutpage",
       component: UpdateAboutView,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/updateotherlicenses",
+      name: "updateotherlicenses",
+      component: UpdateOtherLicense,
       meta: { requiresAuth: true },
     },
     {

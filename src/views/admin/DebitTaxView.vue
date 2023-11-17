@@ -15,11 +15,11 @@
                 v-loading="loading"
               >
                 <el-table-column type="index" label="No" />
-                <el-table-column label="TaxName">
+                <el-table-column label="Client Name">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{
-                        scope.row.name
+                        scope.row.client.companyName
                       }}</span>
                     </div>
                   </template>
@@ -73,6 +73,15 @@
                     </el-popover>
                   </template>
                 </el-table-column>
+                <el-table-column label="Total Price">
+                  <template #default="scope">
+                    <div style="display: flex; align-items: center">
+                      <span style="margin-left: 10px"
+                        >{{ scope.row.total }}$</span
+                      >
+                    </div>
+                  </template>
+                </el-table-column>
                 <el-table-column>
                   <template #header>
                     <el-input
@@ -119,7 +128,7 @@
 <script setup>
 import Sidebar from "@/components/Sidebar.vue";
 import { ref, onMounted, computed } from "vue";
-import DetailTaxInvoice from "../../components/DetailTaxInvoice.vue";
+import DetailTaxInvoice from "@/components/DetailTaxInvoice.vue";
 import { getTaxByType, getTaxInvoiceById } from "../../api/Service";
 import { useRouter } from "vue-router";
 import VueCookies from "vue-cookies";

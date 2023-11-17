@@ -15,14 +15,23 @@
                 v-loading="loading"
               >
                 <el-table-column type="index" label="No" />
-                <el-table-column label="ID">
+                <el-table-column label="ID" width="50">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{ scope.row.id }}</span>
                     </div>
                   </template>
                 </el-table-column>
-                <el-table-column label="TaxName">
+                <el-table-column label="Client Name">
+                  <template #default="scope">
+                    <div style="display: flex; align-items: center">
+                      <span style="margin-left: 10px">{{
+                        scope.row.client.companyName
+                      }}</span>
+                    </div>
+                  </template>
+                </el-table-column>
+                <!-- <el-table-column label="TaxName">
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{
@@ -30,7 +39,7 @@
                       }}</span>
                     </div>
                   </template>
-                </el-table-column>
+                </el-table-column> -->
 
                 <el-table-column label="Tax Date">
                   <template #default="scope">
@@ -78,6 +87,15 @@
                         >
                       </template>
                     </el-popover>
+                  </template>
+                </el-table-column>
+                <el-table-column label="Total Price">
+                  <template #default="scope">
+                    <div style="display: flex; align-items: center">
+                      <span style="margin-left: 10px"
+                        >{{ scope.row.total }}$</span
+                      >
+                    </div>
                   </template>
                 </el-table-column>
                 <el-table-column>
@@ -137,7 +155,7 @@ import VueCookies from "vue-cookies";
 import CreateTax from "../../components/CreateTax.vue";
 import { getAllTax, getTaxInvoiceById } from "../../api/Service";
 
-import DetailTaxInvoice from "../../components/DetailTaxInvoice.vue";
+import DetailTaxInvoice from "@/components/DetailTaxInvoice.vue";
 const router = useRouter();
 const loading = ref(true);
 const dialogVisible = ref(false);

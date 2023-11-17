@@ -59,17 +59,14 @@
                   class="card"
                   style="background-color: rgba(240, 240, 240, 0.5)"
                 >
-                  <a
-                    href="https://www.tax.gov.kh/km/categories/64qke344011330727"
-                    target="_blank"
-                  >
+                  <router-link to="otherlicenses">
                     <div
                       class="card-body d-flex flex-column align-items-center justify-content-center"
                     >
                       <img src="@\assets\picture\licence.png" class="" alt="" />
                       <p class="text mt-2">{{ $t("service.other") }}</p>
                     </div>
-                  </a>
+                  </router-link>
                 </div>
               </div>
             </div>

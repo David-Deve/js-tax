@@ -106,6 +106,27 @@ export async function updateTextService2Page(bodyPayloads) {
     throw new Error("Error updating data");
   }
 }
+export async function getOtherLicensePage() {
+  try {
+    const response = await apiConfig.get("/post/id=19");
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching data");
+  }
+}
+export async function updateOtherLicensePage(bodyPayloads) {
+  const token = VueCookies.get("jstoken");
+  try {
+    const response = await apiConfig.put(
+      "/post/update/19",
+      { bodyPayloads },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error("Error updating data");
+  }
+}
 export async function getTextContactPage() {
   try {
     const response = await apiConfig.get("/post/id=15");
