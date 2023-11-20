@@ -95,7 +95,7 @@ import NavBarVue from "@/components/NavBar.vue";
 import SlideShow from "@/components/SlideShow.vue";
 const loading = ref(true);
 const map = ref(
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62539.464479267284!2d104.87879505807479!3d11.572167563236412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109513dc76a6be3%3A0xf8f1809319cea6df!2z4Z6W4Z-S4Z6a4Z-H4oCL4Z6U4Z6a4Z6Y4oCL4Z6a4Z624Z6H4oCL4Z6c4Z624Z-G4Z6E4oCL4Z6F4Z6P4Z674Z6Y4Z-S4Z6Y4Z674Z6B4oCL4Z6Y4Z6E4Z-S4Z6C4Z6b!5e0!3m2!1skm!2skh!4v1695892906262!5m2!1skm!2skh"
+  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15633.436050784894!2d104.87497476085206!3d11.597733295409965!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109532fdc6a212d%3A0x81a40b8257883eaa!2sJS%20Accounting%20%26%20Tax%20Services%20Co.%2CLtd!5e0!3m2!1skm!2skh!4v1700490639021!5m2!1skm!2skh"
 );
 setTimeout(() => {
   loading.value = false;
