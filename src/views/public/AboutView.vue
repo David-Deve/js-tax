@@ -21,7 +21,7 @@
           <div class="row">
             <div class="col justify-content-center">
               <img
-                src="/assets/aboutpage.png"
+                src="@\assets\picture\aboutpage.png"
                 class="img-fluid"
                 alt=""
                 style="width: 100%; height: 100%"
