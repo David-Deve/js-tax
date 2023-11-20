@@ -18,10 +18,10 @@
 import { ref, computed, watch, onMounted } from "vue";
 
 const carouselItems = [
-  { imageSrc: "src/assets/picture/slideshow/banner1.png" },
-  { imageSrc: "src/assets/picture/slideshow/banner2.png" },
-  { imageSrc: "src/assets/picture/slideshow/banner3.png" },
-  { imageSrc: "src/assets/picture/slideshow/banner2.png" },
+  { imageSrc: "assets/banner1.png" },
+  { imageSrc: "assets/banner2.png" },
+  { imageSrc: "assets/banner3.png" },
+  { imageSrc: "assets/banner2.png" },
 ];
 
 const isSmallScreen = ref(false);
