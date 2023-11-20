@@ -63,7 +63,7 @@
           </el-select>
         </el-form-item>
       </div>
-      <div class="col">
+      <!-- <div class="col">
         <el-form-item label="Client" prop="clientId">
           <el-select v-model="form.clientId" class="w-100" filterable remote>
             <el-option
@@ -74,7 +74,7 @@
             ></el-option>
           </el-select>
         </el-form-item>
-      </div>
+      </div> -->
     </div>
 
     <el-form-item label="Invoice Item" prop="invoiceDetailsPayloads">
@@ -179,7 +179,7 @@ async function getAllClientInvoice() {
     const responseclient = await getClient();
     const responseinv = await getAllInvoice();
     clients.value = responseclient.data;
-    invoice.value = responseinv.data;
+    invoice.value = responseinv.data.content;
   } catch (e) {
     console.log(e);
   }

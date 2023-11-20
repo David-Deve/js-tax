@@ -13,9 +13,8 @@
               </div>
               <el-table
                 border
-                :data="filterTableData"
+                :data="paginatedData"
                 stripe
-                height="600"
                 style="width: 100%"
                 v-loading="loading"
               >
@@ -125,6 +124,15 @@
                   </template>
                 </el-table-column>
               </el-table>
+              <!-- Pagination -->
+              <el-pagination
+                v-if="filterTableData.length > pageSize"
+                layout="prev, pager, next"
+                :total="filterTableData.length"
+                :page-size="pageSize"
+                @current-change="handleCurrentChange"
+                style="margin-top: 15px; text-align: right"
+              />
             </div>
           </div>
         </div>
@@ -162,6 +170,11 @@ const dialogVisible = ref(false);
 const dialogDetail = ref(false);
 const search = ref("");
 const tableDataDetail = ref([]);
+const pageSize = 5; // Set the number of items per page
+const currentPage = ref(1);
+const handleCurrentChange = (val) => {
+  currentPage.value = val;
+};
 setTimeout(() => {
   loading.value = false;
 }, 300);
@@ -202,9 +215,14 @@ const filterTableData = computed(() =>
   tableData.value.filter(
     (data) =>
       !search.value ||
-      data.name.toLowerCase().includes(search.value.toLowerCase())
+      data.client.companyName.toLowerCase().includes(search.value.toLowerCase())
   )
 );
+const paginatedData = computed(() => {
+  const start = (currentPage.value - 1) * pageSize;
+  const end = currentPage.value * pageSize;
+  return filterTableData.value.slice(start, end);
+});
 function printInvoice(id, type) {
   if (type == "STATEMENT") {
     VueCookies.set("selectedLanguage", "kh", "1d", null, null, true);

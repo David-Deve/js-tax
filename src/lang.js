@@ -23,6 +23,8 @@ export async function loadMessage() {
       login: {
         username: "Username",
         password: "Password",
+        email: "Email",
+        changepass: "Change Password",
       },
       home: {
         com_info: "COMPANY INFORMATION",
@@ -129,6 +131,8 @@ export async function loadMessage() {
       login: {
         username: "ឈ្មោះ​អ្នកប្រើប្រាស់",
         password: "លេខសំងាត់",
+        email: "អុីម៉ែល",
+        changepass: "កែប្រែលេខសម្ងាត់",
       },
       home: {
         com_info: "ព័ត៌មានក្រុមហ៊ុន",

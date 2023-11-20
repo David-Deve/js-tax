@@ -162,8 +162,6 @@ async function getdataGraph() {
     series.value[2].data.push(res3.data[2].data);
     series.value[2].data.push(res4.data[2].data);
     series.value[2].data.push(res5.data[2].data);
-
-    console.log(series.value);
   } catch (e) {
     console.log(e);
   }

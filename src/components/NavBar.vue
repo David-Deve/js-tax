@@ -105,10 +105,10 @@
           <li class="nav-item">
             <button class="btn" @click="changeLanguage">
               <div v-if="checkLang">
-                <img src="../assets/svg/en.svg" width="25" />
+                <img src="../assets/svg/km.svg" width="25" />
               </div>
               <div v-else>
-                <img src="../assets/svg/km.svg" width="25" />
+                <img src="../assets/svg/en.svg" width="25" />
               </div>
             </button>
           </li>
@@ -155,9 +155,52 @@
         >
           Login
         </button>
+        <a class="mt-1" @click="dialogForgetPassword()" href="#"
+          >Forget Password</a
+        >
         <p style="text-align: center; margin-top: 15px">
           Did'nt have Account? Contact to Admin
         </p>
+      </div>
+    </div>
+  </el-dialog>
+  <el-dialog v-model="dialogforget" width="30%" center>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <p
+          class="header"
+          style="text-align: center; margin-top: 15px"
+          id="exampleModalLabel"
+        >
+          {{ $t("login.changepass") }}
+        </p>
+        <div class="modal-body mb-3">
+          <label for="username">{{ $t("login.username") }}</label>
+          <input
+            id="username"
+            type="text"
+            v-model="username"
+            style="background-color: rgba(226, 226, 226, 1)"
+            class="form-control mb-2"
+            aria-describedby="emailHelp"
+          />
+          <label for="Email">{{ $t("login.email") }}</label>
+          <input
+            id="password"
+            v-model="email"
+            type="email"
+            class="form-control"
+            style="background-color: rgba(226, 226, 226, 1)"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <button
+          type="button"
+          style="width: 100%; margin: auto"
+          class="btn btn-primary btn-block"
+        >
+          Submit
+        </button>
       </div>
     </div>
   </el-dialog>
@@ -170,12 +213,14 @@ import { ElNotification } from "element-plus";
 import { useRouter } from "vue-router";
 import VueCookies from "vue-cookies";
 import { useI18n } from "vue-i18n";
+const dialogforget = ref(false);
 const dialogVisible = ref(false);
 const { locale } = useI18n();
 
 const router = useRouter();
 const username = ref("");
 const password = ref("");
+const email = ref("");
 const hasJsTokenCookie = VueCookies.get("jstoken");
 async function postLogin() {
   try {
@@ -206,6 +251,10 @@ function home() {
 const checkLang = computed(() => locale.value === "en");
 function changeLanguage() {
   locale.value = checkLang.value ? "kh" : "en";
+}
+function dialogForgetPassword() {
+  dialogVisible.value = false;
+  dialogforget.value = true;
 }
 </script>
 

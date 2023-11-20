@@ -14,13 +14,12 @@
               >
               <el-table
                 border
-                :data="filterTableData"
+                :data="paginatedData"
                 stripe
                 style="width: 100%"
-                height="600"
                 v-loading="loading"
               >
-                <el-table-column type="index"> </el-table-column>
+                <el-table-column type="index" label="No"> </el-table-column>
                 <el-table-column label="Khmer Name">
                   <template #default="scope">
                     <div
@@ -96,21 +95,17 @@
                       @click="handleGetIdUpdate(scope.row.id)"
                       >Edit
                     </el-button>
-                    <!-- <el-button
-                      size="small"
-                      type="primary"
-                      @click="handleGetIdUpdate(scope.row.id)"
-                      >Detail
-                    </el-button> -->
-                    <!-- <el-button
-                      size="small"
-                      type="danger"
-                      @click="handleGetIdDelete(scope.row.id)"
-                      >Delete
-                    </el-button> -->
                   </template>
                 </el-table-column>
               </el-table>
+              <el-pagination
+                v-if="filterTableData.length > pageSize"
+                layout="prev, pager, next"
+                :total="filterTableData.length"
+                :page-size="pageSize"
+                @current-change="handleCurrentChange"
+                style="margin-top: 15px; text-align: right"
+              />
             </div>
           </div>
         </div>
@@ -237,15 +232,22 @@ const address = ref("");
 const vattin = ref("");
 const compname = ref("");
 const search = ref("");
+
+const pageSize = 5; // Set the number of items per page
+const currentPage = ref(1);
+const handleCurrentChange = (val) => {
+  currentPage.value = val;
+};
 setTimeout(() => {
   loading.value = false;
 }, 300);
 async function getUser() {
   try {
     const response = await getClient();
-    tableData.value = response.data.map((item) => ({
+    console.log(response.data);
+    tableData.value = response.data.content.map((item) => ({
       ...item,
-      createDate: dayjs(item.createDate).format("YYYY-MM-DD HH:mm:ss A"),
+      createDate: dayjs(item.createDate).format("YYYY-MM-DD HH:mm A"),
     }));
     setTimeout(() => {
       loading.value = false;
@@ -261,6 +263,11 @@ const filterTableData = computed(() =>
       data.engName.toLowerCase().includes(search.value.toLowerCase())
   )
 );
+const paginatedData = computed(() => {
+  const start = (currentPage.value - 1) * pageSize;
+  const end = currentPage.value * pageSize;
+  return filterTableData.value.slice(start, end);
+});
 async function register() {
   try {
     await createClient(

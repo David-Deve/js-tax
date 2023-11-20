@@ -13,17 +13,12 @@
               </div>
               <el-table
                 border
-                :data="filterTableData"
+                :data="paginatedData"
                 stripe
                 height="600"
                 v-loading="loading"
               >
-                <el-table-column label="ID" width="50">
-                  <template #default="scope">
-                    <div style="display: flex; align-items: center">
-                      <span style="margin-left: 10px">{{ scope.row.id }}</span>
-                    </div>
-                  </template>
+                <el-table-column type="index" label="No" width="50">
                 </el-table-column>
                 <el-table-column label="ClientName">
                   <template #default="scope">
@@ -103,6 +98,14 @@
                   </template>
                 </el-table-column>
               </el-table>
+              <el-pagination
+                v-if="filterTableData.length > pageSize"
+                layout="prev, pager, next"
+                :total="filterTableData.length"
+                :page-size="pageSize"
+                @current-change="handleCurrentChange"
+                style="margin-top: 15px; text-align: right"
+              />
             </div>
           </div>
         </div>
@@ -153,6 +156,11 @@ const loading = ref(true);
 const dialogVisible = ref(false);
 const dialogDetail = ref(false);
 const detaildata = ref([]);
+const pageSize = 5; // Set the number of items per page
+const currentPage = ref(1);
+const handleCurrentChange = (val) => {
+  currentPage.value = val;
+};
 setTimeout(() => {
   loading.value = false;
 }, 300);
@@ -161,13 +169,12 @@ const tableData = ref([]);
 async function allInvoice() {
   try {
     const res = await getAllInvoice();
-    if (res.data == null) {
+    if (res.data.content == null) {
       tableData.value = [];
     } else {
-      tableData.value = res.data;
+      tableData.value = res.data.content;
     }
-
-    console.log(res.data);
+    console.log(res.data.content);
   } catch (e) {
     console.log(e);
   }
@@ -187,6 +194,11 @@ const filterTableData = computed(() =>
       data.invoiceCode.toLowerCase().includes(search.value.toLowerCase())
   )
 );
+const paginatedData = computed(() => {
+  const start = (currentPage.value - 1) * pageSize;
+  const end = currentPage.value * pageSize;
+  return filterTableData.value.slice(start, end);
+});
 async function showDeatail(id) {
   dialogDetail.value = true;
   console.log(id);

@@ -16,6 +16,7 @@ loadMessage().then((messages) => {
     locale: "kh",
     fallbackLocale: "kh",
     messages,
+    warnHtmlMessage: false,
     legacy: false,
   });
   app.use(createPinia());

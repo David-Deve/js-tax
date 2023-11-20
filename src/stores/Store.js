@@ -4,7 +4,6 @@ import {
   getClient,
   getAllInvoice,
   getAllTax,
-  getTaxByType,
 } from "../api/Service.js";
 import { defineStore } from "pinia";
 
@@ -34,9 +33,10 @@ export const useAuthentication = defineStore("data", {
         const invoice = await getAllInvoice();
         const tax = await getAllTax();
         this.allusernumber = user.data.length;
-        this.getAllClient = client.data.length;
-        this.getInvoice = invoice.data.length;
-        this.getTax = tax.data.length;
+        this.getAllClient = client.data.content.length;
+        this.getInvoice = invoice.data.content.length;
+        this.getTax = tax.data.content.length;
+        console.log(client);
       } catch (e) {
         console.log(e);
       }
