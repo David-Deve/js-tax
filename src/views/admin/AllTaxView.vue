@@ -6,6 +6,11 @@
           <div class="row">
             <div class="col-md-12 mb-5">
               <h2>All TAX</h2>
+              <div class="my-3">
+                <el-button type="success" @click="dialogVisible = true"
+                  >Create</el-button
+                >
+              </div>
               <el-table
                 border
                 :data="filterTableData"
@@ -120,11 +125,6 @@
                   </template>
                 </el-table-column>
               </el-table>
-              <div class="mt-3">
-                <el-button type="success" @click="dialogVisible = true"
-                  >Create</el-button
-                >
-              </div>
             </div>
           </div>
         </div>
@@ -170,10 +170,10 @@ const tableData = ref([]);
 async function allTax() {
   try {
     const res = await getAllTax();
-    if (res.data === null) {
+    if (res.data.content === null) {
       tableData.value = [];
     } else {
-      tableData.value = res.data;
+      tableData.value = res.data.content;
     }
     console.log(res.data);
   } catch (e) {

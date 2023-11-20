@@ -6,6 +6,9 @@
           <div class="row">
             <div class="col-md-12 mb-5">
               <h2>All User</h2>
+              <el-button type="success" @click="handleCreateUser()" class="my-3"
+                >Create</el-button
+              >
               <el-table
                 :data="filterTableData"
                 border
@@ -96,9 +99,6 @@
                   </template>
                 </el-table-column>
               </el-table>
-              <el-button type="success" @click="handleCreateUser()" class="mt-2"
-                >Create</el-button
-              >
             </div>
           </div>
         </div>

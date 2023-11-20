@@ -6,6 +6,11 @@
           <div class="row">
             <div class="col-md-12 mb-5">
               <h2>All Invoice</h2>
+              <div class="my-3">
+                <el-button type="success" @click="dialogVisible = true"
+                  >Create</el-button
+                >
+              </div>
               <el-table
                 border
                 :data="filterTableData"
@@ -98,11 +103,6 @@
                   </template>
                 </el-table-column>
               </el-table>
-              <div class="mt-3">
-                <el-button type="success" @click="dialogVisible = true"
-                  >Create</el-button
-                >
-              </div>
             </div>
           </div>
         </div>

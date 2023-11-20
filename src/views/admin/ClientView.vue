@@ -6,6 +6,12 @@
           <div class="row">
             <div class="col-md-12 mb-5">
               <h2>All Client</h2>
+              <el-button
+                class="my-3"
+                @click="dialogFormCreate = true"
+                type="primary"
+                >Create</el-button
+              >
               <el-table
                 border
                 :data="filterTableData"
@@ -107,9 +113,6 @@
               </el-table>
             </div>
           </div>
-          <el-button @click="dialogFormCreate = true" type="primary"
-            >Create</el-button
-          >
         </div>
       </template>
     </Sidebar>
