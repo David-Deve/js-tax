@@ -19,7 +19,7 @@
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{
-                        scope.row.client.companyName
+                        scope.row.invoice.client.engName
                       }}</span>
                     </div>
                   </template>
@@ -144,6 +144,7 @@ const search = ref("");
 async function allTax() {
   try {
     const res = await getTaxByType(url.value);
+    console.log(res.data);
     if (res.data === null) {
       tableData.value = [];
     } else {

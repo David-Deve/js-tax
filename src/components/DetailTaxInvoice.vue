@@ -6,12 +6,16 @@
         <template #default="scope">
           <div style="display: flex; align-items: center">
             <span style="margin-left: 10px">{{
-              scope.row.client.khmerName
+              scope.row.invoice.client.khmerName
             }}</span>
           </div>
         </template>
       </el-table-column>
-      <el-table-column prop="client.engName" label="ClientName" width="120" />
+      <el-table-column
+        prop="invoice.client.engName"
+        label="ClientName"
+        width="120"
+      />
       <el-table-column label="CheckList" width="120">
         <template #default="scope">
           <span v-if="scope.row.close == true">Close</span>

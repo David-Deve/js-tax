@@ -30,20 +30,11 @@
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{
-                        scope.row.client.companyName
+                        scope.row.invoice.client.companyName
                       }}</span>
                     </div>
                   </template>
                 </el-table-column>
-                <!-- <el-table-column label="TaxName">
-                  <template #default="scope">
-                    <div style="display: flex; align-items: center">
-                      <span style="margin-left: 10px">{{
-                        scope.row.name
-                      }}</span>
-                    </div>
-                  </template>
-                </el-table-column> -->
 
                 <el-table-column label="Tax Date">
                   <template #default="scope">
@@ -183,10 +174,10 @@ const tableData = ref([]);
 async function allTax() {
   try {
     const res = await getAllTax();
-    if (res.data.content === null) {
+    if (res.data === null) {
       tableData.value = [];
     } else {
-      tableData.value = res.data.content;
+      tableData.value = res.data;
     }
     console.log(res.data);
   } catch (e) {
@@ -215,7 +206,9 @@ const filterTableData = computed(() =>
   tableData.value.filter(
     (data) =>
       !search.value ||
-      data.client.companyName.toLowerCase().includes(search.value.toLowerCase())
+      data.invoice.client.companyName
+        .toLowerCase()
+        .includes(search.value.toLowerCase())
   )
 );
 const paginatedData = computed(() => {

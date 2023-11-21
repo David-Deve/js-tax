@@ -245,7 +245,7 @@ async function getUser() {
   try {
     const response = await getClient();
     console.log(response.data);
-    tableData.value = response.data.content.map((item) => ({
+    tableData.value = response.data.map((item) => ({
       ...item,
       createDate: dayjs(item.createDate).format("YYYY-MM-DD HH:mm A"),
     }));

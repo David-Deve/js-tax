@@ -87,7 +87,7 @@ async function getTaxInvoice() {
     date.value = response.data.dateNote;
     total.value = response.data.total;
     noteno.value = response.data.noteCode;
-    client.value = response.data.client.engName;
+    // client.value = response.data.client.engName;
     createby.value = response.data.createBy;
     if (response.data.noteType == "DEBIT") {
       headerText.value = "DEBIT";

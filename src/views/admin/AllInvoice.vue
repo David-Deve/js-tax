@@ -156,7 +156,7 @@ const loading = ref(true);
 const dialogVisible = ref(false);
 const dialogDetail = ref(false);
 const detaildata = ref([]);
-const pageSize = 5; // Set the number of items per page
+const pageSize = 5;
 const currentPage = ref(1);
 const handleCurrentChange = (val) => {
   currentPage.value = val;
@@ -169,12 +169,12 @@ const tableData = ref([]);
 async function allInvoice() {
   try {
     const res = await getAllInvoice();
-    if (res.data.content == null) {
+    if (res.data == null) {
       tableData.value = [];
     } else {
-      tableData.value = res.data.content;
+      tableData.value = res.data;
     }
-    console.log(res.data.content);
+    console.log(res.data);
   } catch (e) {
     console.log(e);
   }

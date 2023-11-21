@@ -238,7 +238,7 @@ export async function getClient() {
 export async function getClientId(id) {
   const token = VueCookies.get("jstoken");
   try {
-    const response = await apiConfig.get(`/client/${id}`, {
+    const response = await apiConfig.get(`/client/find/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -292,7 +292,7 @@ export async function getInvoiceById(id) {
   try {
     const response = await apiConfig.get(`/invoice/${id}`, {
       headers: {
-        // Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     return response.data;
@@ -382,9 +382,9 @@ export async function createTax(
 export async function getTaxInvoiceById(id) {
   const token = VueCookies.get("jstoken");
   try {
-    const response = await apiConfig.get(`/tax/${id}`, {
+    const response = await apiConfig.get(`/tax/find/${id}`, {
       headers: {
-        // Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     return response.data;

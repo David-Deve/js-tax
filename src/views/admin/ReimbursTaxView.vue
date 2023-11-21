@@ -19,7 +19,7 @@
                   <template #default="scope">
                     <div style="display: flex; align-items: center">
                       <span style="margin-left: 10px">{{
-                        scope.row.client.companyName
+                        scope.row.invoice.client.engName
                       }}</span>
                     </div>
                   </template>
